@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         toolbarHeight: 100,
         title: Padding(
           padding: EdgeInsetsGeometry.only(left: 30),
-          child: Image.asset('assets/company/logo_with_text.png', height: 120),
+          child: Image.asset('assets/company/logo_with_text.png', height: 100),
         ),
       ),
     );
