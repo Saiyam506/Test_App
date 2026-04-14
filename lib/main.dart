@@ -16,6 +16,52 @@ class MainApp extends StatelessWidget {
   }
 }
 
+class NavItem extends StatefulWidget {
+  final String text;
+  final VoidCallback onTap;
+
+  const NavItem({super.key, required this.text, required this.onTap});
+
+  @override
+  State<NavItem> createState() => _NavItemState();
+}
+
+class _NavItemState extends State<NavItem> {
+  bool isHover = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => isHover = true),
+      onExit: (_) => setState(() => isHover = false),
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            AnimatedDefaultTextStyle(
+              duration: const Duration(milliseconds: 200),
+              style: TextStyle(
+                color: isHover ? const Color(0xFF2A8DB8) : Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+              child: Text(widget.text),
+            ),
+            const SizedBox(height: 4),
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              height: 2,
+              width: isHover ? 40 : 0,
+              color: const Color(0xFF2A8DB8),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -86,9 +132,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // ✅ pure white background
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 100,
+        toolbarHeight: 90,
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
@@ -111,24 +157,27 @@ class HomePage extends StatelessWidget {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text('Home'),
+                            NavItem(
+                              text: 'Home',
+                              onTap: () {},
                             ),
                             const SizedBox(width: 16),
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text('Camps'),
+
+                            NavItem(
+                              text: 'Camps',
+                              onTap: () {},
                             ),
                             const SizedBox(width: 16),
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text('About Us'),
+
+                            NavItem(
+                              text: 'About Us',
+                              onTap: () {},
                             ),
                             const SizedBox(width: 16),
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text('Contact'),
+
+                            NavItem(
+                              text: 'Contact',
+                              onTap: () {},
                             ),
                             const SizedBox(width: 20),
                             ElevatedButton.icon(
@@ -213,7 +262,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 8),
+              const SizedBox(height: 5),
 
               const Text(
                 'Get healthcare at your doorstep',
@@ -284,7 +333,6 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // 🔥 BANNER BELOW CARDS
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: ClipRRect(
@@ -299,6 +347,88 @@ class HomePage extends StatelessWidget {
               ),
 
               const SizedBox(height: 40),
+
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 30),
+                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFE6ECF2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.08),
+                      blurRadius: 20,
+                      offset: const Offset(0, 8),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    const Text(
+                      'Patient Testimonials',
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    Container(
+                      width: 260,
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.black12),
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              const CircleAvatar(
+                                radius: 25,
+                                backgroundColor: Colors.grey,
+                              ),
+                              const SizedBox(width: 12),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text(
+                                    'Rahul S., 28',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.star, color: Colors.orange, size: 16),
+                                      Icon(Icons.star, color: Colors.orange, size: 16),
+                                      Icon(Icons.star, color: Colors.orange, size: 16),
+                                      Icon(Icons.star, color: Colors.orange, size: 16),
+                                      Icon(Icons.star, color: Colors.orange, size: 16),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 16),
+                          const Text(
+                            'Booking a full-body checkup was incredibly seamless. The phlebotomist arrived right on time and was highly professional.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 14,
+                              height: 1.5,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
