@@ -19,16 +19,17 @@ class MainApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  // 🔹 REUSABLE SERVICE BUTTON
   Widget serviceButton({
     required String title,
     required String subtitle,
     required String image,
+    double imageHeight = 100,
+    double imageOffsetY = 0,
   }) {
     return InkWell(
       borderRadius: BorderRadius.circular(25),
       onTap: () {
-        debugPrint('$title clicked'); // ✅ no warning
+        debugPrint('$title clicked');
       },
       child: Container(
         height: 220,
@@ -39,7 +40,7 @@ class HomePage extends StatelessWidget {
           borderRadius: BorderRadius.circular(25),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.12), // ✅ fixed
+              color: Colors.black.withValues(alpha: 0.12),
               blurRadius: 15,
               offset: const Offset(0, 4),
             ),
@@ -64,11 +65,16 @@ class HomePage extends StatelessWidget {
                 color: Colors.grey,
               ),
             ),
-            const Spacer(),
-            Center(
-              child: Image.asset(
-                image,
-                height: 90,
+            Expanded(
+              child: Center(
+                child: Transform.translate(
+                  offset: Offset(0, imageOffsetY),
+                  child: Image.asset(
+                    image,
+                    height: imageHeight,
+                    fit: BoxFit.contain,
+                  ),
+                ),
               ),
             ),
           ],
@@ -89,15 +95,11 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Row(
             children: [
-              // 🔹 Logo
               Image.asset(
                 'assets/company/logo_with_text.png',
                 height: 70,
               ),
-
               const Spacer(),
-
-              // 🔹 Right Navbar
               Expanded(
                 child: SizedBox(
                   height: 100,
@@ -128,8 +130,6 @@ class HomePage extends StatelessWidget {
                               child: const Text('Contact'),
                             ),
                             const SizedBox(width: 20),
-
-                            // 🔴 Call Emergency
                             ElevatedButton.icon(
                               onPressed: () {},
                               icon: const Icon(Icons.call, size: 18),
@@ -149,8 +149,6 @@ class HomePage extends StatelessWidget {
                           ],
                         ),
                       ),
-
-                      // 🟢 24/7 Available
                       Positioned(
                         right: 30,
                         bottom: 8,
@@ -175,12 +173,10 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      // 🔹 BODY
       body: Padding(
         padding: const EdgeInsets.only(top: 20),
         child: Column(
           children: [
-            // 🔹 Heading
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -219,25 +215,72 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 30),
 
-            // 🔥 BUTTONS ROW
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Row(
-                children: [
-                  serviceButton(
-                    title: 'Ambulance\nService',
-                    subtitle: '24/7 emergency support',
-                    image: 'assets/company/ambulance_button.png',
-                  ),
+            // 🔥 CENTERED SCROLLABLE ROW
+            Center(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    serviceButton(
+                      title: 'Ambulance\nService',
+                      subtitle: '24/7 emergency support',
+                      image: 'assets/company/ambulance_button.png',
+                      imageHeight: 120,
+                      imageOffsetY: 6,
+                    ),
 
-                  const SizedBox(width: 20),
+                    const SizedBox(width: 20),
 
-                  serviceButton(
-                    title: 'Doctor\nAppointment',
-                    subtitle: 'Doctors at your doorstep',
-                    image: 'assets/company/doctor_checkup_button.png',
-                  ),
-                ],
+                    serviceButton(
+                      title: 'Doctor\nAppointment',
+                      subtitle: 'Doctors at your doorstep',
+                      image: 'assets/company/doctor_checkup_button.png',
+                      imageHeight: 110,
+                      imageOffsetY: 8,
+                    ),
+
+                    const SizedBox(width: 20),
+
+                    serviceButton(
+                      title: 'Lab and\nDiagnostics',
+                      subtitle: 'Sample collection at home',
+                      image: 'assets/company/lab_test_button.png',
+                      imageHeight: 140,
+                      imageOffsetY: 10,
+                    ),
+
+                    const SizedBox(width: 20),
+
+                    serviceButton(
+                      title: 'Senior Health\nCare',
+                      subtitle: 'Care and support for seniors',
+                      image: 'assets/company/senior_care_button.png',
+                      imageHeight: 120,
+                      imageOffsetY: 10,
+                    ),
+
+                    const SizedBox(width: 20),
+
+                    serviceButton(
+                      title: 'Meds\nDelivery',
+                      subtitle: 'Medicines delivered fast',
+                      image: 'assets/company/meds_del_button.png',
+                      imageHeight: 120,
+                      imageOffsetY: 8,
+                    ),
+
+                    const SizedBox(width: 20),
+
+                    serviceButton(
+                      title: 'Medical\nCamp',
+                      subtitle: 'Health checkups at your workspace',
+                      image: 'assets/company/medcamp_button.png',
+                      imageHeight: 140,
+                      imageOffsetY: 10,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
