@@ -123,8 +123,13 @@ class _NavItemState extends State<NavItem> {
 
 class HospitalBox extends StatefulWidget {
   final VoidCallback? onTap;
+  final String? imagePath;
 
-  const HospitalBox({super.key, this.onTap});
+  const HospitalBox({
+    super.key,
+    this.onTap,
+    this.imagePath,
+  });
 
   @override
   State<HospitalBox> createState() => _HospitalBoxState();
@@ -145,6 +150,7 @@ class _HospitalBoxState extends State<HospitalBox> {
           width: 419,
           height: 252,
           transform: Matrix4.translationValues(0, isHover ? -8 : 0, 0),
+          padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
@@ -159,6 +165,17 @@ class _HospitalBoxState extends State<HospitalBox> {
               ),
             ],
           ),
+
+          // 🔥 CONTENT INSIDE BOX
+          child: widget.imagePath != null
+              ? Center(
+                  child: Image.asset(
+                    widget.imagePath!,
+                    height: 200,
+                    fit: BoxFit.contain,
+                  ),
+                )
+              : const SizedBox(),
         ),
       ),
     );
@@ -592,11 +609,20 @@ class HomePage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        HospitalBox(onTap: () => debugPrint('Hospital 1')),
+                        HospitalBox(
+                          imagePath: 'assets/company/narayana_health.png',
+                          onTap: () => debugPrint('Narayana Health'),
+                        ),
                         const SizedBox(width: 20),
-                        HospitalBox(onTap: () => debugPrint('Hospital 2')),
+                        HospitalBox(
+                          imagePath: 'assets/company/aster_rv.png',
+                          onTap: () => debugPrint('Aster RV'),
+                        ),
                         const SizedBox(width: 20),
-                        HospitalBox(onTap: () => debugPrint('Hospital 3')),
+                        HospitalBox(
+                          imagePath: 'assets/company/apollo_hospital_image.png',
+                          onTap: () => debugPrint('Apollo Hospitals'),
+                        ),
                       ],
                     ),
 
@@ -605,9 +631,15 @@ class HomePage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        HospitalBox(onTap: () => debugPrint('Hospital 4')),
+                        HospitalBox(
+                          imagePath: 'assets/company/manipal_hospital_image.png',
+                          onTap: () => debugPrint('Manipal Hospital'),
+                        ),
                         const SizedBox(width: 20),
-                        HospitalBox(onTap: () => debugPrint('Hospital 5')),
+                        HospitalBox(
+                          imagePath: 'assets/company/aikya_hospital_image.png',
+                          onTap: () => debugPrint('Aikya Hospital'),
+                        ),
                       ],
                     ),
 
@@ -616,11 +648,20 @@ class HomePage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        HospitalBox(onTap: () => debugPrint('Hospital 6')),
+                        HospitalBox(
+                          imagePath: 'assets/company/sparsh_hospital_image.png',
+                          onTap: () => debugPrint('Sparsh Hospital'),
+                        ),
                         const SizedBox(width: 20),
-                        HospitalBox(onTap: () => debugPrint('Hospital 7')),
+                        HospitalBox(
+                          imagePath: 'assets/company/kauvery_hospital_image.png',
+                          onTap: () => debugPrint('Kauvery Hospital'),
+                        ),
                         const SizedBox(width: 20),
-                        HospitalBox(onTap: () => debugPrint('Hospital 8')),
+                        HospitalBox(
+                          imagePath: 'assets/company/aster_cmi_hospital_image.png',
+                          onTap: () => debugPrint('Aster CMI'),
+                        ),
                       ],
                     ),
                   ],
