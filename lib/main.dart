@@ -16,6 +16,65 @@ class MainApp extends StatelessWidget {
   }
 }
 
+Widget testimonialCard(String name, String text, {required double height}) {
+  return Container(
+    width: 260,
+    height: height,
+    padding: const EdgeInsets.all(16),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(20),
+      border: Border.all(color: Colors.black12),
+    ),
+    child: Column(
+      children: [
+        Row(
+          children: [
+            const CircleAvatar(
+              radius: 22,
+              backgroundColor: Colors.grey,
+            ),
+            const SizedBox(width: 10),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 15,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Row(
+                  children: List.generate(
+                    5,
+                    (index) => const Icon(Icons.star, color: Colors.orange, size: 14),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Expanded(
+          child: Center(
+            child: Text(
+              text,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 13.5,
+                height: 1.5,
+                color: Colors.black87,
+              ),
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
 class NavItem extends StatefulWidget {
   final String text;
   final VoidCallback onTap;
@@ -56,6 +115,50 @@ class _NavItemState extends State<NavItem> {
               color: const Color(0xFF2A8DB8),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class HospitalBox extends StatefulWidget {
+  final VoidCallback? onTap;
+
+  const HospitalBox({super.key, this.onTap});
+
+  @override
+  State<HospitalBox> createState() => _HospitalBoxState();
+}
+
+class _HospitalBoxState extends State<HospitalBox> {
+  bool isHover = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => isHover = true),
+      onExit: (_) => setState(() => isHover = false),
+      child: GestureDetector(
+        onTap: widget.onTap ?? () {},
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          width: 419,
+          height: 252,
+          transform: Matrix4.translationValues(0, isHover ? -8 : 0, 0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: Colors.black12),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(
+                  alpha: isHover ? 0.15 : 0.08,
+                ),
+                blurRadius: isHover ? 25 : 15,
+                offset: Offset(0, isHover ? 12 : 6),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -349,7 +452,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 40),
 
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 30),
+                margin: const EdgeInsets.symmetric(horizontal: 260),
                 padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
                 decoration: BoxDecoration(
                   color: const Color(0xFFE6ECF2),
@@ -371,60 +474,154 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 30),
-                    Container(
-                      width: 260,
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.black12),
-                      ),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              const CircleAvatar(
-                                radius: 25,
-                                backgroundColor: Colors.grey,
-                              ),
-                              const SizedBox(width: 12),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
+                    const SizedBox(height: 20),
+
+                    SizedBox(
+                      width: double.infinity,
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                children: [
+                                  testimonialCard(
                                     'Rahul S., 28',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 16,
-                                    ),
+                                    'Booking a full-body checkup was incredibly seamless. The entire process was smooth from start to finish, and the phlebotomist arrived right on time. Very professional service and highly recommended.',
+                                    height: 240,
                                   ),
-                                  SizedBox(height: 4),
-                                  Row(
-                                    children: [
-                                      Icon(Icons.star, color: Colors.orange, size: 16),
-                                      Icon(Icons.star, color: Colors.orange, size: 16),
-                                      Icon(Icons.star, color: Colors.orange, size: 16),
-                                      Icon(Icons.star, color: Colors.orange, size: 16),
-                                      Icon(Icons.star, color: Colors.orange, size: 16),
-                                    ],
+
+                                  testimonialCard(
+                                    'Priya M., 27',
+                                    'Really good services. Everything was well organized and the staff was polite and helpful throughout the process.',
+                                    height: 170,
+                                  ),
+
+                                  testimonialCard(
+                                    'Arjun K., 35',
+                                    'Quick response and very professional staff. The booking was easy and the service exceeded my expectations.',
+                                    height: 190,
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
-                          const SizedBox(height: 16),
-                          const Text(
-                            'Booking a full-body checkup was incredibly seamless. The phlebotomist arrived right on time and was highly professional.',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 14,
-                              height: 1.5,
-                              color: Colors.black87,
                             ),
-                          ),
-                        ],
+                            const SizedBox(width: 20),
+                            Expanded(
+                              child: Column(
+                                children: [
+                                  testimonialCard(
+                                    'Amit R., 36',
+                                    'Seamless booking experience with punctual staff. I received my digital reports within 24 hours without any hassle. Highly recommend this service.',
+                                    height: 200,
+                                  ),
+
+                                  testimonialCard(
+                                    'Karthik V., 33',
+                                    'Excellent preventive care package for my parents. Zero waiting time, clean setup, and everything was handled very professionally.',
+                                    height: 220,
+                                  ),
+
+                                  testimonialCard(
+                                    'Meera D., 30',
+                                    'Very smooth and hassle-free experience. The support team was responsive and guided me throughout the process.',
+                                    height: 180,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 20),
+                            Expanded(
+                              child: Column(
+                                children: [
+                                  testimonialCard(
+                                    'Neha K., 31',
+                                    'Convenient home collection and great doctor consultation. Perfect solution for busy professionals like me.',
+                                    height: 230,
+                                  ),
+
+                                  testimonialCard(
+                                    'Sneha A., 29',
+                                    'Perfectly coordinated team. They handled our society camp efficiently and everything was managed smoothly.',
+                                    height: 190,
+                                  ),
+
+                                  testimonialCard(
+                                    'Rohit P., 40',
+                                    'Highly reliable and fast service. The entire experience was professional and trustworthy from start to finish.',
+                                    height: 180,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 40),
+
+              Column(
+                children: const [
+                  Text(
+                    'Partnered Hospitals',
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 6),
+                  Text(
+                    'Trusted by leading hospitals across Bangalore',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 40),
+
+              Center(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        HospitalBox(onTap: () => debugPrint('Hospital 1')),
+                        const SizedBox(width: 20),
+                        HospitalBox(onTap: () => debugPrint('Hospital 2')),
+                        const SizedBox(width: 20),
+                        HospitalBox(onTap: () => debugPrint('Hospital 3')),
+                      ],
+                    ),
+
+                    const SizedBox(height: 20),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        HospitalBox(onTap: () => debugPrint('Hospital 4')),
+                        const SizedBox(width: 20),
+                        HospitalBox(onTap: () => debugPrint('Hospital 5')),
+                      ],
+                    ),
+
+                    const SizedBox(height: 20),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        HospitalBox(onTap: () => debugPrint('Hospital 6')),
+                        const SizedBox(width: 20),
+                        HospitalBox(onTap: () => debugPrint('Hospital 7')),
+                        const SizedBox(width: 20),
+                        HospitalBox(onTap: () => debugPrint('Hospital 8')),
+                      ],
                     ),
                   ],
                 ),
