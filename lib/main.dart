@@ -86,6 +86,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white, // ✅ pure white background
       appBar: AppBar(
         toolbarHeight: 100,
         backgroundColor: Colors.white,
@@ -151,15 +152,23 @@ class HomePage extends StatelessWidget {
                       ),
                       Positioned(
                         right: 30,
-                        bottom: 8,
+                        top: 70,
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: const [
-                            Icon(Icons.circle, color: Colors.green, size: 6),
+                            Icon(
+                              Icons.circle,
+                              color: Colors.green,
+                              size: 8, // 👈 slightly bigger
+                            ),
                             SizedBox(width: 6),
                             Text(
                               '24/7 Available',
-                              style: TextStyle(fontSize: 12),
+                              style: TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500, // 👈 better look
+                                color: Colors.black87,
+                              ),
                             ),
                           ],
                         ),
@@ -173,117 +182,125 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      body: Padding(
-        padding: const EdgeInsets.only(top: 20),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Choose a ',
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                ShaderMask(
-                  shaderCallback: (bounds) => const LinearGradient(
-                    colors: [Colors.blue, Colors.green],
-                  ).createShader(bounds),
-                  child: const Text(
-                    'Service',
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Choose a ',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
                     ),
                   ),
-                ),
-              ],
-            ),
-
-            const SizedBox(height: 8),
-
-            const Text(
-              'Get healthcare at your doorstep',
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.grey,
+                  ShaderMask(
+                    shaderCallback: (bounds) => const LinearGradient(
+                      colors: [Colors.blue, Colors.green],
+                    ).createShader(bounds),
+                    child: const Text(
+                      'Service',
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
 
-            const SizedBox(height: 30),
+              const SizedBox(height: 8),
 
-            // 🔥 CENTERED SCROLLABLE ROW
-            Center(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    serviceButton(
-                      title: 'Ambulance\nService',
-                      subtitle: '24/7 emergency support',
-                      image: 'assets/company/ambulance_button.png',
-                      imageHeight: 120,
-                      imageOffsetY: 6,
-                    ),
-
-                    const SizedBox(width: 20),
-
-                    serviceButton(
-                      title: 'Doctor\nAppointment',
-                      subtitle: 'Doctors at your doorstep',
-                      image: 'assets/company/doctor_checkup_button.png',
-                      imageHeight: 110,
-                      imageOffsetY: 8,
-                    ),
-
-                    const SizedBox(width: 20),
-
-                    serviceButton(
-                      title: 'Lab and\nDiagnostics',
-                      subtitle: 'Sample collection at home',
-                      image: 'assets/company/lab_test_button.png',
-                      imageHeight: 140,
-                      imageOffsetY: 10,
-                    ),
-
-                    const SizedBox(width: 20),
-
-                    serviceButton(
-                      title: 'Senior Health\nCare',
-                      subtitle: 'Care and support for seniors',
-                      image: 'assets/company/senior_care_button.png',
-                      imageHeight: 120,
-                      imageOffsetY: 10,
-                    ),
-
-                    const SizedBox(width: 20),
-
-                    serviceButton(
-                      title: 'Meds\nDelivery',
-                      subtitle: 'Medicines delivered fast',
-                      image: 'assets/company/meds_del_button.png',
-                      imageHeight: 120,
-                      imageOffsetY: 8,
-                    ),
-
-                    const SizedBox(width: 20),
-
-                    serviceButton(
-                      title: 'Medical\nCamp',
-                      subtitle: 'Health checkups at your workspace',
-                      image: 'assets/company/medcamp_button.png',
-                      imageHeight: 140,
-                      imageOffsetY: 10,
-                    ),
-                  ],
+              const Text(
+                'Get healthcare at your doorstep',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.grey,
                 ),
               ),
-            ),
-          ],
+
+              const SizedBox(height: 20),
+
+              Center(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      serviceButton(
+                        title: 'Ambulance\nService',
+                        subtitle: '24/7 emergency support',
+                        image: 'assets/company/ambulance_button.png',
+                        imageHeight: 120,
+                        imageOffsetY: 6,
+                      ),
+                      const SizedBox(width: 20),
+                      serviceButton(
+                        title: 'Doctor\nAppointment',
+                        subtitle: 'Doctors at your doorstep',
+                        image: 'assets/company/doctor_checkup_button.png',
+                        imageHeight: 110,
+                        imageOffsetY: 8,
+                      ),
+                      const SizedBox(width: 20),
+                      serviceButton(
+                        title: 'Lab and\nDiagnostics',
+                        subtitle: 'Sample collection at home',
+                        image: 'assets/company/lab_test_button.png',
+                        imageHeight: 140,
+                        imageOffsetY: 10,
+                      ),
+                      const SizedBox(width: 20),
+                      serviceButton(
+                        title: 'Senior Health\nCare',
+                        subtitle: 'Care and support for seniors',
+                        image: 'assets/company/senior_care_button.png',
+                        imageHeight: 120,
+                        imageOffsetY: 10,
+                      ),
+                      const SizedBox(width: 20),
+                      serviceButton(
+                        title: 'Meds\nDelivery',
+                        subtitle: 'Medicines delivered fast',
+                        image: 'assets/company/meds_del_button.png',
+                        imageHeight: 120,
+                        imageOffsetY: 8,
+                      ),
+                      const SizedBox(width: 20),
+                      serviceButton(
+                        title: 'Medical\nCamp',
+                        subtitle: 'Health checkups at your workspace',
+                        image: 'assets/company/medcamp_button.png',
+                        imageHeight: 140,
+                        imageOffsetY: 10,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              // 🔥 BANNER BELOW CARDS
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.asset(
+                    'assets/company/home_banner.png',
+                    width: double.infinity,
+                    height: 260,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 40),
+            ],
+          ),
         ),
       ),
     );
