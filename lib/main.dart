@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'camps_page.dart';
+import 'footer.dart';
 
 void main() {
   runApp(const MainApp());
@@ -622,6 +623,8 @@ class HomePage extends StatelessWidget {
               ),
 
               const SizedBox(height: 40),
+
+              const Footer(),
             ],
           ),
         ),
@@ -702,6 +705,7 @@ class _HoverServiceButtonState extends State<HoverServiceButton> {
                   ),
                 ),
                 Expanded(
+                  flex: 3,
                   child: Center(
                     child: Transform.translate(
                       offset: Offset(0, widget.imageOffsetY),

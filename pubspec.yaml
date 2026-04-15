@@ -9,7 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   get: ^4.6.6
+  url_launcher: ^6.2.5
 
 dev_dependencies:
   flutter_test:
@@ -21,3 +23,4 @@ flutter:
 
   assets:
     - assets/company/
+    - assets/company/map.png

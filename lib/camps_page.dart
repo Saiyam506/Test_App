@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/footer.dart';
 import 'main.dart';
 import 'widgets/gradient_elevated_button.dart';
 
@@ -362,6 +363,10 @@ class CampsPage extends StatelessWidget {
                 ],
               ),
             ),
+            
+            const SizedBox(height: 30),
+
+            const Footer(),
           ],
         ),
       ),
