@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'camps_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,9 +10,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/camps': (context) => const CampsPage(),
+      },
     );
   }
 }
@@ -78,8 +83,14 @@ Widget testimonialCard(String name, String text, {required double height}) {
 class NavItem extends StatefulWidget {
   final String text;
   final VoidCallback onTap;
+  final bool isActive;
 
-  const NavItem({super.key, required this.text, required this.onTap});
+  const NavItem({
+    super.key,
+    required this.text,
+    required this.onTap,
+    this.isActive = false,
+  });
 
   @override
   State<NavItem> createState() => _NavItemState();
@@ -90,7 +101,10 @@ class _NavItemState extends State<NavItem> {
 
   @override
   Widget build(BuildContext context) {
+    final bool active = widget.isActive || isHover;
+
     return MouseRegion(
+      cursor: SystemMouseCursors.click,
       onEnter: (_) => setState(() => isHover = true),
       onExit: (_) => setState(() => isHover = false),
       child: GestureDetector(
@@ -101,7 +115,7 @@ class _NavItemState extends State<NavItem> {
             AnimatedDefaultTextStyle(
               duration: const Duration(milliseconds: 200),
               style: TextStyle(
-                color: isHover ? const Color(0xFF2A8DB8) : Colors.black,
+                color: active ? const Color(0xFF2A8DB8) : Colors.black,
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),
@@ -111,7 +125,7 @@ class _NavItemState extends State<NavItem> {
             AnimatedContainer(
               duration: const Duration(milliseconds: 200),
               height: 2,
-              width: isHover ? 40 : 0,
+              width: active ? 40 : 0,
               color: const Color(0xFF2A8DB8),
             ),
           ],
@@ -121,7 +135,7 @@ class _NavItemState extends State<NavItem> {
   }
 }
 
-class HospitalBox extends StatefulWidget {
+class HospitalBox extends StatelessWidget {
   final VoidCallback? onTap;
   final String? imagePath;
 
@@ -132,51 +146,33 @@ class HospitalBox extends StatefulWidget {
   });
 
   @override
-  State<HospitalBox> createState() => _HospitalBoxState();
-}
-
-class _HospitalBoxState extends State<HospitalBox> {
-  bool isHover = false;
-
-  @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => setState(() => isHover = true),
-      onExit: (_) => setState(() => isHover = false),
-      child: GestureDetector(
-        onTap: widget.onTap ?? () {},
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          width: 419,
-          height: 252,
-          transform: Matrix4.translationValues(0, isHover ? -8 : 0, 0),
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Colors.black12),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(
-                  alpha: isHover ? 0.15 : 0.08,
-                ),
-                blurRadius: isHover ? 25 : 15,
-                offset: Offset(0, isHover ? 12 : 6),
-              ),
-            ],
-          ),
-
-          // 🔥 CONTENT INSIDE BOX
-          child: widget.imagePath != null
-              ? Center(
-                  child: Image.asset(
-                    widget.imagePath!,
-                    height: 200,
-                    fit: BoxFit.contain,
-                  ),
-                )
-              : const SizedBox(),
+    return GestureDetector(
+      onTap: onTap ?? () {},
+      child: Container(
+        width: 260,
+        height: 200,
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: Colors.black12),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 10,
+              offset: Offset(0, 4),
+            ),
+          ],
         ),
+        child: imagePath != null
+            ? Center(
+                child: Image.asset(
+                  imagePath!,
+                  fit: BoxFit.contain,
+                ),
+              )
+            : const SizedBox(),
       ),
     );
   }
@@ -185,67 +181,32 @@ class _HospitalBoxState extends State<HospitalBox> {
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+  Widget navButton(String text, VoidCallback onTap) {
+    return _NavButton(
+      text: text,
+      onTap: onTap,
+    );
+  }
+
   Widget serviceButton({
     required String title,
     required String subtitle,
     required String image,
     double imageHeight = 100,
     double imageOffsetY = 0,
+    VoidCallback? onTap,
   }) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(25),
-      onTap: () {
-        debugPrint('$title clicked');
-      },
-      child: Container(
-        height: 220,
-        width: 220,
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(25),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.12),
-              blurRadius: 15,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              maxLines: 2,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w900,
-              ),
-            ),
-            const SizedBox(height: 6),
-            Text(
-              subtitle,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
-              ),
-            ),
-            Expanded(
-              child: Center(
-                child: Transform.translate(
-                  offset: Offset(0, imageOffsetY),
-                  child: Image.asset(
-                    image,
-                    height: imageHeight,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+    return HoverServiceButton(
+      title: title,
+      subtitle: subtitle,
+      image: image,
+      imageHeight: imageHeight,
+      imageOffsetY: imageOffsetY,
+      onTap:
+          onTap ??
+          () {
+            debugPrint('$title clicked');
+          },
     );
   }
 
@@ -279,27 +240,25 @@ class HomePage extends StatelessWidget {
                           children: [
                             NavItem(
                               text: 'Home',
-                              onTap: () {},
-                            ),
-                            const SizedBox(width: 16),
-
-                            NavItem(
-                              text: 'Camps',
-                              onTap: () {},
-                            ),
-                            const SizedBox(width: 16),
-
-                            NavItem(
-                              text: 'About Us',
-                              onTap: () {},
-                            ),
-                            const SizedBox(width: 16),
-
-                            NavItem(
-                              text: 'Contact',
+                              isActive: true,
                               onTap: () {},
                             ),
                             const SizedBox(width: 20),
+
+                            navButton('Camps', () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => const CampsPage()),
+                              );
+                            }),
+                            const SizedBox(width: 20),
+
+                            navButton('About Us', () {}),
+                            const SizedBox(width: 20),
+
+                            navButton('Contact', () {}),
+                            const SizedBox(width: 20),
+
                             ElevatedButton.icon(
                               onPressed: () {},
                               icon: const Icon(Icons.call, size: 18),
@@ -319,6 +278,7 @@ class HomePage extends StatelessWidget {
                           ],
                         ),
                       ),
+
                       Positioned(
                         right: 30,
                         top: 70,
@@ -328,14 +288,14 @@ class HomePage extends StatelessWidget {
                             Icon(
                               Icons.circle,
                               color: Colors.green,
-                              size: 8, // 👈 slightly bigger
+                              size: 8,
                             ),
                             SizedBox(width: 6),
                             Text(
                               '24/7 Available',
                               style: TextStyle(
                                 fontSize: 13,
-                                fontWeight: FontWeight.w500, // 👈 better look
+                                fontWeight: FontWeight.w500,
                                 color: Colors.black87,
                               ),
                             ),
@@ -445,6 +405,12 @@ class HomePage extends StatelessWidget {
                         image: 'assets/company/medcamp_button.png',
                         imageHeight: 140,
                         imageOffsetY: 10,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const CampsPage()),
+                          );
+                        },
                       ),
                     ],
                   ),
@@ -465,8 +431,6 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-
-              const SizedBox(height: 40),
 
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 260),
@@ -495,90 +459,87 @@ class HomePage extends StatelessWidget {
 
                     SizedBox(
                       width: double.infinity,
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  testimonialCard(
-                                    'Rahul S., 28',
-                                    'Booking a full-body checkup was incredibly seamless. The entire process was smooth from start to finish, and the phlebotomist arrived right on time. Very professional service and highly recommended.',
-                                    height: 240,
-                                  ),
-
-                                  testimonialCard(
-                                    'Priya M., 27',
-                                    'Really good services. Everything was well organized and the staff was polite and helpful throughout the process.',
-                                    height: 170,
-                                  ),
-
-                                  testimonialCard(
-                                    'Arjun K., 35',
-                                    'Quick response and very professional staff. The booking was easy and the service exceeded my expectations.',
-                                    height: 190,
-                                  ),
-                                ],
-                              ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // COLUMN 1
+                          Expanded(
+                            child: Column(
+                              children: [
+                                testimonialCard(
+                                  'Rahul S., 28',
+                                  'Booking a full-body checkup was incredibly seamless. The entire process was smooth from start to finish, and the phlebotomist arrived right on time. Very professional service and highly recommended.',
+                                  height: 240,
+                                ),
+                                testimonialCard(
+                                  'Priya M., 27',
+                                  'Really good services. Everything was well organized and the staff was polite and helpful throughout the process.',
+                                  height: 170,
+                                ),
+                                testimonialCard(
+                                  'Arjun K., 35',
+                                  'Quick response and very professional staff. The booking was easy and the service exceeded my expectations.',
+                                  height: 190,
+                                ),
+                              ],
                             ),
-                            const SizedBox(width: 20),
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  testimonialCard(
-                                    'Amit R., 36',
-                                    'Seamless booking experience with punctual staff. I received my digital reports within 24 hours without any hassle. Highly recommend this service.',
-                                    height: 200,
-                                  ),
+                          ),
 
-                                  testimonialCard(
-                                    'Karthik V., 33',
-                                    'Excellent preventive care package for my parents. Zero waiting time, clean setup, and everything was handled very professionally.',
-                                    height: 220,
-                                  ),
+                          const SizedBox(width: 20),
 
-                                  testimonialCard(
-                                    'Meera D., 30',
-                                    'Very smooth and hassle-free experience. The support team was responsive and guided me throughout the process.',
-                                    height: 180,
-                                  ),
-                                ],
-                              ),
+                          // COLUMN 2
+                          Expanded(
+                            child: Column(
+                              children: [
+                                testimonialCard(
+                                  'Amit R., 36',
+                                  'Seamless booking experience with punctual staff. I received my digital reports within 24 hours without any hassle. Highly recommend this service.',
+                                  height: 200,
+                                ),
+                                testimonialCard(
+                                  'Karthik V., 33',
+                                  'Excellent preventive care package for my parents. Zero waiting time, clean setup, and everything was handled very professionally.',
+                                  height: 220,
+                                ),
+                                testimonialCard(
+                                  'Meera D., 30',
+                                  'Very smooth and hassle-free experience. The support team was responsive and guided me throughout the process.',
+                                  height: 180,
+                                ),
+                              ],
                             ),
-                            const SizedBox(width: 20),
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  testimonialCard(
-                                    'Neha K., 31',
-                                    'Convenient home collection and great doctor consultation. Perfect solution for busy professionals like me.',
-                                    height: 230,
-                                  ),
+                          ),
 
-                                  testimonialCard(
-                                    'Sneha A., 29',
-                                    'Perfectly coordinated team. They handled our society camp efficiently and everything was managed smoothly.',
-                                    height: 190,
-                                  ),
+                          const SizedBox(width: 20),
 
-                                  testimonialCard(
-                                    'Rohit P., 40',
-                                    'Highly reliable and fast service. The entire experience was professional and trustworthy from start to finish.',
-                                    height: 180,
-                                  ),
-                                ],
-                              ),
+                          // COLUMN 3
+                          Expanded(
+                            child: Column(
+                              children: [
+                                testimonialCard(
+                                  'Neha K., 31',
+                                  'Convenient home collection and great doctor consultation. Perfect solution for busy professionals like me.',
+                                  height: 230,
+                                ),
+                                testimonialCard(
+                                  'Sneha A., 29',
+                                  'Perfectly coordinated team. They handled our society camp efficiently and everything was managed smoothly.',
+                                  height: 190,
+                                ),
+                                testimonialCard(
+                                  'Rohit P., 40',
+                                  'Highly reliable and fast service. The entire experience was professional and trustworthy from start to finish.',
+                                  height: 180,
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-
               const SizedBox(height: 40),
 
               Column(
@@ -590,7 +551,7 @@ class HomePage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 6),
+                  SizedBox(height: 2),
                   Text(
                     'Trusted by leading hospitals across Bangalore',
                     style: TextStyle(
@@ -600,7 +561,6 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-
               const SizedBox(height: 40),
 
               Center(
@@ -623,23 +583,11 @@ class HomePage extends StatelessWidget {
                           imagePath: 'assets/company/apollo_hospital_image.png',
                           onTap: () => debugPrint('Apollo Hospitals'),
                         ),
-                      ],
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                        const SizedBox(width: 20),
                         HospitalBox(
                           imagePath: 'assets/company/manipal_hospital_image.png',
                           onTap: () => debugPrint('Manipal Hospital'),
                         ),
-                        const SizedBox(width: 20),
-                        HospitalBox(
-                          imagePath: 'assets/company/aikya_hospital_image.png',
-                          onTap: () => debugPrint('Aikya Hospital'),
-                        ),
                       ],
                     ),
 
@@ -648,6 +596,11 @@ class HomePage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        HospitalBox(
+                          imagePath: 'assets/company/aikya_hospital_image.png',
+                          onTap: () => debugPrint('Aikya Hospital'),
+                        ),
+                        const SizedBox(width: 20),
                         HospitalBox(
                           imagePath: 'assets/company/sparsh_hospital_image.png',
                           onTap: () => debugPrint('Sparsh Hospital'),
@@ -667,8 +620,152 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
+
+              const SizedBox(height: 40),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class HoverServiceButton extends StatefulWidget {
+  final String title;
+  final String subtitle;
+  final String image;
+  final double imageHeight;
+  final double imageOffsetY;
+  final VoidCallback? onTap;
+
+  const HoverServiceButton({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.image,
+    required this.imageHeight,
+    required this.imageOffsetY,
+    this.onTap,
+  });
+
+  @override
+  State<HoverServiceButton> createState() => _HoverServiceButtonState();
+}
+
+class _HoverServiceButtonState extends State<HoverServiceButton> {
+  bool isHover = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      onEnter: (_) => setState(() => isHover = true),
+      onExit: (_) => setState(() => isHover = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        transform: isHover ? (Matrix4.identity()..scale(1.05)) : Matrix4.identity(),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(25),
+          onTap: widget.onTap,
+          child: Container(
+            height: 220,
+            width: 220,
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(25),
+              boxShadow: [
+                BoxShadow(
+                  color: isHover ? Colors.black26 : Colors.black12,
+                  blurRadius: isHover ? 20 : 10,
+                  offset: const Offset(0, 6),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.title,
+                  maxLines: 2,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  widget.subtitle,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey,
+                  ),
+                ),
+                Expanded(
+                  child: Center(
+                    child: Transform.translate(
+                      offset: Offset(0, widget.imageOffsetY),
+                      child: Image.asset(
+                        widget.image,
+                        height: widget.imageHeight,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _NavButton extends StatefulWidget {
+  final String text;
+  final VoidCallback onTap;
+
+  const _NavButton({
+    required this.text,
+    required this.onTap,
+  });
+
+  @override
+  State<_NavButton> createState() => _NavButtonState();
+}
+
+class _NavButtonState extends State<_NavButton> {
+  bool isHover = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.click, // 👈 hand cursor
+      onEnter: (_) => setState(() => isHover = true),
+      onExit: (_) => setState(() => isHover = false),
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            AnimatedDefaultTextStyle(
+              duration: const Duration(milliseconds: 200),
+              style: TextStyle(
+                color: isHover ? Colors.blue : Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+              child: Text(widget.text),
+            ),
+            const SizedBox(height: 4),
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              height: 2,
+              width: isHover ? 40 : 0,
+              color: Colors.blue,
+            ),
+          ],
         ),
       ),
     );
