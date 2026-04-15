@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
+import 'widgets/gradient_elevated_button.dart';
 
 class CampsPage extends StatelessWidget {
   const CampsPage({super.key});
@@ -44,19 +45,19 @@ class CampsPage extends StatelessWidget {
                       );
                     },
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: 20),
                   NavItem(
                     text: 'Camps',
                     isActive: true,
                     onTap: () {},
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: 20),
                   NavItem(
                     text: 'About Us',
                     isActive: false,
                     onTap: () {},
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: 20),
                   NavItem(
                     text: 'Contact',
                     isActive: false,
@@ -105,9 +106,14 @@ class CampsPage extends StatelessWidget {
                       left: 0,
                       right: 0,
                       child: Center(
-                        child: GradientButton(
+                        child: GradientElevatedButton(
                           text: "Schedule a Camp",
-                          onTap: () {},
+                          onPressed: () {},
+                          icon: const Icon(Icons.calendar_today, size: 20),
+                          textStyle: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ),
@@ -116,11 +122,11 @@ class CampsPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+              padding: EdgeInsets.fromLTRB(30, 20, 40, 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     "What We Offer in Our Health Camps",
                     style: TextStyle(
                       fontSize: 32,
@@ -128,12 +134,229 @@ class CampsPage extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text(
+
+                  const SizedBox(height: 10),
+
+                  const Text(
                     "Comprehensive on-site health screenings designed to detect, prevent, and promote employee well-being.",
                     style: TextStyle(
                       fontSize: 22,
                       color: Color.fromARGB(255, 41, 41, 41),
+                    ),
+                  ),
+
+                  const SizedBox(height: 30),
+
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 10, 40, 10),
+                    child: Row(
+                      children: const [
+                        Text(
+                          "Our Services",
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              child: serviceBox(
+                                title: "Core Health Screenings",
+                                points: [
+                                  "Blood Tests - Complete blood analysis",
+                                  "Basic Vitals Check - BP, BMI, temperature",
+                                  "ECG (Electrocardiogram) - Heart monitoring",
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 20),
+                            Expanded(
+                              child: serviceBox(
+                                title: "Specialized Assessments",
+                                points: [
+                                  "Eye Examination - Vision screening",
+                                  "Skin Examination - Dermatology checks",
+                                  "Audiometry - Hearing tests",
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        Row(
+                          children: [
+                            Expanded(
+                              child: serviceBox(
+                                title: "Advanced Diagnostics",
+                                points: [
+                                  "X-Ray Services - On-site imaging",
+                                  "Pulmonary Function Test (PFT)",
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 20),
+                            Expanded(
+                              child: serviceBox(
+                                title: "Preventive Care",
+                                points: [
+                                  "Vaccination Services - Flu shots & more",
+                                  "General Health Counseling - Guidance on lifestyle, diet, and preventive care",
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: 30),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(30, 40, 40, 40),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // 🔹 Heading
+                  Text(
+                    "Our Previous Ventures",
+                    style: TextStyle(
+                      fontSize: 30, // 🔧 heading size
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  // 🔹 Bangalore (TOP)
+                  Text(
+                    "Bangalore:",
+                    style: TextStyle(
+                      fontSize: 22, // 🔧 city size
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    "Successfully organized multiple health camps at Manyata Tech Park, Electronic City, and Whitefield Tech Hub covering diagnostics, screenings, and consultations.",
+                    style: TextStyle(
+                      fontSize: 18, // 🔧 description size
+                      color: Colors.black87,
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // 🔹 Kolkata
+                  Text(
+                    "Kolkata:",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    "Conducted employee wellness camps at Salt Lake Sector V with advanced screenings and personalized health reports.",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87,
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // 🔹 Delhi
+                  Text(
+                    "Delhi:",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    "Hosted corporate health awareness and screening camps at Connaught Place focusing on preventive care and lifestyle management.",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87,
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // 🔹 Guwahati
+                  Text(
+                    "Guwahati:",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    "Conducted community-focused health camps with essential screenings and awareness programs to improve preventive healthcare access.",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87,
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // 🔹 Mumbai
+                  Text(
+                    "Mumbai:",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    "Organized corporate wellness camps for large enterprises, including full-body checkups, diagnostics, and expert consultations.",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87,
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // 🔹 Hyderabad
+                  Text(
+                    "Hyderabad:",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    "Delivered on-site preventive healthcare services with screenings, consultations, and employee wellness programs.",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87,
                     ),
                   ),
                 ],
@@ -141,6 +364,49 @@ class CampsPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget serviceBox({
+    required String title,
+    required List<String> points,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: const Color(0xFF22C55E).withValues(alpha: 0.08),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: const Color(0xFF22C55E),
+          width: 1.2,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 10),
+
+          ...points.map(
+            (point) => Padding(
+              padding: const EdgeInsets.only(bottom: 6),
+              child: Text(
+                "• $point",
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.black87,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -173,7 +439,7 @@ class _GradientButtonState extends State<GradientButton> {
         onTap: widget.onTap,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          transform: isHover ? (Matrix4.identity()..scale(1.05)) : Matrix4.identity(),
+          transform: isHover ? Matrix4.diagonal3Values(1.05, 1.05, 1) : Matrix4.identity(),
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 14),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(40),

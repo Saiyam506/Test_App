@@ -663,7 +663,7 @@ class _HoverServiceButtonState extends State<HoverServiceButton> {
       onExit: (_) => setState(() => isHover = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        transform: isHover ? (Matrix4.identity()..scale(1.05)) : Matrix4.identity(),
+        transform: isHover ? Matrix4.diagonal3Values(1.05, 1.05, 1) : Matrix4.identity(),
         child: InkWell(
           borderRadius: BorderRadius.circular(25),
           onTap: widget.onTap,
