@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../camps_page.dart';
-import '../about_us.dart';
+import 'package:test_app/landing_pages/about_us/page.dart';
+import 'package:test_app/landing_pages/camp/page.dart';
+import 'package:test_app/landing_pages/home/page.dart';
 
 class Header extends StatelessWidget {
   final String activePage;
@@ -32,13 +33,7 @@ class Header extends StatelessWidget {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  NavItem(
-                    text: 'Home',
-                    isActive: activePage == 'Home',
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, '/');
-                    },
-                  ),
+                  navButton('Home', context),
                   const SizedBox(width: 20),
 
                   navButton('Camps', context),
@@ -111,8 +106,16 @@ class Header extends StatelessWidget {
       text: text,
       isActive: activePage == text,
       onTap: () {
+        if (text == 'Home') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            ),
+          );
+        }
         if (text == 'Camps') {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => const CampsPage(),
@@ -120,7 +123,7 @@ class Header extends StatelessWidget {
           );
         }
         if (text == 'About Us') {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => const AboutPage(),

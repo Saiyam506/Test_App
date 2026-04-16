@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/header.dart';
-import 'footer.dart';
+import 'package:test_app/landing_pages/header.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
