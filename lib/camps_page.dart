@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/footer.dart';
-import 'main.dart';
 import 'widgets/gradient_elevated_button.dart';
+import '../widgets/header.dart';
 
 class CampsPage extends StatelessWidget {
   const CampsPage({super.key});
@@ -18,73 +18,7 @@ class CampsPage extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
-                  );
-                },
-                child: Image.asset(
-                  'assets/company/logo_with_text.png',
-                  height: 70,
-                ),
-              ),
-              const Spacer(),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  NavItem(
-                    text: 'Home',
-                    isActive: false,
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => const HomePage()),
-                      );
-                    },
-                  ),
-                  const SizedBox(width: 20),
-                  NavItem(
-                    text: 'Camps',
-                    isActive: true,
-                    onTap: () {},
-                  ),
-                  const SizedBox(width: 20),
-                  NavItem(
-                    text: 'About Us',
-                    isActive: false,
-                    onTap: () {},
-                  ),
-                  const SizedBox(width: 20),
-                  NavItem(
-                    text: 'Contact',
-                    isActive: false,
-                    onTap: () {},
-                  ),
-                  const SizedBox(width: 20),
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.call, size: 18),
-                    label: const Text('Call Emergency'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 18,
-                        vertical: 12,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          child: Header(activePage: 'Camps'),
         ),
       ),
       body: SingleChildScrollView(
@@ -363,7 +297,7 @@ class CampsPage extends StatelessWidget {
                 ],
               ),
             ),
-            
+
             const SizedBox(height: 30),
 
             const Footer(),

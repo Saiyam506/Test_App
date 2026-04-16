@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'camps_page.dart';
 import 'footer.dart';
+import 'widgets/header.dart';
 
 void main() {
   runApp(const MainApp());
@@ -222,93 +223,7 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Row(
-            children: [
-              Image.asset(
-                'assets/company/logo_with_text.png',
-                height: 70,
-              ),
-              const Spacer(),
-              Expanded(
-                child: SizedBox(
-                  height: 100,
-                  child: Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            NavItem(
-                              text: 'Home',
-                              isActive: true,
-                              onTap: () {},
-                            ),
-                            const SizedBox(width: 20),
-
-                            navButton('Camps', () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(builder: (context) => const CampsPage()),
-                              );
-                            }),
-                            const SizedBox(width: 20),
-
-                            navButton('About Us', () {}),
-                            const SizedBox(width: 20),
-
-                            navButton('Contact', () {}),
-                            const SizedBox(width: 20),
-
-                            ElevatedButton.icon(
-                              onPressed: () {},
-                              icon: const Icon(Icons.call, size: 18),
-                              label: const Text('Call Emergency'),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.red,
-                                foregroundColor: Colors.white,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 18,
-                                  vertical: 12,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      Positioned(
-                        right: 30,
-                        top: 70,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: const [
-                            Icon(
-                              Icons.circle,
-                              color: Colors.green,
-                              size: 8,
-                            ),
-                            SizedBox(width: 6),
-                            Text(
-                              '24/7 Available',
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black87,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+          child: Header(activePage: 'Home'),
         ),
       ),
 
@@ -432,7 +347,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-
+              const SizedBox(height: 40),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 260),
                 padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
@@ -745,7 +660,7 @@ class _NavButtonState extends State<_NavButton> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      cursor: SystemMouseCursors.click, // 👈 hand cursor
+      cursor: SystemMouseCursors.click,
       onEnter: (_) => setState(() => isHover = true),
       onExit: (_) => setState(() => isHover = false),
       child: GestureDetector(
