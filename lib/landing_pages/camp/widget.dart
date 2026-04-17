@@ -58,3 +58,80 @@ class _GradientButtonState extends State<GradientButton> {
     );
   }
 }
+
+class SectionText extends StatelessWidget {
+  final List<String> points;
+  final Color color;
+
+  const SectionText({
+    super.key,
+    required this.points,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 450,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ...points.map(
+            (p) {
+              final parts = p.split(":");
+
+              final title = parts[0];
+              final desc = parts.length > 1 ? parts.sublist(1).join(":") : "";
+
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    /// 🔵 Colored bullet
+                    Container(
+                      margin: const EdgeInsets.only(top: 6),
+                      width: 6,
+                      height: 6,
+                      decoration: BoxDecoration(
+                        color: color,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+
+                    const SizedBox(width: 10),
+
+                    /// ✨ Styled text
+                    Expanded(
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "$title: ",
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                color: Color(0xFF1F2A37), // dark
+                              ),
+                            ),
+                            TextSpan(
+                              text: desc.trim(),
+                              style: const TextStyle(
+                                fontSize: 18,
+                                color: Color(0xFF6B7280), // grey
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}

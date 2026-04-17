@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_app/landing_pages/footer.dart';
 import 'package:test_app/widgets/gradient_elevated_button.dart';
 import 'package:test_app/landing_pages/header.dart';
+import 'package:test_app/landing_pages/camp/widget.dart';
 
 class CampsPage extends StatelessWidget {
   const CampsPage({super.key});
@@ -98,64 +99,73 @@ class CampsPage extends StatelessWidget {
                     ),
                   ),
 
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: serviceBox(
-                                title: "Core Health Screenings",
-                                points: [
-                                  "Blood Tests - Complete blood analysis",
-                                  "Basic Vitals Check - BP, BMI, temperature",
-                                  "ECG (Electrocardiogram) - Heart monitoring",
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: 20),
-                            Expanded(
-                              child: serviceBox(
-                                title: "Specialized Assessments",
-                                points: [
-                                  "Eye Examination - Vision screening",
-                                  "Skin Examination - Dermatology checks",
-                                  "Audiometry - Hearing tests",
-                                ],
-                              ),
-                            ),
-                          ],
+                  Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          'assets/company/camps_design.png',
+                          width: double.infinity,
+                          fit: BoxFit.contain,
                         ),
+                      ),
 
-                        const SizedBox(height: 20),
-
-                        Row(
-                          children: [
-                            Expanded(
-                              child: serviceBox(
-                                title: "Advanced Diagnostics",
-                                points: [
-                                  "X-Ray Services - On-site imaging",
-                                  "Pulmonary Function Test (PFT)",
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: 20),
-                            Expanded(
-                              child: serviceBox(
-                                title: "Preventive Care",
-                                points: [
-                                  "Vaccination Services - Flu shots & more",
-                                  "General Health Counseling - Guidance on lifestyle, diet, and preventive care",
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 30),
+                      /// 🔵 Core Health (TOP LEFT)
+                      Positioned(
+                        top: 70,
+                        left: 640, // ✅ moved right
+                        child: SectionText(
+                          points: [
+                            "Blood Tests: Complete blood analysis for insights on various health metrics",
+                            "Blood Pressure Check: Monitor cardiovascular health",
+                            "ECG(Electrocardiogram): Heart health monitoring",
                           ],
+                          color: Colors.blue,
                         ),
-                      ],
-                    ),
+                      ),
+
+                      /// 🟢 Preventive Care (LEFT CENTER)
+                      Positioned(
+                        top: 350,
+                        left: 640, // ✅ align with above
+                        child: SectionText(
+                          points: [
+                            "Vaccination Services: Flu shots and preventive vaccines administered on-site",
+                            "Health & Wellness Workshops: Educate employees on healthy lifestyle practices",
+                            "Doctor Consultations: Personalized advice for improving health",
+                          ],
+                          color: Colors.green,
+                        ),
+                      ),
+
+                      /// 🟠 Advanced Diagnostics (BOTTOM LEFT)
+                      Positioned(
+                        top: 740,
+                        left: 210, // ✅ consistent alignment
+                        child: SectionText(
+                          points: [
+                            "X-Ray Services: On-site imaging for accurate diagnostic evaluation",
+                            "Ultrasound Services: High resolution imaging for thorough health check",
+                            "Blood Sugar & Lipid Profile Testing: Quick screening for diabetes and cholesterol levels",
+                          ],
+                          color: Colors.orange,
+                        ),
+                      ),
+
+                      /// 🔵 Specialized (BOTTOM RIGHT)
+                      Positioned(
+                        top: 740,
+                        right: 100, // ✅ pulled inward
+                        child: SectionText(
+                          points: [
+                            "Eye Examination: Vision testing and eye health assessment",
+                            "Dental Check-Up: Oral hygiene and dental health screening",
+                            "Lung Function Test (Spirometry): Assess respiratory health",
+                          ],
+                          color: Colors.indigo,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -165,7 +175,6 @@ class CampsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // 🔹 Heading
                   Text(
                     "Our Previous Ventures",
                     style: TextStyle(
@@ -177,7 +186,6 @@ class CampsPage extends StatelessWidget {
 
                   const SizedBox(height: 20),
 
-                  // 🔹 Bangalore (TOP)
                   Text(
                     "Bangalore:",
                     style: TextStyle(
@@ -197,7 +205,6 @@ class CampsPage extends StatelessWidget {
 
                   const SizedBox(height: 16),
 
-                  // 🔹 Kolkata
                   Text(
                     "Kolkata:",
                     style: TextStyle(
@@ -217,7 +224,6 @@ class CampsPage extends StatelessWidget {
 
                   const SizedBox(height: 16),
 
-                  // 🔹 Delhi
                   Text(
                     "Delhi:",
                     style: TextStyle(
@@ -237,7 +243,6 @@ class CampsPage extends StatelessWidget {
 
                   const SizedBox(height: 16),
 
-                  // 🔹 Guwahati
                   Text(
                     "Guwahati:",
                     style: TextStyle(
@@ -257,7 +262,6 @@ class CampsPage extends StatelessWidget {
 
                   const SizedBox(height: 16),
 
-                  // 🔹 Mumbai
                   Text(
                     "Mumbai:",
                     style: TextStyle(
@@ -277,7 +281,6 @@ class CampsPage extends StatelessWidget {
 
                   const SizedBox(height: 16),
 
-                  // 🔹 Hyderabad
                   Text(
                     "Hyderabad:",
                     style: TextStyle(
