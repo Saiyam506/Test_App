@@ -110,10 +110,9 @@ class CampsPage extends StatelessWidget {
                         ),
                       ),
 
-                      /// 🔵 Core Health (TOP LEFT)
                       Positioned(
                         top: 70,
-                        left: 640, // ✅ moved right
+                        left: 640,
                         child: SectionText(
                           points: [
                             "Blood Tests: Complete blood analysis for insights on various health metrics",
@@ -124,10 +123,9 @@ class CampsPage extends StatelessWidget {
                         ),
                       ),
 
-                      /// 🟢 Preventive Care (LEFT CENTER)
                       Positioned(
                         top: 350,
-                        left: 640, // ✅ align with above
+                        left: 640,
                         child: SectionText(
                           points: [
                             "Vaccination Services: Flu shots and preventive vaccines administered on-site",
@@ -138,10 +136,9 @@ class CampsPage extends StatelessWidget {
                         ),
                       ),
 
-                      /// 🟠 Advanced Diagnostics (BOTTOM LEFT)
                       Positioned(
                         top: 740,
-                        left: 210, // ✅ consistent alignment
+                        left: 210,
                         child: SectionText(
                           points: [
                             "X-Ray Services: On-site imaging for accurate diagnostic evaluation",
@@ -152,10 +149,9 @@ class CampsPage extends StatelessWidget {
                         ),
                       ),
 
-                      /// 🔵 Specialized (BOTTOM RIGHT)
                       Positioned(
                         top: 740,
-                        right: 100, // ✅ pulled inward
+                        right: 100,
                         child: SectionText(
                           points: [
                             "Eye Examination: Vision testing and eye health assessment",

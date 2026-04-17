@@ -24,7 +24,7 @@ class Header extends StatelessWidget {
                 },
                 child: Image.asset(
                   'assets/company/logo_with_text.png',
-                  height: 80,
+                  height: 70,
                 ),
               ),
 
