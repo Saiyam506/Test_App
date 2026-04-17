@@ -135,3 +135,65 @@ class SectionText extends StatelessWidget {
     );
   }
 }
+
+class VentureItem extends StatelessWidget {
+  final String image;
+  final String title;
+  final String description;
+
+  const VentureItem({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.description,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        /// ICON
+        Padding(
+          padding: const EdgeInsets.only(top: 6),
+          child: Image.asset(
+            image,
+            width: 100,
+            height: 100,
+            fit: BoxFit.contain,
+          ),
+        ),
+
+        const SizedBox(width: 18),
+
+        /// TEXT
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF1F2A37),
+                ),
+              ),
+
+              const SizedBox(height: 6),
+
+              Text(
+                description,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Color(0xFF6B7280),
+                  height: 1.5,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}

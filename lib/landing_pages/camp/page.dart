@@ -175,127 +175,80 @@ class CampsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  /// TITLE
+                  const Text(
                     "Our Previous Ventures",
                     style: TextStyle(
-                      fontSize: 30, // 🔧 heading size
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: Color(0xFF1F2A37),
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 40),
 
-                  Text(
-                    "Bangalore:",
-                    style: TextStyle(
-                      fontSize: 22, // 🔧 city size
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    "Successfully organized multiple health camps at Manyata Tech Park, Electronic City, and Whitefield Tech Hub covering diagnostics, screenings, and consultations.",
-                    style: TextStyle(
-                      fontSize: 18, // 🔧 description size
-                      color: Colors.grey,
-                    ),
-                  ),
+                  /// TWO COLUMN LAYOUT
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      /// LEFT COLUMN
+                      Expanded(
+                        child: Column(
+                          children: const [
+                            VentureItem(
+                              image: "assets/company/bengaluru.png",
+                              title: "Bengaluru",
+                              description:
+                                  "Successfully organized multiple health camps at Manyata Tech Park, Electronic City, and Whitefield Tech Hub, offering comprehensive diagnostic screenings, on-site consultations, and preventive healthcare services for employees.",
+                            ),
+                            SizedBox(height: 30),
+                            VentureItem(
+                              image: "assets/company/delhi.png",
+                              title: "Delhi",
+                              description:
+                                  "Hosted corporate health awareness and screening camps at Connaught Place, focusing on preventive care, early detection, and lifestyle management through expert consultations and wellness initiatives.",
+                            ),
+                            SizedBox(height: 30),
+                            VentureItem(
+                              image: "assets/company/guwahati.png",
+                              title: "Guwahati",
+                              description:
+                                  "Conducted community-focused health camps with essential screenings, awareness programs, and accessible healthcare services aimed at improving preventive care and overall community well-being.",
+                            ),
+                          ],
+                        ),
+                      ),
 
-                  const SizedBox(height: 16),
+                      const SizedBox(width: 60),
 
-                  Text(
-                    "Kolkata:",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    "Conducted employee wellness camps at Salt Lake Sector V with advanced screenings and personalized health reports.",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey,
-                    ),
-                  ),
-
-                  const SizedBox(height: 16),
-
-                  Text(
-                    "Delhi:",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    "Hosted corporate health awareness and screening camps at Connaught Place focusing on preventive care and lifestyle management.",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey,
-                    ),
-                  ),
-
-                  const SizedBox(height: 16),
-
-                  Text(
-                    "Guwahati:",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    "Conducted community-focused health camps with essential screenings and awareness programs to improve preventive healthcare access.",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey,
-                    ),
-                  ),
-
-                  const SizedBox(height: 16),
-
-                  Text(
-                    "Mumbai:",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    "Organized corporate wellness camps for large enterprises, including full-body checkups, diagnostics, and expert consultations.",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey,
-                    ),
-                  ),
-
-                  const SizedBox(height: 16),
-
-                  Text(
-                    "Hyderabad:",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    "Delivered on-site preventive healthcare services with screenings, consultations, and employee wellness programs.",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey,
-                    ),
+                      /// RIGHT COLUMN
+                      Expanded(
+                        child: Column(
+                          children: const [
+                            VentureItem(
+                              image: "assets/company/kolkata.png",
+                              title: "Kolkata",
+                              description:
+                                  "Conducted employee wellness camps at Salt Lake Sector V with advanced screenings, personalized health reports, and on-site consultations to support employee well-being and early diagnosis.",
+                            ),
+                            SizedBox(height: 30),
+                            VentureItem(
+                              image: "assets/company/mumbai.png",
+                              title: "Mumbai",
+                              description:
+                                  "Organized corporate wellness camps for large enterprises, including full-body checkups, diagnostic screenings, and expert consultations tailored to increasing employee health and productivity.",
+                            ),
+                            SizedBox(height: 30),
+                            VentureItem(
+                              image: "assets/company/hyderabad.png",
+                              title: "Hyderabad",
+                              description:
+                                  "Delivered on-site preventive healthcare services with comprehensive screenings, doctor consultations, and customized wellness programs aimed at improving long-term employee health outcomes.",
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
