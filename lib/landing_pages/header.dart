@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/about_us/page.dart';
 import 'package:test_app/landing_pages/camp/page.dart';
 import 'package:test_app/landing_pages/contact_us/page.dart';
@@ -12,11 +13,11 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
+      height: 100.h,
       child: Align(
         alignment: Alignment.center,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: EdgeInsets.symmetric(horizontal: 40.w),
           child: Row(
             children: [
               GestureDetector(
@@ -25,26 +26,26 @@ class Header extends StatelessWidget {
                 },
                 child: Image.asset(
                   'assets/company/logo_with_text.png',
-                  height: 70,
+                  height: 70.h,
                 ),
               ),
 
-              const Spacer(),
+              Spacer(),
 
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   navButton('Home', context),
-                  const SizedBox(width: 20),
+                  SizedBox(width: 20.w),
 
                   navButton('Camps', context),
-                  const SizedBox(width: 20),
+                  SizedBox(width: 20.w),
 
                   navButton('About Us', context),
-                  const SizedBox(width: 20),
+                  SizedBox(width: 20.w),
 
                   navButton('Contact Us', context),
-                  const SizedBox(width: 20),
+                  SizedBox(width: 20.w),
 
                   Column(
                     mainAxisSize: MainAxisSize.min,
@@ -52,38 +53,38 @@ class Header extends StatelessWidget {
                     children: [
                       ElevatedButton.icon(
                         onPressed: () {},
-                        icon: const Icon(Icons.call, size: 18),
-                        label: const Text('Call Emergency'),
+                        icon: Icon(Icons.call, size: 18),
+                        label: Text('Call Emergency'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.red,
                           foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 18,
-                            vertical: 12,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 18.w,
+                            vertical: 12.h,
                           ),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(30.r),
                           ),
                         ),
                       ),
 
-                      const SizedBox(height: 5),
+                      SizedBox(height: 5.h),
 
                       Padding(
-                        padding: const EdgeInsets.only(right: 30),
+                        padding: EdgeInsets.only(right: 30.w),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
-                          children: const [
+                          children: [
                             Icon(
                               Icons.circle,
                               color: Colors.green,
                               size: 8,
                             ),
-                            SizedBox(width: 6),
+                            SizedBox(width: 6.w),
                             Text(
                               '24/7 Available',
                               style: TextStyle(
-                                fontSize: 13,
+                                fontSize: 13.sp,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black87,
                               ),
@@ -111,7 +112,7 @@ class Header extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const HomePage(),
+              builder: (context) => HomePage(),
             ),
           );
         }
@@ -119,7 +120,7 @@ class Header extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const CampsPage(),
+              builder: (context) => CampsPage(),
             ),
           );
         }
@@ -127,7 +128,7 @@ class Header extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const AboutPage(),
+              builder: (context) => AboutPage(),
             ),
           );
         }
@@ -135,7 +136,7 @@ class Header extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const ContactUsPage(),
+              builder: (context) => ContactUsPage(),
             ),
           );
         }
@@ -176,16 +177,16 @@ class _NavItemState extends State<NavItem> {
             Text(
               widget.text,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: widget.isActive ? FontWeight.bold : FontWeight.normal,
                 color: (isHover || widget.isActive) ? Colors.blue : Colors.black,
               ),
             ),
-            const SizedBox(height: 4),
+            SizedBox(height: 4.h),
             AnimatedContainer(
-              duration: const Duration(milliseconds: 250),
-              height: 2,
-              width: (isHover || widget.isActive) ? 40 : 0,
+              duration: Duration(milliseconds: 250),
+              height: 2.h,
+              width: (isHover || widget.isActive) ? 40.w : 0.w,
               color: Colors.blue,
             ),
           ],

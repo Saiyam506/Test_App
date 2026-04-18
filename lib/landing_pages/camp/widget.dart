@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GradientButton extends StatefulWidget {
   final String text;
@@ -26,12 +27,12 @@ class _GradientButtonState extends State<GradientButton> {
       child: GestureDetector(
         onTap: widget.onTap,
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
+          duration: Duration(milliseconds: 200),
           transform: isHover ? Matrix4.diagonal3Values(1.05, 1.05, 1) : Matrix4.identity(),
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 14),
+          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 14.h),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(40),
-            gradient: const LinearGradient(
+            borderRadius: BorderRadius.circular(40.r),
+            gradient: LinearGradient(
               colors: [
                 Color(0xFF2A8DB8), // blue
                 Color(0xFF4CAF50), // green
@@ -41,15 +42,15 @@ class _GradientButtonState extends State<GradientButton> {
               BoxShadow(
                 color: isHover ? Colors.black.withValues(alpha: 0.25) : Colors.black.withValues(alpha: 0.15),
                 blurRadius: isHover ? 15 : 8,
-                offset: const Offset(0, 5),
+                offset: Offset(0, 5),
               ),
             ],
           ),
           child: Text(
             widget.text,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -72,7 +73,7 @@ class SectionText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 450,
+      width: 450.w,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -84,22 +85,22 @@ class SectionText extends StatelessWidget {
               final desc = parts.length > 1 ? parts.sublist(1).join(":") : "";
 
               return Padding(
-                padding: const EdgeInsets.only(bottom: 10),
+                padding: EdgeInsets.only(bottom: 10.h),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     /// 🔵 Colored bullet
                     Container(
-                      margin: const EdgeInsets.only(top: 6),
-                      width: 6,
-                      height: 6,
+                      margin: EdgeInsets.only(top: 6.h),
+                      width: 6.w,
+                      height: 6.h,
                       decoration: BoxDecoration(
                         color: color,
                         shape: BoxShape.circle,
                       ),
                     ),
 
-                    const SizedBox(width: 10),
+                    SizedBox(width: 10.w),
 
                     /// ✨ Styled text
                     Expanded(
@@ -108,16 +109,16 @@ class SectionText extends StatelessWidget {
                           children: [
                             TextSpan(
                               text: "$title: ",
-                              style: const TextStyle(
-                                fontSize: 18,
+                              style: TextStyle(
+                                fontSize: 18.sp,
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFF1F2A37), // dark
                               ),
                             ),
                             TextSpan(
                               text: desc.trim(),
-                              style: const TextStyle(
-                                fontSize: 18,
+                              style: TextStyle(
+                                fontSize: 18.sp,
                                 color: Color(0xFF6B7280), // grey
                               ),
                             ),
@@ -155,16 +156,16 @@ class VentureItem extends StatelessWidget {
       children: [
         /// ICON
         Padding(
-          padding: const EdgeInsets.only(top: 6),
+          padding: EdgeInsets.only(top: 6.h),
           child: Image.asset(
             image,
-            width: 100,
-            height: 100,
+            width: 100.w,
+            height: 100.h,
             fit: BoxFit.contain,
           ),
         ),
 
-        const SizedBox(width: 18),
+        SizedBox(width: 18.w),
 
         /// TEXT
         Expanded(
@@ -173,21 +174,21 @@ class VentureItem extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 18,
+                style: TextStyle(
+                  fontSize: 18.sp,
                   fontWeight: FontWeight.w600,
                   color: Color(0xFF1F2A37),
                 ),
               ),
 
-              const SizedBox(height: 6),
+              SizedBox(height: 6.h),
 
               Text(
                 description,
-                style: const TextStyle(
-                  fontSize: 14,
+                style: TextStyle(
+                  fontSize: 14.sp,
                   color: Color(0xFF6B7280),
-                  height: 1.5,
+                  height: 1.5.h,
                 ),
               ),
             ],

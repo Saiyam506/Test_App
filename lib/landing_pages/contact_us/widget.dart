@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactFormCard extends StatelessWidget {
@@ -9,10 +10,10 @@ class ContactFormCard extends StatelessWidget {
     final bool compact = MediaQuery.sizeOf(context).width < 900;
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: const Color(0xFFFFFFFF),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFFE2E8F0)),
-        boxShadow: const [
+        color: Color(0xFFFFFFFF),
+        borderRadius: BorderRadius.circular(20.r),
+        border: Border.all(color: Color(0xFFE2E8F0)),
+        boxShadow: [
           BoxShadow(
             color: Color(0x140F172A),
             blurRadius: 28,
@@ -21,36 +22,36 @@ class ContactFormCard extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(22, 20, 22, 20),
+        padding: EdgeInsets.fromLTRB(22.w, 20.h, 22.w, 20.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'How Can We Assist You?',
               style: TextStyle(
-                fontSize: compact ? 32 : 32,
-                height: 1.08,
+                fontSize: compact ? 32.sp : 32.sp,
+                height: 1.08.h,
                 fontWeight: FontWeight.w700,
-                color: const Color(0xFF1E293B),
+                color: Color(0xFF1E293B),
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Text(
               'Fill out the form below and our team will get back to you shortly.',
               style: TextStyle(
-                fontSize: compact ? 16 : 18,
-                color: const Color(0xFF64748B),
-                height: 1.35,
+                fontSize: compact ? 16.sp : 18.sp,
+                color: Color(0xFF64748B),
+                height: 1.35.h,
               ),
             ),
-            const SizedBox(height: 18),
-            const _ContactInputField(hintText: 'Your Name'),
-            const SizedBox(height: 12),
-            const _ContactInputField(hintText: 'Your Email'),
-            const SizedBox(height: 12),
-            const _ContactInputField(hintText: 'Message', maxLines: 4),
-            const SizedBox(height: 18),
-            const _SubmitButton(),
+            SizedBox(height: 18.h),
+            _ContactInputField(hintText: 'Your Name'),
+            SizedBox(height: 12.h),
+            _ContactInputField(hintText: 'Your Email'),
+            SizedBox(height: 12.h),
+            _ContactInputField(hintText: 'Message', maxLines: 4),
+            SizedBox(height: 18.h),
+            _SubmitButton(),
           ],
         ),
       ),
@@ -66,10 +67,10 @@ class ContactDetails extends StatelessWidget {
     final bool compact = MediaQuery.sizeOf(context).width < 900;
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: const Color(0xFFFFFFFF),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFFE2E8F0)),
-        boxShadow: const [
+        color: Color(0xFFFFFFFF),
+        borderRadius: BorderRadius.circular(20.r),
+        border: Border.all(color: Color(0xFFE2E8F0)),
+        boxShadow: [
           BoxShadow(
             color: Color(0x120F172A),
             blurRadius: 24,
@@ -78,38 +79,38 @@ class ContactDetails extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(22, 20, 22, 18),
+        padding: EdgeInsets.fromLTRB(22.w, 20.h, 22.w, 18.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _ContactDetailItem(
               icon: Icons.phone_rounded,
               title: 'Call Us',
-              titleColor: const Color(0xFF2563EB),
+              titleColor: Color(0xFF2563EB),
               value: '+91 98765 43210',
               compact: compact,
             ),
-            const SizedBox(height: 18),
+            SizedBox(height: 18.h),
             _ContactDetailItem(
               icon: Icons.location_on_rounded,
               title: 'Address',
-              titleColor: const Color(0xFFDC2626),
+              titleColor: Color(0xFFDC2626),
               value: 'Baner-Mhalunge Main Road, Baner,\nPune - 411045, Maharashtra.',
               compact: compact,
             ),
-            const SizedBox(height: 18),
+            SizedBox(height: 18.h),
             _ContactDetailItem(
               icon: Icons.email_rounded,
               title: 'Email',
-              titleColor: const Color(0xFF2563EB),
+              titleColor: Color(0xFF2563EB),
               value: 'info@medidocs.in',
               compact: compact,
             ),
-            const SizedBox(height: 18),
+            SizedBox(height: 18.h),
             _ContactDetailItem(
               icon: Icons.access_time_filled_rounded,
               title: 'Working Hours',
-              titleColor: const Color(0xFFDC2626),
+              titleColor: Color(0xFFDC2626),
               value: '24/7',
               compact: compact,
             ),
@@ -129,7 +130,7 @@ class WhyChooseSection extends StatelessWidget {
       builder: (context, constraints) {
         final bool compact = constraints.maxWidth < 900;
 
-        final cards = const [
+        final cards = [
           _WhyChooseCard(
             icon: Icons.shield_outlined,
             iconBackground: Color(0xFFE8F1FF),
@@ -156,27 +157,27 @@ class WhyChooseSection extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Why Choose MediDocs?',
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 28.sp,
                 fontWeight: FontWeight.w700,
                 color: Color(0xFF1E293B),
               ),
             ),
-            const SizedBox(height: 14),
+            SizedBox(height: 14.h),
             if (compact)
               Column(
                 children: [
                   cards[0],
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12.h),
                   cards[1],
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12.h),
                   cards[2],
                 ],
               )
             else
-              const Row(
+              Row(
                 children: [
                   Expanded(
                     child: _WhyChooseCard(
@@ -187,7 +188,7 @@ class WhyChooseSection extends StatelessWidget {
                       subtitle: 'Always ready to assist you, anytime, day or night.',
                     ),
                   ),
-                  SizedBox(width: 14),
+                  SizedBox(width: 14.w),
                   Expanded(
                     child: _WhyChooseCard(
                       icon: Icons.local_hospital_outlined,
@@ -197,7 +198,7 @@ class WhyChooseSection extends StatelessWidget {
                       subtitle: 'Experienced & qualified doctors and paramedics.',
                     ),
                   ),
-                  SizedBox(width: 14),
+                  SizedBox(width: 14.w),
                   Expanded(
                     child: _WhyChooseCard(
                       icon: Icons.access_time_rounded,
@@ -236,9 +237,9 @@ class _WhyChooseCard extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFFE2E8F0)),
-        boxShadow: const [
+        borderRadius: BorderRadius.circular(16.r),
+        border: Border.all(color: Color(0xFFE2E8F0)),
+        boxShadow: [
           BoxShadow(
             color: Color(0x0D0F172A),
             blurRadius: 14,
@@ -247,42 +248,42 @@ class _WhyChooseCard extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              width: 40,
-              height: 40,
+              width: 40.w,
+              height: 40.h,
               decoration: BoxDecoration(
                 color: iconBackground,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(12.r),
               ),
               child: Icon(icon, color: iconColor, size: 24),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12.h),
             Text(
               title,
-              style: const TextStyle(
-                fontSize: 20,
-                height: 1.15,
+              style: TextStyle(
+                fontSize: 20.sp,
+                height: 1.15.h,
                 fontWeight: FontWeight.w700,
                 color: Color(0xFF1E293B),
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Icon(Icons.check_box, color: Color(0xFF2563EB), size: 16),
-                const SizedBox(width: 8),
+                Icon(Icons.check_box, color: Color(0xFF2563EB), size: 16),
+                SizedBox(width: 8.w),
                 Expanded(
                   child: Text(
                     subtitle,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      height: 1.45,
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      height: 1.45.h,
                       color: Color(0xFF64748B),
                     ),
                   ),
@@ -307,23 +308,23 @@ class OurLocationSection extends StatelessWidget {
 
         final Widget locationInfo = DecoratedBox(
           decoration: BoxDecoration(
-            color: const Color(0xFFF8FAFC),
-            borderRadius: BorderRadius.circular(18),
+            color: Color(0xFFF8FAFC),
+            borderRadius: BorderRadius.circular(18.r),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(20.r),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Our Location',
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 30.sp,
                     fontWeight: FontWeight.w700,
                     color: Color(0xFF1E293B),
                   ),
                 ),
-                const SizedBox(height: 18),
+                SizedBox(height: 18.h),
                 _LocationLine(
                   icon: Icons.location_on_outlined,
                   iconColor: Color(0xFF334155),
@@ -331,20 +332,20 @@ class OurLocationSection extends StatelessWidget {
                   subtitle: 'Pune - 411045, Maharashtra.',
                   titleWeight: FontWeight.w400,
                 ),
-                const SizedBox(height: 14),
-                const _LocationLine(
+                SizedBox(height: 14.h),
+                _LocationLine(
                   icon: Icons.call_outlined,
                   iconColor: Color(0xFF334155),
                   title: '+91 98765 43210',
                 ),
-                const SizedBox(height: 12),
-                const _LocationLine(
+                SizedBox(height: 12.h),
+                _LocationLine(
                   icon: Icons.email_outlined,
                   iconColor: Color(0xFF334155),
                   title: 'info@medidocs.in',
                 ),
-                const SizedBox(height: 12),
-                const _LocationLine(
+                SizedBox(height: 12.h),
+                _LocationLine(
                   icon: Icons.location_on_outlined,
                   iconColor: Color(0xFF334155),
                   title: 'Baner, Pune - 411045',
@@ -355,7 +356,7 @@ class OurLocationSection extends StatelessWidget {
         );
 
         final Widget mapImage = ClipRRect(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16.r),
           child: AspectRatio(
             aspectRatio: compact ? 16 / 9 : 2.75,
             child: Image.asset(
@@ -378,8 +379,8 @@ class OurLocationSection extends StatelessWidget {
         return DecoratedBox(
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(18),
-            boxShadow: const [
+            borderRadius: BorderRadius.circular(18.r),
+            boxShadow: [
               BoxShadow(
                 color: Color(0x0F0F172A),
                 blurRadius: 18,
@@ -388,13 +389,13 @@ class OurLocationSection extends StatelessWidget {
             ],
           ),
           child: Padding(
-            padding: const EdgeInsets.all(18),
+            padding: EdgeInsets.all(18.r),
             child: compact
                 ? Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       locationInfo,
-                      const SizedBox(height: 14),
+                      SizedBox(height: 14.h),
                       tappableMap,
                     ],
                   )
@@ -402,7 +403,7 @@ class OurLocationSection extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(flex: 5, child: locationInfo),
-                      const SizedBox(width: 18),
+                      SizedBox(width: 18.w),
                       Expanded(flex: 7, child: tappableMap),
                     ],
                   ),
@@ -422,7 +423,7 @@ class FaqSection extends StatelessWidget {
       builder: (context, constraints) {
         final bool compact = constraints.maxWidth < 900;
 
-        const items = [
+        final items = [
           _FaqCard(
             question: 'How quickly will I get a response?',
             answer: 'Our team reviews every inquiry as soon as possible and typically responds within 24 hours.',
@@ -436,25 +437,25 @@ class FaqSection extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Frequently Asked Questions',
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 28.sp,
                 fontWeight: FontWeight.w700,
                 color: Color(0xFF1E293B),
               ),
             ),
-            const SizedBox(height: 14),
+            SizedBox(height: 14.h),
             if (compact)
               Column(
                 children: [
                   items[0],
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12.h),
                   items[1],
                 ],
               )
             else
-              const Row(
+              Row(
                 children: [
                   Expanded(
                     child: _FaqCard(
@@ -462,7 +463,7 @@ class FaqSection extends StatelessWidget {
                       answer: 'Our team reviews every inquiry as soon as possible and typically responds within 24 hours.',
                     ),
                   ),
-                  SizedBox(width: 14),
+                  SizedBox(width: 14.w),
                   Expanded(
                     child: _FaqCard(
                       question: 'Do you provide emergency home visits?',
@@ -489,9 +490,9 @@ class _FaqCard extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: const Color(0xFFE2E8F0)),
-        boxShadow: const [
+        borderRadius: BorderRadius.circular(14.r),
+        border: Border.all(color: Color(0xFFE2E8F0)),
+        boxShadow: [
           BoxShadow(
             color: Color(0x0C0F172A),
             blurRadius: 12,
@@ -500,7 +501,7 @@ class _FaqCard extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(14, 14, 14, 12),
+        padding: EdgeInsets.fromLTRB(14.w, 14.h, 14.w, 12.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -508,34 +509,34 @@ class _FaqCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 18,
-                  height: 18,
-                  decoration: const BoxDecoration(
+                  width: 18.w,
+                  height: 18.h,
+                  decoration: BoxDecoration(
                     color: Color(0xFF2563EB),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(Icons.add, color: Colors.white, size: 12),
+                  child: Icon(Icons.add, color: Colors.white, size: 12),
                 ),
-                const SizedBox(width: 10),
+                SizedBox(width: 10.w),
                 Expanded(
                   child: Text(
                     question,
-                    style: const TextStyle(
-                      fontSize: 15,
+                    style: TextStyle(
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w700,
                       color: Color(0xFF1E293B),
                     ),
                   ),
                 ),
-                const Icon(Icons.chevron_right_rounded, color: Color(0xFF2563EB), size: 20),
+                Icon(Icons.chevron_right_rounded, color: Color(0xFF2563EB), size: 20),
               ],
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12.h),
             Text(
               answer,
-              style: const TextStyle(
-                fontSize: 13,
-                height: 1.4,
+              style: TextStyle(
+                fontSize: 13.sp,
+                height: 1.4.h,
                 color: Color(0xFF64748B),
               ),
             ),
@@ -562,26 +563,26 @@ class _ContactInputField extends StatelessWidget {
         hintText: hintText,
         isDense: true,
         filled: true,
-        fillColor: const Color(0xFFF8FAFC),
+        fillColor: Color(0xFFF8FAFC),
         hintStyle: TextStyle(
-          color: const Color(0xFF6B7280),
-          fontSize: compact ? 16 : 18,
+          color: Color(0xFF6B7280),
+          fontSize: compact ? 16.sp : 18.sp,
         ),
         contentPadding: EdgeInsets.symmetric(
-          horizontal: 16,
+          horizontal: 16.w,
           vertical: maxLines > 1 ? 16 : 15,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
+          borderRadius: BorderRadius.circular(16.r),
+          borderSide: BorderSide(color: Color(0xFFE5E7EB)),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: Color(0xFFD1D5DB)),
+          borderRadius: BorderRadius.circular(16.r),
+          borderSide: BorderSide(color: Color(0xFFD1D5DB)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: Color(0xFF2563EB), width: 1.5),
+          borderRadius: BorderRadius.circular(16.r),
+          borderSide: BorderSide(color: Color(0xFF2563EB), width: 1.5.w),
         ),
       ),
     );
@@ -597,11 +598,11 @@ class _SubmitButton extends StatelessWidget {
       width: double.infinity,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(14),
-          gradient: const LinearGradient(
+          borderRadius: BorderRadius.circular(14.r),
+          gradient: LinearGradient(
             colors: [Color(0xFF3B82F6), Color(0xFF2563EB)],
           ),
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
               color: Color(0x263B82F6),
               blurRadius: 14,
@@ -615,14 +616,14 @@ class _SubmitButton extends StatelessWidget {
             backgroundColor: Colors.transparent,
             shadowColor: Colors.transparent,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(14.r),
             ),
-            padding: const EdgeInsets.symmetric(vertical: 16),
+            padding: EdgeInsets.symmetric(vertical: 16.h),
           ),
-          child: const Text(
+          child: Text(
             'Send Message',
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 18.sp,
               fontWeight: FontWeight.w600,
               color: Colors.white,
             ),
@@ -656,35 +657,39 @@ class _ContactDetailItem extends StatelessWidget {
         Row(
           children: [
             Container(
-              width: compact ? 34 : 38,
-              height: compact ? 34 : 38,
+              width: compact ? 34.w : 38.w,
+              height: compact ? 34.h : 38.h,
               decoration: BoxDecoration(
                 color: titleColor.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(12.r),
               ),
               child: Icon(icon, size: compact ? 18 : 20, color: titleColor),
             ),
-            const SizedBox(width: 10),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: compact ? 28 : 30,
-                fontWeight: FontWeight.w400,
-                color: titleColor,
+            SizedBox(width: 10.w),
+            Expanded(
+              child: Text(
+                title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: compact ? 22.sp : 24.sp,
+                  fontWeight: FontWeight.w400,
+                  color: titleColor,
+                ),
               ),
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10.h),
         Padding(
-          padding: const EdgeInsets.only(left: 48),
+          padding: EdgeInsets.only(left: 48.w),
           child: Text(
             value,
             style: TextStyle(
-              fontSize: compact ? 20 : 22,
+              fontSize: compact ? 16.sp : 18.sp,
               fontWeight: FontWeight.w400,
-              height: 1.4,
-              color: const Color(0xFF111827),
+              height: 1.4.h,
+              color: Color(0xFF111827),
             ),
           ),
         ),
@@ -714,7 +719,7 @@ class _LocationLine extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Icon(icon, size: 18, color: iconColor),
-        const SizedBox(width: 10),
+        SizedBox(width: 10.w),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -722,20 +727,20 @@ class _LocationLine extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontWeight: titleWeight,
-                  color: const Color(0xFF1E293B),
-                  height: 1.25,
+                  color: Color(0xFF1E293B),
+                  height: 1.25.h,
                 ),
               ),
               if (subtitle != null) ...[
-                const SizedBox(height: 2),
+                SizedBox(height: 2.h),
                 Text(
                   subtitle!,
-                  style: const TextStyle(
-                    fontSize: 15,
+                  style: TextStyle(
+                    fontSize: 15.sp,
                     color: Color(0xFF475569),
-                    height: 1.25,
+                    height: 1.25.h,
                   ),
                 ),
               ],

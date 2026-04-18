@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatelessWidget {
@@ -8,8 +9,8 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 40),
-      decoration: const BoxDecoration(
+      padding: EdgeInsets.symmetric(vertical: 40.h),
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
             Color(0xFF0A1F44),
@@ -23,7 +24,7 @@ class Footer extends StatelessWidget {
         children: [
           Center(
             child: SizedBox(
-              width: 1000,
+              width: 1000.w,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -31,15 +32,15 @@ class Footer extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           "Connect With Us:",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        const SizedBox(height: 12),
+                        SizedBox(height: 12.h),
                         Row(
                           children: [
                             _socialButton(
@@ -47,13 +48,13 @@ class Footer extends StatelessWidget {
                               url: "https://facebook.com",
                               color: Colors.blue,
                             ),
-                            const SizedBox(width: 12),
+                            SizedBox(width: 12.w),
                             _socialButton(
                               icon: Icons.camera_alt,
                               url: "https://instagram.com",
                               color: Colors.pink,
                             ),
-                            const SizedBox(width: 12),
+                            SizedBox(width: 12.w),
                             _socialButton(
                               icon: Icons.work,
                               url: "https://linkedin.com",
@@ -61,40 +62,40 @@ class Footer extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 30),
-                        const Text(
+                        SizedBox(height: 30.h),
+                        Text(
                           "Subscribe to our Newsletter",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        const SizedBox(height: 12),
+                        SizedBox(height: 12.h),
                         SizedBox(
-                          width: 260,
+                          width: 260.w,
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.white.withValues(alpha: 0.9),
-                              borderRadius: BorderRadius.circular(14),
+                              borderRadius: BorderRadius.circular(14.r),
                             ),
                             child: Row(
                               children: [
                                 Expanded(
                                   child: TextField(
-                                    decoration: const InputDecoration(
+                                    decoration: InputDecoration(
                                       hintText: "Enter your Email ID..",
                                       border: InputBorder.none,
                                       contentPadding: EdgeInsets.symmetric(
-                                        horizontal: 16,
-                                        vertical: 14,
+                                        horizontal: 16.w,
+                                        vertical: 14.h,
                                       ),
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   onPressed: () {},
-                                  icon: const Icon(Icons.send),
+                                  icon: Icon(Icons.send),
                                 ),
                               ],
                             ),
@@ -103,36 +104,36 @@ class Footer extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 100),
+                  SizedBox(width: 100.w),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           "Contact Us",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        const SizedBox(height: 15),
+                        SizedBox(height: 15.h),
                         Row(
-                          children: const [
+                          children: [
                             Icon(Icons.phone, color: Colors.white, size: 18),
-                            SizedBox(width: 8),
+                            SizedBox(width: 8.w),
                             Text(
                               "+91 98765 43210",
                               style: TextStyle(color: Colors.white),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Icon(Icons.location_on, color: Colors.white, size: 18),
-                            SizedBox(width: 8),
+                            SizedBox(width: 8.w),
                             Expanded(
                               child: Text(
                                 "123, Health Street, Andheri East,\nMumbai, Maharashtra 400069, India",
@@ -141,7 +142,7 @@ class Footer extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20.h),
                         GestureDetector(
                           onTap: () async {
                             final Uri url = Uri.parse(
@@ -152,11 +153,11 @@ class Footer extends StatelessWidget {
                             }
                           },
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(12.r),
                             child: Image.asset(
                               "assets/company/map.png",
-                              height: 180,
-                              width: 420,
+                              height: 180.h,
+                              width: 420.w,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -168,33 +169,33 @@ class Footer extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 40),
+          SizedBox(height: 40.h),
           Container(
-            width: 1000,
-            height: 1,
+            width: 1000.w,
+            height: 1.h,
             color: Colors.white24,
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _footerLink("Terms & Conditions", "#"),
-              const SizedBox(width: 10),
-              const Text("|", style: TextStyle(color: Colors.white54)),
-              const SizedBox(width: 10),
+              SizedBox(width: 10.w),
+              Text("|", style: TextStyle(color: Colors.white54)),
+              SizedBox(width: 10.w),
               _footerLink("Privacy Policy", "#"),
-              const SizedBox(width: 10),
-              const Text("|", style: TextStyle(color: Colors.white54)),
-              const SizedBox(width: 10),
+              SizedBox(width: 10.w),
+              Text("|", style: TextStyle(color: Colors.white54)),
+              SizedBox(width: 10.w),
               _footerLink("Cancellation & Refund", "#"),
-              const SizedBox(width: 10),
-              const Text("|", style: TextStyle(color: Colors.white54)),
-              const SizedBox(width: 10),
+              SizedBox(width: 10.w),
+              Text("|", style: TextStyle(color: Colors.white54)),
+              SizedBox(width: 10.w),
               _footerLink("Shipping & Delivery", "#"),
             ],
           ),
-          const SizedBox(height: 15),
-          const Text(
+          SizedBox(height: 15.h),
+          Text(
             "© 2026 Medidocs. All rights reserved",
             style: TextStyle(color: Colors.white60),
           ),
@@ -217,10 +218,10 @@ Widget _socialButton({
       }
     },
     child: Container(
-      padding: const EdgeInsets.all(12),
+      padding: EdgeInsets.all(12.r),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.2),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
       ),
       child: Icon(icon, color: Colors.white),
     ),
@@ -237,7 +238,7 @@ Widget _footerLink(String text, String url) {
     },
     child: Text(
       text,
-      style: const TextStyle(color: Colors.white70),
+      style: TextStyle(color: Colors.white70),
     ),
   );
 }

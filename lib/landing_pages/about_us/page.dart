@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/footer.dart';
 import 'package:test_app/landing_pages/header.dart';
 import 'package:test_app/landing_pages/about_us/widget.dart';
@@ -17,8 +18,8 @@ class AboutPage extends StatelessWidget {
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         automaticallyImplyLeading: false,
-        title: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
+        title: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30.w),
           child: Header(activePage: 'About Us'),
         ),
       ),
@@ -28,11 +29,11 @@ class AboutPage extends StatelessWidget {
           children: [
             // 🔹 WRAP ONLY THIS SECTION
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 30.w),
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 40),
+                    padding: EdgeInsets.only(top: 40.h),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -42,22 +43,22 @@ class AboutPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              const Text(
+                              Text(
                                 "About Us:",
                                 style: TextStyle(
-                                  fontSize: 30,
+                                  fontSize: 30.sp,
                                   fontWeight: FontWeight.w700,
                                   color: Color(0xFF3B82F6),
                                 ),
                               ),
-                              const SizedBox(height: 1),
+                              SizedBox(height: 1.h),
                               RichText(
-                                text: const TextSpan(
+                                text: TextSpan(
                                   children: [
                                     TextSpan(
                                       text: "Revolutionizing ",
                                       style: TextStyle(
-                                        fontSize: 30,
+                                        fontSize: 30.sp,
                                         fontWeight: FontWeight.w700,
                                         color: Color(0xFF1F2A37),
                                       ),
@@ -65,7 +66,7 @@ class AboutPage extends StatelessWidget {
                                     TextSpan(
                                       text: "Healthcare Access",
                                       style: TextStyle(
-                                        fontSize: 30,
+                                        fontSize: 30.sp,
                                         fontWeight: FontWeight.w700,
                                         color: Color(0xFF3B82F6),
                                       ),
@@ -73,19 +74,19 @@ class AboutPage extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              const SizedBox(height: 10),
-                              const Text(
+                              SizedBox(height: 10.h),
+                              Text(
                                 "At MediDocs, we’re committed to transforming healthcare by connecting patients with trusted providers through seamless digital solutions. Founded with the mission to make healthcare accessible and efficient, we leverage technology to ensure patients receive the care they need anytime, anywhere.",
                                 style: TextStyle(
-                                  fontSize: 20,
-                                  height: 1.6,
+                                  fontSize: 20.sp,
+                                  height: 1.6.h,
                                   color: Color(0xFF6B7280),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        const SizedBox(width: 40),
+                        SizedBox(width: 40.w),
                         Expanded(
                           flex: 1,
                           child: Image.asset(
@@ -97,7 +98,7 @@ class AboutPage extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 28),
+                  SizedBox(height: 28.h),
 
                   LayoutBuilder(
                     builder: (context, constraints) {
@@ -109,16 +110,16 @@ class AboutPage extends StatelessWidget {
                         children: [
                           SizedBox(
                             width: cardWidth,
-                            child: const InfoCard(
+                            child: InfoCard(
                               icon: Icons.gps_fixed_rounded,
                               title: 'MISSION',
                               description: 'To make healthcare accessible, affordable, and efficient for everyone.',
                             ),
                           ),
-                          const SizedBox(width: 24),
+                          SizedBox(width: 24.w),
                           SizedBox(
                             width: cardWidth,
-                            child: const InfoCard(
+                            child: InfoCard(
                               icon: Icons.tips_and_updates_outlined,
                               title: 'VISION',
                               description: 'To build a connected healthcare ecosystem powered by technology.',
@@ -129,47 +130,47 @@ class AboutPage extends StatelessWidget {
                     },
                   ),
 
-                  const SizedBox(height: 44),
+                  SizedBox(height: 44.h),
 
-                  const Align(
+                  Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Our Presence Across Cities',
                       style: TextStyle(
-                        fontSize: 44,
+                        fontSize: 44.sp,
                         fontWeight: FontWeight.w700,
                         color: Color(0xFF1E293B),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 6),
-                  const Align(
+                  SizedBox(height: 6.h),
+                  Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Delivering impactful health camps across leading corporate hubs in India.',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         color: Color(0xFF0F172A),
                       ),
                     ),
                   ),
 
-                  const SizedBox(height: 28),
+                  SizedBox(height: 28.h),
 
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: const [
+                      children: [
                         CityImage(imagePath: 'assets/company/bengaluru_city.png'),
-                        SizedBox(width: 24),
+                        SizedBox(width: 24.w),
                         CityImage(imagePath: 'assets/company/kolkata_city.png'),
-                        SizedBox(width: 24),
+                        SizedBox(width: 24.w),
                         CityImage(imagePath: 'assets/company/mumbai_city.png'),
-                        SizedBox(width: 24),
+                        SizedBox(width: 24.w),
                         CityImage(imagePath: 'assets/company/hyderabad_city.png'),
-                        SizedBox(width: 24),
+                        SizedBox(width: 24.w),
                         CityImage(imagePath: 'assets/company/delhi_city.png'),
-                        SizedBox(width: 24),
+                        SizedBox(width: 24.w),
                         CityImage(imagePath: 'assets/company/guwahati_city.png'),
                       ],
                     ),
@@ -178,7 +179,7 @@ class AboutPage extends StatelessWidget {
               ),
             ),
 
-            const Footer(),
+            Footer(),
           ],
         ),
       ),

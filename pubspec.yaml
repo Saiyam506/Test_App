@@ -12,6 +12,7 @@ dependencies:
 
   get: ^4.6.6
   url_launcher: ^6.2.5
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'dart:ui';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HoverServiceButton extends StatefulWidget {
   final String title;
@@ -38,18 +38,18 @@ class _HoverServiceButtonState extends State<HoverServiceButton> {
           begin: 1.0,
           end: isHover ? 1.05 : 1.0,
         ),
-        duration: const Duration(milliseconds: 200),
+        duration: Duration(milliseconds: 200),
         curve: Curves.easeOut,
         builder: (context, scale, child) {
           return Transform.scale(
             scale: scale,
             child: Container(
-              height: 220,
-              width: 220,
-              padding: const EdgeInsets.all(16),
+              height: 220.h,
+              width: 220.w,
+              padding: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(25.r),
                 boxShadow: [
                   BoxShadow(
                     color: Color.lerp(
@@ -58,7 +58,7 @@ class _HoverServiceButtonState extends State<HoverServiceButton> {
                       (scale - 1) / 0.05, // sync shadow with scale
                     )!,
                     blurRadius: lerpDouble(10, 20, (scale - 1) / 0.05)!,
-                    offset: const Offset(0, 6),
+                    offset: Offset(0, 6),
                   ),
                 ],
               ),
@@ -67,7 +67,7 @@ class _HoverServiceButtonState extends State<HoverServiceButton> {
           );
         },
         child: InkWell(
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(25.r),
           onTap: widget.onTap,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,16 +75,16 @@ class _HoverServiceButtonState extends State<HoverServiceButton> {
               Text(
                 widget.title,
                 maxLines: 2,
-                style: const TextStyle(
-                  fontSize: 22,
+                style: TextStyle(
+                  fontSize: 22.sp,
                   fontWeight: FontWeight.w900,
                 ),
               ),
-              const SizedBox(height: 6),
+              SizedBox(height: 6.h),
               Text(
                 widget.subtitle,
-                style: const TextStyle(
-                  fontSize: 12,
+                style: TextStyle(
+                  fontSize: 12.sp,
                   color: Colors.grey,
                 ),
               ),
@@ -137,19 +137,19 @@ class _NavButtonState extends State<NavButton> {
           mainAxisSize: MainAxisSize.min,
           children: [
             AnimatedDefaultTextStyle(
-              duration: const Duration(milliseconds: 200),
+              duration: Duration(milliseconds: 200),
               style: TextStyle(
                 color: isHover ? Colors.blue : Colors.black,
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
               ),
               child: Text(widget.text),
             ),
-            const SizedBox(height: 4),
+            SizedBox(height: 4.h),
             AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              height: 2,
-              width: isHover ? 40 : 0,
+              duration: Duration(milliseconds: 200),
+              height: 2.h,
+              width: isHover ? 40.w : 0.w,
               color: Colors.blue,
             ),
           ],
@@ -174,38 +174,38 @@ class TestimonialCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 260,
+      width: 260.w,
       height: height,
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16.r),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
         border: Border.all(color: Colors.black12),
       ),
       child: Column(
         children: [
           Row(
             children: [
-              const CircleAvatar(
-                radius: 22,
+              CircleAvatar(
+                radius: 22.r,
                 backgroundColor: Colors.grey,
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: 10.w),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     name,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 15,
+                      fontSize: 15.sp,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  SizedBox(height: 4.h),
                   Row(
                     children: List.generate(
                       5,
-                      (index) => const Icon(
+                      (index) => Icon(
                         Icons.star,
                         color: Colors.orange,
                         size: 14,
@@ -216,15 +216,15 @@ class TestimonialCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12.h),
           Expanded(
             child: Center(
               child: Text(
                 text,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 13.5,
-                  height: 1.5,
+                style: TextStyle(
+                  fontSize: 13.5.sp,
+                  height: 1.5.h,
                   color: Colors.black87,
                 ),
               ),
@@ -251,14 +251,14 @@ class HospitalBox extends StatelessWidget {
     return GestureDetector(
       onTap: onTap ?? () {},
       child: Container(
-        width: 260,
-        height: 200,
-        padding: const EdgeInsets.all(16),
+        width: 260.w,
+        height: 200.h,
+        padding: EdgeInsets.all(16.r),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.r),
           border: Border.all(color: Colors.black12),
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
               color: Colors.black12,
               blurRadius: 10,
@@ -273,7 +273,7 @@ class HospitalBox extends StatelessWidget {
                   fit: BoxFit.contain,
                 ),
               )
-            : const SizedBox(),
+            : SizedBox(),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/footer.dart';
 import 'package:test_app/widgets/gradient_elevated_button.dart';
 import 'package:test_app/landing_pages/header.dart';
@@ -18,7 +19,7 @@ class CampsPage extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: false,
         title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: EdgeInsets.symmetric(horizontal: 30.w),
           child: Header(activePage: 'Camps'),
         ),
       ),
@@ -26,28 +27,28 @@ class CampsPage extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
                 child: Stack(
                   children: [
                     Image.asset(
                       'assets/company/camps_banner.png',
                       width: double.infinity,
-                      height: 600,
+                      height: 600.h,
                       fit: BoxFit.cover,
                     ),
                     Positioned(
-                      bottom: 40,
-                      left: 0,
-                      right: 0,
+                      bottom: 40.h,
+                      left: 0.w,
+                      right: 0.w,
                       child: Center(
                         child: GradientElevatedButton(
                           text: "Schedule a Camp",
                           onPressed: () {},
-                          icon: const Icon(Icons.calendar_today, size: 20),
-                          textStyle: const TextStyle(
-                            fontSize: 20,
+                          icon: Icon(Icons.calendar_today, size: 20),
+                          textStyle: TextStyle(
+                            fontSize: 20.sp,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -58,39 +59,39 @@ class CampsPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(30, 20, 40, 20),
+              padding: EdgeInsets.fromLTRB(30.w, 20.h, 40.w, 20.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     "What We Offer in Our Health Camps",
                     style: TextStyle(
-                      fontSize: 32,
+                      fontSize: 32.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
                   ),
 
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
 
-                  const Text(
+                  Text(
                     "Comprehensive on-site health screenings designed to detect, prevent, and promote employee well-being.",
                     style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 22.sp,
                       color: Color.fromARGB(255, 41, 41, 41),
                     ),
                   ),
 
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30.h),
 
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 10, 40, 10),
+                    padding: EdgeInsets.fromLTRB(30.w, 10.h, 40.w, 10.h),
                     child: Row(
-                      children: const [
+                      children: [
                         Text(
                           "Our Services",
                           style: TextStyle(
-                            fontSize: 22,
+                            fontSize: 22.sp,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
@@ -102,7 +103,7 @@ class CampsPage extends StatelessWidget {
                   Stack(
                     children: [
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.r),
                         child: Image.asset(
                           'assets/company/camps_design.png',
                           width: double.infinity,
@@ -111,8 +112,8 @@ class CampsPage extends StatelessWidget {
                       ),
 
                       Positioned(
-                        top: 70,
-                        left: 640,
+                        top: 70.h,
+                        left: 640.w,
                         child: SectionText(
                           points: [
                             "Blood Tests: Complete blood analysis for insights on various health metrics",
@@ -124,8 +125,8 @@ class CampsPage extends StatelessWidget {
                       ),
 
                       Positioned(
-                        top: 350,
-                        left: 640,
+                        top: 350.h,
+                        left: 640.w,
                         child: SectionText(
                           points: [
                             "Vaccination Services: Flu shots and preventive vaccines administered on-site",
@@ -137,8 +138,8 @@ class CampsPage extends StatelessWidget {
                       ),
 
                       Positioned(
-                        top: 740,
-                        left: 210,
+                        top: 740.h,
+                        left: 210.w,
                         child: SectionText(
                           points: [
                             "X-Ray Services: On-site imaging for accurate diagnostic evaluation",
@@ -150,8 +151,8 @@ class CampsPage extends StatelessWidget {
                       ),
 
                       Positioned(
-                        top: 740,
-                        right: 100,
+                        top: 740.h,
+                        right: 100.w,
                         child: SectionText(
                           points: [
                             "Eye Examination: Vision testing and eye health assessment",
@@ -167,21 +168,21 @@ class CampsPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(50, 40, 40, 40),
+              padding: EdgeInsets.fromLTRB(50.w, 40.h, 40.w, 40.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   /// TITLE
-                  const Text(
+                  Text(
                     "Our Previous Ventures",
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 30.sp,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF1F2A37),
                     ),
                   ),
 
-                  const SizedBox(height: 40),
+                  SizedBox(height: 40.h),
 
                   /// TWO COLUMN LAYOUT
                   Row(
@@ -190,21 +191,21 @@ class CampsPage extends StatelessWidget {
                       /// LEFT COLUMN
                       Expanded(
                         child: Column(
-                          children: const [
+                          children: [
                             VentureItem(
                               image: "assets/company/bengaluru.png",
                               title: "Bengaluru",
                               description:
                                   "Successfully organized multiple health camps at Manyata Tech Park, Electronic City, and Whitefield Tech Hub, offering comprehensive diagnostic screenings, on-site consultations, and preventive healthcare services for employees.",
                             ),
-                            SizedBox(height: 30),
+                            SizedBox(height: 30.h),
                             VentureItem(
                               image: "assets/company/delhi.png",
                               title: "Delhi",
                               description:
                                   "Hosted corporate health awareness and screening camps at Connaught Place, focusing on preventive care, early detection, and lifestyle management through expert consultations and wellness initiatives.",
                             ),
-                            SizedBox(height: 30),
+                            SizedBox(height: 30.h),
                             VentureItem(
                               image: "assets/company/guwahati.png",
                               title: "Guwahati",
@@ -215,26 +216,26 @@ class CampsPage extends StatelessWidget {
                         ),
                       ),
 
-                      const SizedBox(width: 60),
+                      SizedBox(width: 60.w),
 
                       /// RIGHT COLUMN
                       Expanded(
                         child: Column(
-                          children: const [
+                          children: [
                             VentureItem(
                               image: "assets/company/kolkata.png",
                               title: "Kolkata",
                               description:
                                   "Conducted employee wellness camps at Salt Lake Sector V with advanced screenings, personalized health reports, and on-site consultations to support employee well-being and early diagnosis.",
                             ),
-                            SizedBox(height: 30),
+                            SizedBox(height: 30.h),
                             VentureItem(
                               image: "assets/company/mumbai.png",
                               title: "Mumbai",
                               description:
                                   "Organized corporate wellness camps for large enterprises, including full-body checkups, diagnostic screenings, and expert consultations tailored to increasing employee health and productivity.",
                             ),
-                            SizedBox(height: 30),
+                            SizedBox(height: 30.h),
                             VentureItem(
                               image: "assets/company/hyderabad.png",
                               title: "Hyderabad",
@@ -250,9 +251,9 @@ class CampsPage extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 30),
+            SizedBox(height: 30.h),
 
-            const Footer(),
+            Footer(),
           ],
         ),
       ),
@@ -264,13 +265,13 @@ class CampsPage extends StatelessWidget {
     required List<String> points,
   }) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20.r),
       decoration: BoxDecoration(
-        color: const Color(0xFF22C55E).withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(16),
+        color: Color(0xFF22C55E).withValues(alpha: 0.08),
+        borderRadius: BorderRadius.circular(16.r),
         border: Border.all(
-          color: const Color(0xFF22C55E),
-          width: 1.2,
+          color: Color(0xFF22C55E),
+          width: 1.2.w,
         ),
       ),
       child: Column(
@@ -278,20 +279,20 @@ class CampsPage extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
-              fontSize: 18,
+            style: TextStyle(
+              fontSize: 18.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10.h),
 
           ...points.map(
             (point) => Padding(
-              padding: const EdgeInsets.only(bottom: 6),
+              padding: EdgeInsets.only(bottom: 6.h),
               child: Text(
                 "• $point",
-                style: const TextStyle(
-                  fontSize: 14,
+                style: TextStyle(
+                  fontSize: 14.sp,
                   color: Colors.grey,
                 ),
               ),
