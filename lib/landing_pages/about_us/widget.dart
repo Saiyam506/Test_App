@@ -53,3 +53,18 @@ class InfoCard extends StatelessWidget {
     );
   }
 }
+
+class CityImage extends StatelessWidget {
+  const CityImage({required this.imagePath, super.key});
+
+  final String imagePath;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      imagePath,
+      width: 170,
+      fit: BoxFit.contain,
+    );
+  }
+}

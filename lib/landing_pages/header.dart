@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/landing_pages/about_us/page.dart';
 import 'package:test_app/landing_pages/camp/page.dart';
+import 'package:test_app/landing_pages/contact_us/page.dart';
 import 'package:test_app/landing_pages/home/page.dart';
 
 class Header extends StatelessWidget {
@@ -127,6 +128,14 @@ class Header extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => const AboutPage(),
+            ),
+          );
+        }
+        if (text == 'Contact Us') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ContactUsPage(),
             ),
           );
         }

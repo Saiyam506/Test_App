@@ -167,7 +167,7 @@ class CampsPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(30, 40, 40, 40),
+              padding: const EdgeInsets.fromLTRB(50, 40, 40, 40),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
