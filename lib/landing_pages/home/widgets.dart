@@ -188,7 +188,12 @@ class TestimonialCard extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 22.r,
-                backgroundColor: Colors.grey,
+                backgroundColor: Colors.grey.shade400,
+                child: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 24.r,
+                ),
               ),
               SizedBox(width: 10.w),
               Column(
@@ -223,7 +228,7 @@ class TestimonialCard extends StatelessWidget {
                 text,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 13.5.sp,
+                  fontSize: 14.sp,
                   height: 1.5.h,
                   color: Colors.black87,
                 ),

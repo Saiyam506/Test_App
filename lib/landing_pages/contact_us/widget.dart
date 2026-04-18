@@ -29,7 +29,7 @@ class ContactFormCard extends StatelessWidget {
             Text(
               'How Can We Assist You?',
               style: TextStyle(
-                fontSize: compact ? 32.sp : 32.sp,
+                fontSize: compact ? 30.sp : 30.sp,
                 height: 1.08.h,
                 fontWeight: FontWeight.w700,
                 color: Color(0xFF1E293B),
@@ -39,7 +39,7 @@ class ContactFormCard extends StatelessWidget {
             Text(
               'Fill out the form below and our team will get back to you shortly.',
               style: TextStyle(
-                fontSize: compact ? 16.sp : 18.sp,
+                fontSize: compact ? 14.sp : 16.sp,
                 color: Color(0xFF64748B),
                 height: 1.35.h,
               ),
@@ -87,7 +87,7 @@ class ContactDetails extends StatelessWidget {
               icon: Icons.phone_rounded,
               title: 'Call Us',
               titleColor: Color(0xFF2563EB),
-              value: '+91 98765 43210',
+              value: '+91 63666 77010',
               compact: compact,
             ),
             SizedBox(height: 18.h),
@@ -103,7 +103,7 @@ class ContactDetails extends StatelessWidget {
               icon: Icons.email_rounded,
               title: 'Email',
               titleColor: Color(0xFF2563EB),
-              value: 'info@medidocs.in',
+              value: 'support@medidocs.in',
               compact: compact,
             ),
             SizedBox(height: 18.h),
@@ -319,7 +319,7 @@ class OurLocationSection extends StatelessWidget {
                 Text(
                   'Our Location',
                   style: TextStyle(
-                    fontSize: 30.sp,
+                    fontSize: 26.sp,
                     fontWeight: FontWeight.w700,
                     color: Color(0xFF1E293B),
                   ),
@@ -336,13 +336,13 @@ class OurLocationSection extends StatelessWidget {
                 _LocationLine(
                   icon: Icons.call_outlined,
                   iconColor: Color(0xFF334155),
-                  title: '+91 98765 43210',
+                  title: '+91 63666 77010',
                 ),
                 SizedBox(height: 12.h),
                 _LocationLine(
                   icon: Icons.email_outlined,
                   iconColor: Color(0xFF334155),
-                  title: 'info@medidocs.in',
+                  title: 'support@medidocs.in',
                 ),
                 SizedBox(height: 12.h),
                 _LocationLine(
@@ -515,7 +515,7 @@ class _FaqCard extends StatelessWidget {
                     color: Color(0xFF2563EB),
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(Icons.add, color: Colors.white, size: 12),
+                  child: Icon(Icons.help_outline_rounded, color: Colors.white, size: 12),
                 ),
                 SizedBox(width: 10.w),
                 Expanded(
@@ -528,7 +528,6 @@ class _FaqCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Icon(Icons.chevron_right_rounded, color: Color(0xFF2563EB), size: 20),
               ],
             ),
             SizedBox(height: 12.h),
@@ -566,7 +565,7 @@ class _ContactInputField extends StatelessWidget {
         fillColor: Color(0xFFF8FAFC),
         hintStyle: TextStyle(
           color: Color(0xFF6B7280),
-          fontSize: compact ? 16.sp : 18.sp,
+          fontSize: compact ? 14.sp : 16.sp,
         ),
         contentPadding: EdgeInsets.symmetric(
           horizontal: 16.w,
@@ -623,7 +622,7 @@ class _SubmitButton extends StatelessWidget {
           child: Text(
             'Send Message',
             style: TextStyle(
-              fontSize: 18.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
               color: Colors.white,
             ),

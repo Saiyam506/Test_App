@@ -18,10 +18,7 @@ class CampsPage extends StatelessWidget {
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         automaticallyImplyLeading: false,
-        title: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.w),
-          child: Header(activePage: 'Camps'),
-        ),
+        title: Header(activePage: 'Camps'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -33,7 +30,7 @@ class CampsPage extends StatelessWidget {
                 child: Stack(
                   children: [
                     Image.asset(
-                      'assets/company/camps_banner.png',
+                      'assets/company/camps_bg_new.png',
                       width: double.infinity,
                       height: 600.h,
                       fit: BoxFit.cover,
@@ -83,86 +80,13 @@ class CampsPage extends StatelessWidget {
                   ),
 
                   SizedBox(height: 30.h),
-
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(30.w, 10.h, 40.w, 10.h),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Our Services",
-                          style: TextStyle(
-                            fontSize: 22.sp,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20.r),
+                    child: Image.asset(
+                      'assets/company/health_services_image.png',
+                      width: double.infinity,
+                      fit: BoxFit.cover,
                     ),
-                  ),
-
-                  Stack(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(20.r),
-                        child: Image.asset(
-                          'assets/company/camps_design.png',
-                          width: double.infinity,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-
-                      Positioned(
-                        top: 70.h,
-                        left: 640.w,
-                        child: SectionText(
-                          points: [
-                            "Blood Tests: Complete blood analysis for insights on various health metrics",
-                            "Blood Pressure Check: Monitor cardiovascular health",
-                            "ECG(Electrocardiogram): Heart health monitoring",
-                          ],
-                          color: Colors.blue,
-                        ),
-                      ),
-
-                      Positioned(
-                        top: 350.h,
-                        left: 640.w,
-                        child: SectionText(
-                          points: [
-                            "Vaccination Services: Flu shots and preventive vaccines administered on-site",
-                            "Health & Wellness Workshops: Educate employees on healthy lifestyle practices",
-                            "Doctor Consultations: Personalized advice for improving health",
-                          ],
-                          color: Colors.green,
-                        ),
-                      ),
-
-                      Positioned(
-                        top: 740.h,
-                        left: 210.w,
-                        child: SectionText(
-                          points: [
-                            "X-Ray Services: On-site imaging for accurate diagnostic evaluation",
-                            "Ultrasound Services: High resolution imaging for thorough health check",
-                            "Blood Sugar & Lipid Profile Testing: Quick screening for diabetes and cholesterol levels",
-                          ],
-                          color: Colors.orange,
-                        ),
-                      ),
-
-                      Positioned(
-                        top: 740.h,
-                        right: 100.w,
-                        child: SectionText(
-                          points: [
-                            "Eye Examination: Vision testing and eye health assessment",
-                            "Dental Check-Up: Oral hygiene and dental health screening",
-                            "Lung Function Test (Spirometry): Assess respiratory health",
-                          ],
-                          color: Colors.indigo,
-                        ),
-                      ),
-                    ],
                   ),
                 ],
               ),

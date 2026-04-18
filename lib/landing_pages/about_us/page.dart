@@ -18,10 +18,7 @@ class AboutPage extends StatelessWidget {
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         automaticallyImplyLeading: false,
-        title: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.w),
-          child: Header(activePage: 'About Us'),
-        ),
+        title: Header(activePage: 'About Us'),
       ),
 
       body: SingleChildScrollView(
@@ -58,7 +55,7 @@ class AboutPage extends StatelessWidget {
                                     TextSpan(
                                       text: "Revolutionizing ",
                                       style: TextStyle(
-                                        fontSize: 30.sp,
+                                        fontSize: 26.sp,
                                         fontWeight: FontWeight.w700,
                                         color: Color(0xFF1F2A37),
                                       ),
@@ -66,7 +63,7 @@ class AboutPage extends StatelessWidget {
                                     TextSpan(
                                       text: "Healthcare Access",
                                       style: TextStyle(
-                                        fontSize: 30.sp,
+                                        fontSize: 26.sp,
                                         fontWeight: FontWeight.w700,
                                         color: Color(0xFF3B82F6),
                                       ),
@@ -102,27 +99,41 @@ class AboutPage extends StatelessWidget {
 
                   LayoutBuilder(
                     builder: (context, constraints) {
-                      final bool useTwoColumns = constraints.maxWidth > 980;
-                      final double cardWidth = useTwoColumns ? (constraints.maxWidth - 24 - 60) / 2 : constraints.maxWidth - 60;
+                      const double gap = 12;
 
                       return Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: cardWidth,
+                          Expanded(
                             child: InfoCard(
                               icon: Icons.gps_fixed_rounded,
                               title: 'MISSION',
-                              description: 'To make healthcare accessible, affordable, and efficient for everyone.',
+                              description:
+                                  'To make healthcare accessible, affordable, and efficient for everyone by simplifying preventive care, diagnostics, and timely medical support.',
                             ),
                           ),
-                          SizedBox(width: 24.w),
-                          SizedBox(
-                            width: cardWidth,
+                          SizedBox(width: gap),
+                          Expanded(
                             child: InfoCard(
                               icon: Icons.tips_and_updates_outlined,
                               title: 'VISION',
-                              description: 'To build a connected healthcare ecosystem powered by technology.',
+                              description: 'To build a connected healthcare ecosystem powered by technology, transparency, and compassionate service across every stage of care.',
+                            ),
+                          ),
+                          SizedBox(width: gap),
+                          Expanded(
+                            child: InfoCard(
+                              icon: Icons.groups_2_outlined,
+                              title: 'VALUES',
+                              description: 'We uphold integrity, empathy, and excellence in everything we do, ensuring patient-first care and continuous improvement.',
+                            ),
+                          ),
+                          SizedBox(width: gap),
+                          Expanded(
+                            child: InfoCard(
+                              icon: Icons.verified_user_outlined,
+                              title: 'OUR COMMITMENT',
+                              description: 'We are committed to delivering reliable, high-quality healthcare services with a focus on safety, trust, and long-term well-being.',
                             ),
                           ),
                         ],
@@ -137,7 +148,7 @@ class AboutPage extends StatelessWidget {
                     child: Text(
                       'Our Presence Across Cities',
                       style: TextStyle(
-                        fontSize: 44.sp,
+                        fontSize: 26.sp,
                         fontWeight: FontWeight.w700,
                         color: Color(0xFF1E293B),
                       ),
@@ -149,7 +160,7 @@ class AboutPage extends StatelessWidget {
                     child: Text(
                       'Delivering impactful health camps across leading corporate hubs in India.',
                       style: TextStyle(
-                        fontSize: 18.sp,
+                        fontSize: 16.sp,
                         color: Color(0xFF0F172A),
                       ),
                     ),
@@ -178,6 +189,8 @@ class AboutPage extends StatelessWidget {
                 ],
               ),
             ),
+
+            SizedBox(height: 40.h),
 
             Footer(),
           ],

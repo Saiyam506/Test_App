@@ -18,33 +18,33 @@ class InfoCard extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: Color(0xFFF8FAFC),
-        borderRadius: BorderRadius.circular(28.r),
+        borderRadius: BorderRadius.circular(18.r),
         border: Border.all(color: Color(0xFFE2E8F0)),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 24.h),
+        padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 44, color: Color(0xFF0F172A)),
-            SizedBox(height: 12.h),
+            Icon(icon, size: 30, color: Color(0xFF0F172A)),
+            SizedBox(height: 8.h),
             Text(
               title,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 42.sp,
+                fontSize: 22.sp,
                 height: 1.h,
                 fontWeight: FontWeight.w700,
                 color: Color(0xFF1E293B),
               ),
             ),
-            SizedBox(height: 16.h),
+            SizedBox(height: 10.h),
             Text(
               description,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 18.sp,
-                height: 1.45.h,
+                fontSize: 13.sp,
+                height: 1.35.h,
                 color: Color(0xFF475569),
               ),
             ),

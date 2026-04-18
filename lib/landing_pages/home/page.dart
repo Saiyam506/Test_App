@@ -47,10 +47,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
-        title: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.w),
-          child: Header(activePage: 'Home'),
-        ),
+        title: Header(activePage: 'Home'),
       ),
 
       body: SingleChildScrollView(
@@ -214,11 +211,13 @@ class HomePage extends StatelessWidget {
                                       'Booking a full-body checkup was incredibly seamless. The entire process was smooth from start to finish, and the phlebotomist arrived right on time. Very professional service and highly recommended.',
                                   height: 240.h,
                                 ),
+                                SizedBox(height: 18.h),
                                 TestimonialCard(
                                   name: 'Priya M., 27',
                                   text: 'Really good services. Everything was well organized and the staff was polite and helpful throughout the process.',
                                   height: 170.h,
                                 ),
+                                SizedBox(height: 18.h),
                                 TestimonialCard(
                                   name: 'Arjun K., 35',
                                   text: 'Quick response and very professional staff. The booking was easy and the service exceeded my expectations.',
@@ -240,11 +239,13 @@ class HomePage extends StatelessWidget {
                                       'Seamless booking experience with punctual staff. I received my digital reports within 24 hours without any hassle. Highly recommend this service.',
                                   height: 200.h,
                                 ),
+                                SizedBox(height: 18.h),
                                 TestimonialCard(
                                   name: 'Karthik V., 33',
                                   text: 'Excellent preventive care package for my parents. Zero waiting time, clean setup, and everything was handled very professionally.',
                                   height: 220.h,
                                 ),
+                                SizedBox(height: 18.h),
                                 TestimonialCard(
                                   name: 'Meera D., 30',
                                   text: 'Very smooth and hassle-free experience. The support team was responsive and guided me throughout the process.',
@@ -265,11 +266,13 @@ class HomePage extends StatelessWidget {
                                   text: 'Convenient home collection and great doctor consultation. Perfect solution for busy professionals like me.',
                                   height: 230.h,
                                 ),
+                                SizedBox(height: 18.h),
                                 TestimonialCard(
                                   name: 'Sneha A., 29',
                                   text: 'Perfectly coordinated team. They handled our society camp efficiently and everything was managed smoothly.',
                                   height: 190.h,
                                 ),
+                                SizedBox(height: 18.h),
                                 TestimonialCard(
                                   name: 'Rohit P., 40',
                                   text: 'Highly reliable and fast service. The entire experience was professional and trustworthy from start to finish.',

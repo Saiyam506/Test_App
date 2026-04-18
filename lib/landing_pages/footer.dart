@@ -123,7 +123,18 @@ class Footer extends StatelessWidget {
                             Icon(Icons.phone, color: Colors.white, size: 18),
                             SizedBox(width: 8.w),
                             Text(
-                              "+91 98765 43210",
+                              "+91 63666 77010",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10.h),
+                        Row(
+                          children: [
+                            Icon(Icons.email, color: Colors.white, size: 18),
+                            SizedBox(width: 8.w),
+                            Text(
+                              "support@medidocs.in",
                               style: TextStyle(color: Colors.white),
                             ),
                           ],
