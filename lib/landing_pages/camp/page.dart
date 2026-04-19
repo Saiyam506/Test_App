@@ -117,21 +117,21 @@ class CampsPage extends StatelessWidget {
                         child: Column(
                           children: [
                             VentureItem(
-                              image: "assets/company/bengaluru.png",
+                              image: "assets/cities/bengaluru.png",
                               title: "Bengaluru",
                               description:
                                   "Successfully organized multiple health camps at Manyata Tech Park, Electronic City, and Whitefield Tech Hub, offering comprehensive diagnostic screenings, on-site consultations, and preventive healthcare services for employees.",
                             ),
                             SizedBox(height: 30.h),
                             VentureItem(
-                              image: "assets/company/delhi.png",
+                              image: "assets/cities/delhi.png",
                               title: "Delhi",
                               description:
                                   "Hosted corporate health awareness and screening camps at Connaught Place, focusing on preventive care, early detection, and lifestyle management through expert consultations and wellness initiatives.",
                             ),
                             SizedBox(height: 30.h),
                             VentureItem(
-                              image: "assets/company/guwahati.png",
+                              image: "assets/cities/guwahati.png",
                               title: "Guwahati",
                               description:
                                   "Conducted community-focused health camps with essential screenings, awareness programs, and accessible healthcare services aimed at improving preventive care and overall community well-being.",
@@ -147,21 +147,21 @@ class CampsPage extends StatelessWidget {
                         child: Column(
                           children: [
                             VentureItem(
-                              image: "assets/company/kolkata.png",
+                              image: "assets/cities/kolkata.png",
                               title: "Kolkata",
                               description:
                                   "Conducted employee wellness camps at Salt Lake Sector V with advanced screenings, personalized health reports, and on-site consultations to support employee well-being and early diagnosis.",
                             ),
                             SizedBox(height: 30.h),
                             VentureItem(
-                              image: "assets/company/mumbai.png",
+                              image: "assets/cities/mumbai.png",
                               title: "Mumbai",
                               description:
                                   "Organized corporate wellness camps for large enterprises, including full-body checkups, diagnostic screenings, and expert consultations tailored to increasing employee health and productivity.",
                             ),
                             SizedBox(height: 30.h),
                             VentureItem(
-                              image: "assets/company/hyderabad.png",
+                              image: "assets/cities/hyderabad.png",
                               title: "Hyderabad",
                               description:
                                   "Delivered on-site preventive healthcare services with comprehensive screenings, doctor consultations, and customized wellness programs aimed at improving long-term employee health outcomes.",

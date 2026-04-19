@@ -317,22 +317,22 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         HospitalBox(
-                          imagePath: 'assets/company/narayana_health.png',
+                          imagePath: 'assets/partnered_hospitals/narayana_health.png',
                           onTap: () => debugPrint('Narayana Health'),
                         ),
                         SizedBox(width: 20.w),
                         HospitalBox(
-                          imagePath: 'assets/company/aster_rv.png',
+                          imagePath: 'assets/partnered_hospitals/aster_rv.png',
                           onTap: () => debugPrint('Aster RV'),
                         ),
                         SizedBox(width: 20.w),
                         HospitalBox(
-                          imagePath: 'assets/company/apollo_hospital_image.png',
+                          imagePath: 'assets/partnered_hospitals/apollo_hospital_image.png',
                           onTap: () => debugPrint('Apollo Hospitals'),
                         ),
                         SizedBox(width: 20.w),
                         HospitalBox(
-                          imagePath: 'assets/company/manipal_hospital_image.png',
+                          imagePath: 'assets/partnered_hospitals/manipal_hospital_image.png',
                           onTap: () => debugPrint('Manipal Hospital'),
                         ),
                       ],
@@ -344,22 +344,22 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         HospitalBox(
-                          imagePath: 'assets/company/aikya_hospital_image.png',
+                          imagePath: 'assets/partnered_hospitals/aikya_hospital_image.png',
                           onTap: () => debugPrint('Aikya Hospital'),
                         ),
                         SizedBox(width: 20.w),
                         HospitalBox(
-                          imagePath: 'assets/company/sparsh_hospital_image.png',
+                          imagePath: 'assets/partnered_hospitals/sparsh_hospital_image.png',
                           onTap: () => debugPrint('Sparsh Hospital'),
                         ),
                         SizedBox(width: 20.w),
                         HospitalBox(
-                          imagePath: 'assets/company/kauvery_hospital_image.png',
+                          imagePath: 'assets/partnered_hospitals/kauvery_hospital_image.png',
                           onTap: () => debugPrint('Kauvery Hospital'),
                         ),
                         SizedBox(width: 20.w),
                         HospitalBox(
-                          imagePath: 'assets/company/aster_cmi_hospital_image.png',
+                          imagePath: 'assets/partnered_hospitals/aster_cmi_hospital_image.png',
                           onTap: () => debugPrint('Aster CMI'),
                         ),
                       ],

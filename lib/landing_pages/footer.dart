@@ -44,20 +44,20 @@ class Footer extends StatelessWidget {
                         Row(
                           children: [
                             _socialButton(
-                              icon: Icons.facebook,
-                              url: "https://facebook.com",
+                              imagePath: "assets/company/facebook.png",
+                              url: "https://www.facebook.com/medidocsindia",
                               color: Colors.blue,
                             ),
                             SizedBox(width: 12.w),
                             _socialButton(
-                              icon: Icons.camera_alt,
-                              url: "https://instagram.com",
+                              imagePath: "assets/company/instagram.png",
+                              url: "https://www.instagram.com/medidocsindia/",
                               color: Colors.pink,
                             ),
                             SizedBox(width: 12.w),
                             _socialButton(
-                              icon: Icons.work,
-                              url: "https://linkedin.com",
+                              imagePath: "assets/company/linkedin.png",
+                              url: "https://in.linkedin.com/company/medi-docs-india",
                               color: Colors.blueAccent,
                             ),
                           ],
@@ -217,7 +217,7 @@ class Footer extends StatelessWidget {
 }
 
 Widget _socialButton({
-  required IconData icon,
+  required String imagePath,
   required String url,
   required Color color,
 }) {
@@ -229,12 +229,17 @@ Widget _socialButton({
       }
     },
     child: Container(
-      padding: EdgeInsets.all(12.r),
+      padding: EdgeInsets.all(14.r),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(10.r),
       ),
-      child: Icon(icon, color: Colors.white),
+      child: Image.asset(
+        imagePath,
+        width: 32.w,
+        height: 32.h,
+        fit: BoxFit.contain,
+      ),
     ),
   );
 }

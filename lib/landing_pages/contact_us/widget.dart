@@ -10,45 +10,45 @@ class ContactFormCard extends StatelessWidget {
     final bool compact = MediaQuery.sizeOf(context).width < 900;
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Color(0xFFFFFFFF),
-        borderRadius: BorderRadius.circular(20.r),
-        border: Border.all(color: Color(0xFFE2E8F0)),
+        color: const Color(0xFFFAFBFC),
+        borderRadius: BorderRadius.circular(18.r),
+        border: Border.all(color: const Color(0xFFF0F1F3)),
         boxShadow: [
           BoxShadow(
-            color: Color(0x140F172A),
-            blurRadius: 28,
-            offset: Offset(0, 14),
+            color: const Color(0x0A0F172A),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
           ),
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.fromLTRB(22.w, 20.h, 22.w, 20.h),
+        padding: EdgeInsets.fromLTRB(28.w, 28.h, 28.w, 28.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'How Can We Assist You?',
               style: TextStyle(
-                fontSize: compact ? 30.sp : 30.sp,
-                height: 1.08.h,
+                fontSize: compact ? 28.sp : 28.sp,
+                height: 1.2.h,
                 fontWeight: FontWeight.w700,
-                color: Color(0xFF1E293B),
+                color: const Color(0xFF0F172A),
               ),
             ),
-            SizedBox(height: 8.h),
+            SizedBox(height: 12.h),
             Text(
               'Fill out the form below and our team will get back to you shortly.',
               style: TextStyle(
-                fontSize: compact ? 14.sp : 16.sp,
-                color: Color(0xFF64748B),
-                height: 1.35.h,
+                fontSize: compact ? 14.sp : 15.sp,
+                color: const Color(0xFF64748B),
+                height: 1.4.h,
               ),
             ),
             SizedBox(height: 18.h),
             _ContactInputField(hintText: 'Your Name'),
-            SizedBox(height: 12.h),
+            SizedBox(height: 18.h),
             _ContactInputField(hintText: 'Your Email'),
-            SizedBox(height: 12.h),
+            SizedBox(height: 18.h),
             _ContactInputField(hintText: 'Message', maxLines: 4),
             SizedBox(height: 18.h),
             _SubmitButton(),
@@ -64,55 +64,46 @@ class ContactDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool compact = MediaQuery.sizeOf(context).width < 900;
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Color(0xFFFFFFFF),
-        borderRadius: BorderRadius.circular(20.r),
-        border: Border.all(color: Color(0xFFE2E8F0)),
+        color: const Color(0xFFFAFBFC),
+        borderRadius: BorderRadius.circular(18.r),
+        border: Border.all(color: const Color(0xFFF0F1F3)),
         boxShadow: [
           BoxShadow(
-            color: Color(0x120F172A),
-            blurRadius: 24,
-            offset: Offset(0, 12),
+            color: const Color(0x0A0F172A),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
           ),
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.fromLTRB(22.w, 20.h, 22.w, 18.h),
+        padding: EdgeInsets.fromLTRB(28.w, 24.h, 28.w, 24.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _ContactDetailItem(
               icon: Icons.phone_rounded,
               title: 'Call Us',
-              titleColor: Color(0xFF2563EB),
               value: '+91 63666 77010',
-              compact: compact,
             ),
-            SizedBox(height: 18.h),
+            SizedBox(height: 22.h),
             _ContactDetailItem(
               icon: Icons.location_on_rounded,
               title: 'Address',
-              titleColor: Color(0xFFDC2626),
               value: 'Baner-Mhalunge Main Road, Baner,\nPune - 411045, Maharashtra.',
-              compact: compact,
             ),
-            SizedBox(height: 18.h),
+            SizedBox(height: 22.h),
             _ContactDetailItem(
               icon: Icons.email_rounded,
               title: 'Email',
-              titleColor: Color(0xFF2563EB),
               value: 'support@medidocs.in',
-              compact: compact,
             ),
-            SizedBox(height: 18.h),
+            SizedBox(height: 22.h),
             _ContactDetailItem(
               icon: Icons.access_time_filled_rounded,
               title: 'Working Hours',
-              titleColor: Color(0xFFDC2626),
               value: '24/7',
-              compact: compact,
             ),
           ],
         ),
@@ -546,85 +537,147 @@ class _FaqCard extends StatelessWidget {
   }
 }
 
-class _ContactInputField extends StatelessWidget {
+class _ContactInputField extends StatefulWidget {
   const _ContactInputField({required this.hintText, this.maxLines = 1});
 
   final String hintText;
   final int maxLines;
 
   @override
-  Widget build(BuildContext context) {
-    final bool compact = MediaQuery.sizeOf(context).width < 900;
-
-    return TextField(
-      maxLines: maxLines,
-      decoration: InputDecoration(
-        hintText: hintText,
-        isDense: true,
-        filled: true,
-        fillColor: Color(0xFFF8FAFC),
-        hintStyle: TextStyle(
-          color: Color(0xFF6B7280),
-          fontSize: compact ? 14.sp : 16.sp,
-        ),
-        contentPadding: EdgeInsets.symmetric(
-          horizontal: 16.w,
-          vertical: maxLines > 1 ? 16 : 15,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16.r),
-          borderSide: BorderSide(color: Color(0xFFE5E7EB)),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16.r),
-          borderSide: BorderSide(color: Color(0xFFD1D5DB)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16.r),
-          borderSide: BorderSide(color: Color(0xFF2563EB), width: 1.5.w),
-        ),
-      ),
-    );
-  }
+  State<_ContactInputField> createState() => _ContactInputFieldState();
 }
 
-class _SubmitButton extends StatelessWidget {
-  const _SubmitButton();
+class _ContactInputFieldState extends State<_ContactInputField> {
+  late final FocusNode _focusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode = FocusNode();
+    _focusNode.addListener(() {
+      if (mounted) {
+        setState(() {});
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(14.r),
-          gradient: LinearGradient(
-            colors: [Color(0xFF3B82F6), Color(0xFF2563EB)],
+    final bool compact = MediaQuery.sizeOf(context).width < 900;
+
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.ease,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12.r),
+        boxShadow: _focusNode.hasFocus
+            ? const [
+                BoxShadow(
+                  color: Color(0x1F2563EB),
+                  blurRadius: 8,
+                  spreadRadius: 0,
+                  offset: Offset(0, 0),
+                ),
+              ]
+            : const [],
+      ),
+      child: TextField(
+        focusNode: _focusNode,
+        maxLines: widget.maxLines,
+        decoration: InputDecoration(
+          hintText: widget.hintText,
+          isDense: true,
+          filled: true,
+          fillColor: const Color(0xFFFAFBFC),
+          hintStyle: TextStyle(
+            color: const Color(0xFF8B92A9),
+            fontSize: compact ? 14.sp : 15.sp,
           ),
-          boxShadow: [
-            BoxShadow(
-              color: Color(0x263B82F6),
-              blurRadius: 14,
-              offset: Offset(0, 6),
-            ),
-          ],
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: 14.w,
+            vertical: 14.h,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12.r),
+            borderSide: const BorderSide(color: Color(0xFFE8EAEF)),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12.r),
+            borderSide: const BorderSide(color: Color(0xFFE8EAEF), width: 1),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12.r),
+            borderSide: const BorderSide(color: Color(0xFF2563EB), width: 1.5),
+          ),
         ),
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.transparent,
-            shadowColor: Colors.transparent,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(14.r),
+      ),
+    );
+  }
+}
+
+class _SubmitButton extends StatefulWidget {
+  const _SubmitButton();
+
+  @override
+  State<_SubmitButton> createState() => _SubmitButtonState();
+}
+
+class _SubmitButtonState extends State<_SubmitButton> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      cursor: SystemMouseCursors.click,
+      child: AnimatedScale(
+        scale: _isHovered ? 1.02 : 1.0,
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.ease,
+        child: SizedBox(
+          width: double.infinity,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.ease,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12.r),
+              gradient: const LinearGradient(
+                colors: [Color(0xFF2563EB), Color(0xFF1E40AF)],
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: _isHovered ? const Color(0x2D2563EB) : const Color(0x1A2563EB),
+                  blurRadius: _isHovered ? 16 : 10,
+                  offset: Offset(0, _isHovered ? 6 : 2),
+                ),
+              ],
             ),
-            padding: EdgeInsets.symmetric(vertical: 16.h),
-          ),
-          child: Text(
-            'Send Message',
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                padding: EdgeInsets.symmetric(vertical: 16.h),
+              ),
+              child: Text(
+                'Send Message',
+                style: TextStyle(
+                  fontSize: 15.sp,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  letterSpacing: 0.3,
+                ),
+              ),
             ),
           ),
         ),
@@ -633,66 +686,89 @@ class _SubmitButton extends StatelessWidget {
   }
 }
 
-class _ContactDetailItem extends StatelessWidget {
+class _ContactDetailItem extends StatefulWidget {
   const _ContactDetailItem({
     required this.icon,
     required this.title,
-    required this.titleColor,
     required this.value,
-    required this.compact,
   });
 
   final IconData icon;
   final String title;
-  final Color titleColor;
   final String value;
-  final bool compact;
+
+  @override
+  State<_ContactDetailItem> createState() => _ContactDetailItemState();
+}
+
+class _ContactDetailItemState extends State<_ContactDetailItem> {
+  bool _isHovered = false;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      cursor: SystemMouseCursors.grab,
+      child: AnimatedOpacity(
+        opacity: _isHovered ? 0.9 : 1.0,
+        duration: const Duration(milliseconds: 200),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: compact ? 34.w : 38.w,
-              height: compact ? 34.h : 38.h,
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              curve: Curves.ease,
+              width: 44.w,
+              height: 44.w,
               decoration: BoxDecoration(
-                color: titleColor.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(12.r),
+                shape: BoxShape.circle,
+                color: const Color(0xFFE0E7FF),
+                boxShadow: _isHovered
+                    ? [
+                        const BoxShadow(
+                          color: Color(0x152563EB),
+                          blurRadius: 10,
+                          offset: Offset(0, 4),
+                        ),
+                      ]
+                    : [],
               ),
-              child: Icon(icon, size: compact ? 18 : 20, color: titleColor),
+              child: Icon(
+                widget.icon,
+                size: 22,
+                color: const Color(0xFF2563EB),
+              ),
             ),
-            SizedBox(width: 10.w),
+            SizedBox(width: 16.w),
             Expanded(
-              child: Text(
-                title,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: compact ? 22.sp : 24.sp,
-                  fontWeight: FontWeight.w400,
-                  color: titleColor,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.title,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w700,
+                      color: const Color(0xFF0F172A),
+                    ),
+                  ),
+                  SizedBox(height: 6.h),
+                  Text(
+                    widget.value,
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      height: 1.5.h,
+                      color: const Color(0xFF64748B),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
         ),
-        SizedBox(height: 10.h),
-        Padding(
-          padding: EdgeInsets.only(left: 48.w),
-          child: Text(
-            value,
-            style: TextStyle(
-              fontSize: compact ? 16.sp : 18.sp,
-              fontWeight: FontWeight.w400,
-              height: 1.4.h,
-              color: Color(0xFF111827),
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

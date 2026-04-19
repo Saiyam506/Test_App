@@ -25,13 +25,7 @@ class ContactUsPage extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Color(0xFFF8FAFC), Color(0xFFF1F5F9)],
-                ),
-              ),
+              color: Colors.white,
               padding: EdgeInsets.symmetric(vertical: 48.h),
               child: Center(
                 child: Container(
@@ -155,31 +149,31 @@ class ContactUsPage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          SizedBox(height: 26.h),
+                          SizedBox(height: 76.h),
                           if (compact)
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 ContactFormCard(),
-                                SizedBox(height: 20.h),
+                                SizedBox(height: 24.h),
                                 ContactDetails(),
                               ],
                             )
                           else
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Expanded(child: ContactFormCard()),
-                                SizedBox(width: 20.w),
+                                SizedBox(width: 24.w),
                                 Expanded(child: ContactDetails()),
                               ],
                             ),
-                          SizedBox(height: 26.h),
+                          SizedBox(height: 76.h),
                           WhyChooseSection(),
-                          SizedBox(height: 26.h),
+                          SizedBox(height: 76.h),
                           OurLocationSection(),
-                          SizedBox(height: 26.h),
+                          SizedBox(height: 76.h),
                           FaqSection(),
                         ],
                       );
