@@ -30,13 +30,63 @@ class CampsPage extends StatelessWidget {
                 child: Stack(
                   children: [
                     Image.asset(
-                      'assets/company/camps_bg_new.png',
+                      'assets/company/camps_bg_1.png',
                       width: double.infinity,
                       height: 600.h,
                       fit: BoxFit.cover,
                     ),
+                    Positioned.fill(
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                            colors: [
+                              Colors.black.withValues(alpha: 0.68),
+                              Colors.black.withValues(alpha: 0.32),
+                              Colors.transparent,
+                            ],
+                            stops: [0.0, 0.36, 0.78],
+                          ),
+                        ),
+                      ),
+                    ),
                     Positioned(
-                      bottom: 40.h,
+                      top: 70.h,
+                      left: 40.w,
+                      right: 90.w,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Healthcare Camps,\nMade Accessible",
+                            style: TextStyle(
+                              fontSize: 50.sp,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                              height: 1.12,
+                            ),
+                          ),
+                          SizedBox(height: 18.h),
+                          Text(
+                            "Bringing quality medical services closer to\ncommunities through organized health camps.",
+                            style: TextStyle(
+                              fontSize: 27.sp,
+                              color: Colors.white.withValues(alpha: 0.90),
+                              height: 1.35,
+                            ),
+                          ),
+                          SizedBox(height: 34.h),
+                          _heroPoint("Certified Doctors"),
+                          SizedBox(height: 8.h),
+                          _heroPoint("100+ Camps Conducted"),
+                          SizedBox(height: 8.h),
+                          _heroPoint("24/7 Support"),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 28.h,
                       left: 0.w,
                       right: 0.w,
                       child: Center(
@@ -181,6 +231,28 @@ class CampsPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _heroPoint(String text) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(
+          Icons.check,
+          color: Colors.white,
+          size: 21.sp,
+        ),
+        SizedBox(width: 10.w),
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 24.sp,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
     );
   }
 
