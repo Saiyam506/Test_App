@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MenuIcon extends StatelessWidget {
   const MenuIcon({super.key});
@@ -282,6 +283,232 @@ class HospitalCard extends StatelessWidget {
           height: 90, // 👈 controlled size
           fit: BoxFit.contain,
         ),
+      ),
+    );
+  }
+}
+
+class MobileFooter extends StatelessWidget {
+  const MobileFooter({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(20, 24, 20, 20),
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xFF0A1F44), Colors.black],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Connect With Us:',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(height: 14),
+          Row(
+            children: const [
+              SocialIconButton(
+                imagePath: 'assets/company/facebook.png',
+                url: 'https://www.facebook.com/medidocsindia',
+              ),
+              SizedBox(width: 14),
+              SocialIconButton(
+                imagePath: 'assets/company/instagram.png',
+                url: 'https://www.instagram.com/medidocsindia/',
+              ),
+              SizedBox(width: 14),
+              SocialIconButton(
+                imagePath: 'assets/company/linkedin.png',
+                url: 'https://in.linkedin.com/company/medi-docs-india',
+              ),
+            ],
+          ),
+          const SizedBox(height: 28),
+          const Text(
+            'Subscribe to our Newsletter',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Enter your Email ID..',
+                hintStyle: const TextStyle(
+                  color: Color(0xFF6E7582),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+                border: InputBorder.none,
+                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                suffixIcon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.send_outlined,
+                    color: Color(0xFF2D3A55),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 30),
+          const Text(
+            'Contact Us',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 26,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(height: 12),
+          const Row(
+            children: [
+              Icon(Icons.call, color: Colors.white, size: 20),
+              SizedBox(width: 10),
+              Text(
+                '+91 98765 43210',
+                style: TextStyle(color: Colors.white, fontSize: 22),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          const Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(Icons.location_on_outlined, color: Colors.white, size: 22),
+              SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  '123, Health Street, Andheri East,\nMumbai, Maharashtra 400069, India',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    height: 1.3,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          GestureDetector(
+            onTap: () async {
+              final uri = Uri.parse(
+                'https://www.google.com/maps?q=123,+Health+Street,+Andheri+East,+Mumbai,+Maharashtra+400069,+India',
+              );
+              if (await canLaunchUrl(uri)) {
+                await launchUrl(uri);
+              }
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: AspectRatio(
+                aspectRatio: 16 / 9,
+                child: Image.asset(
+                  'assets/company/map.png',
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 26),
+          Divider(color: Colors.white.withValues(alpha: 0.18), thickness: 1),
+          const SizedBox(height: 14),
+          Wrap(
+            alignment: WrapAlignment.center,
+            spacing: 12,
+            runSpacing: 8,
+            children: const [
+              MobileFooterLink(label: 'Terms & Conditions'),
+              Text('|', style: TextStyle(color: Colors.white54)),
+              MobileFooterLink(label: 'Privacy Policy'),
+              Text('|', style: TextStyle(color: Colors.white54)),
+              MobileFooterLink(label: 'Cancellation & Refund'),
+              Text('|', style: TextStyle(color: Colors.white54)),
+              MobileFooterLink(label: 'Shipping & Delivery'),
+            ],
+          ),
+          const SizedBox(height: 12),
+          const Center(
+            child: Text(
+              '© 2026 Medidocs. All rights reserved',
+              style: TextStyle(color: Colors.white60, fontSize: 14),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SocialIconButton extends StatelessWidget {
+  const SocialIconButton({
+    super.key,
+    required this.imagePath,
+    required this.url,
+  });
+
+  final String imagePath;
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () async {
+        final uri = Uri.parse(url);
+        if (await canLaunchUrl(uri)) {
+          await launchUrl(uri);
+        }
+      },
+      borderRadius: BorderRadius.circular(8),
+      child: Ink(
+        width: 38,
+        height: 38,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: Image.asset(imagePath, fit: BoxFit.contain),
+        ),
+      ),
+    );
+  }
+}
+
+class MobileFooterLink extends StatelessWidget {
+  const MobileFooterLink({
+    super.key,
+    required this.label,
+  });
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      label,
+      style: const TextStyle(
+        color: Colors.white70,
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
       ),
     );
   }
