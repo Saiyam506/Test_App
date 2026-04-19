@@ -112,7 +112,7 @@ class Header extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => HomePage(),
+              builder: (context) => DesktopHomePage(),
             ),
           );
         }
@@ -128,7 +128,7 @@ class Header extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AboutPage(),
+              builder: (context) => AboutUsPage(),
             ),
           );
         }

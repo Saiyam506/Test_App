@@ -319,8 +319,8 @@ class OurLocationSection extends StatelessWidget {
                 _LocationLine(
                   icon: Icons.location_on_outlined,
                   iconColor: Color(0xFF334155),
-                  title: 'Baner-Mhalunge Main Road, Baner',
-                  subtitle: 'Pune - 411045, Maharashtra.',
+                  title: '1st floor, 27, 27th Cross Rd, Jayanagar 6th Block,',
+                  subtitle: ' Jayanagar, Bengaluru, Karnataka 560070',
                   titleWeight: FontWeight.w400,
                 ),
                 SizedBox(height: 14.h),
@@ -339,7 +339,7 @@ class OurLocationSection extends StatelessWidget {
                 _LocationLine(
                   icon: Icons.location_on_outlined,
                   iconColor: Color(0xFF334155),
-                  title: 'Baner, Pune - 411045',
+                  title: 'Bengaluru, Karnataka 560070',
                 ),
               ],
             ),

@@ -2,11 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/camp/page.dart';
 import 'package:test_app/landing_pages/footer.dart';
+import 'package:test_app/landing_pages/home/mobile.dart';
 import 'package:test_app/landing_pages/home/widgets.dart';
 import 'package:test_app/landing_pages/header.dart';
+import 'package:test_app/widgets/responsive_layout.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveLayout(
+      mobile: MobileHomePage(),
+      desktop: DesktopHomePage(),
+    );
+  }
+}
+
+class DesktopHomePage extends StatelessWidget {
+  const DesktopHomePage({super.key});
 
   Widget navButton(String text, VoidCallback onTap) {
     return NavButton(

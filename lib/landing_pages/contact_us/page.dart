@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_app/landing_pages/contact_us/mobile.dart';
 import 'package:test_app/landing_pages/header.dart';
 import 'package:test_app/landing_pages/footer.dart';
 import 'package:test_app/landing_pages/contact_us/widget.dart';
+import 'package:test_app/widgets/responsive_layout.dart';
 
 class ContactUsPage extends StatelessWidget {
   const ContactUsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveLayout(mobile: MobileContactUs(), desktop: DesktopContactUs());
+  }
+}
+
+class DesktopContactUs extends StatelessWidget {
+  const DesktopContactUs({super.key});
 
   @override
   Widget build(BuildContext context) {

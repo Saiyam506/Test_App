@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_app/landing_pages/about_us/mobile.dart';
 import 'package:test_app/landing_pages/footer.dart';
 import 'package:test_app/landing_pages/header.dart';
 import 'package:test_app/landing_pages/about_us/widget.dart';
+import 'package:test_app/widgets/responsive_layout.dart';
 
-class AboutPage extends StatelessWidget {
-  const AboutPage({super.key});
+class AboutUsPage extends StatelessWidget {
+  const AboutUsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveLayout(mobile: MobileAboutUs(), desktop: DesktopAboutUs());
+  }
+}
+
+class DesktopAboutUs extends StatelessWidget {
+  const DesktopAboutUs({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -198,3 +198,86 @@ class VentureItem extends StatelessWidget {
     );
   }
 }
+
+class HeroPoint extends StatelessWidget {
+  final String text;
+
+  const HeroPoint({
+    super.key,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(
+          Icons.check,
+          color: Colors.white,
+          size: 21.sp,
+        ),
+        SizedBox(width: 10.w),
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 24.sp,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ServiceBox extends StatelessWidget {
+  final String title;
+  final List<String> points;
+
+  const ServiceBox({
+    super.key,
+    required this.title,
+    required this.points,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20.r),
+      decoration: BoxDecoration(
+        color: Color(0xFF22C55E).withValues(alpha: 0.08),
+        borderRadius: BorderRadius.circular(16.r),
+        border: Border.all(
+          color: Color(0xFF22C55E),
+          width: 1.2.w,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 18.sp,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 10.h),
+          ...points.map(
+            (point) => Padding(
+              padding: EdgeInsets.only(bottom: 6.h),
+              child: Text(
+                "• $point",
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -147,7 +147,7 @@ class Footer extends StatelessWidget {
                             SizedBox(width: 8.w),
                             Expanded(
                               child: Text(
-                                "123, Health Street, Andheri East,\nMumbai, Maharashtra 400069, India",
+                                "1st floor, 27, 27th Cross Rd, Jayanagar 6th Block,\n Jayanagar, Bengaluru, Karnataka 560070",
                                 style: TextStyle(color: Colors.white),
                               ),
                             ),
@@ -157,7 +157,7 @@ class Footer extends StatelessWidget {
                         GestureDetector(
                           onTap: () async {
                             final Uri url = Uri.parse(
-                              "https://maps.app.goo.gl/oKELutSjGZgzip7g9",
+                              "https://maps.app.goo.gl/cNQBn6Cw7AxLMiTj6",
                             );
                             if (await canLaunchUrl(url)) {
                               await launchUrl(url);

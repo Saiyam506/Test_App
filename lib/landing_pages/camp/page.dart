@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_app/landing_pages/camp/mobile.dart';
 import 'package:test_app/landing_pages/footer.dart';
 import 'package:test_app/widgets/gradient_elevated_button.dart';
 import 'package:test_app/landing_pages/header.dart';
 import 'package:test_app/landing_pages/camp/widget.dart';
+import 'package:test_app/widgets/responsive_layout.dart';
 
 class CampsPage extends StatelessWidget {
   const CampsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveLayout(mobile: MobileCamps(), desktop: DesktopCamps());
+  }
+}
+
+class DesktopCamps extends StatelessWidget {
+  const DesktopCamps({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +70,9 @@ class CampsPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Healthcare Camps,\nMade Accessible",
+                            "Healthcare Camps, \nMade Accessible",
                             style: TextStyle(
-                              fontSize: 50.sp,
+                              fontSize: 38.sp,
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
                               height: 1.12,
@@ -71,25 +82,26 @@ class CampsPage extends StatelessWidget {
                           Text(
                             "Bringing quality medical services closer to\ncommunities through organized health camps.",
                             style: TextStyle(
-                              fontSize: 27.sp,
+                              fontSize: 24.sp,
                               color: Colors.white.withValues(alpha: 0.90),
                               height: 1.35,
                             ),
                           ),
                           SizedBox(height: 34.h),
-                          _heroPoint("Certified Doctors"),
+                          HeroPoint(text: "Certified Doctors"),
                           SizedBox(height: 8.h),
-                          _heroPoint("100+ Camps Conducted"),
+                          HeroPoint(text: "100+ Camps Conducted"),
                           SizedBox(height: 8.h),
-                          _heroPoint("24/7 Support"),
+                          HeroPoint(text: "24/7 Support"),
                         ],
                       ),
                     ),
                     Positioned(
-                      bottom: 28.h,
-                      left: 0.w,
+                      bottom: 70.h,
+                      left: 45.w,
                       right: 0.w,
-                      child: Center(
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
                         child: GradientElevatedButton(
                           text: "Schedule a Camp",
                           onPressed: () {},
@@ -230,71 +242,6 @@ class CampsPage extends StatelessWidget {
             Footer(),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _heroPoint(String text) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(
-          Icons.check,
-          color: Colors.white,
-          size: 21.sp,
-        ),
-        SizedBox(width: 10.w),
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: 24.sp,
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget serviceBox({
-    required String title,
-    required List<String> points,
-  }) {
-    return Container(
-      padding: EdgeInsets.all(20.r),
-      decoration: BoxDecoration(
-        color: Color(0xFF22C55E).withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(16.r),
-        border: Border.all(
-          color: Color(0xFF22C55E),
-          width: 1.2.w,
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 18.sp,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 10.h),
-
-          ...points.map(
-            (point) => Padding(
-              padding: EdgeInsets.only(bottom: 6.h),
-              child: Text(
-                "• $point",
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: Colors.grey,
-                ),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
