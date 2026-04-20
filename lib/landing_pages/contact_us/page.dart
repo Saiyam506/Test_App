@@ -23,7 +23,7 @@ class DesktopContactUs extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 90,
+        toolbarHeight: 90.h,
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
@@ -40,7 +40,7 @@ class DesktopContactUs extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 48.h),
               child: Center(
                 child: Container(
-                  constraints: BoxConstraints(maxWidth: 1100),
+                  constraints: BoxConstraints(maxWidth: 1100.w),
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: LayoutBuilder(
                     builder: (context, constraints) {

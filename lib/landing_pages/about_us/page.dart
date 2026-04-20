@@ -24,7 +24,7 @@ class DesktopAboutUs extends StatelessWidget {
       backgroundColor: Colors.white,
 
       appBar: AppBar(
-        toolbarHeight: 90,
+        toolbarHeight: 90.h,
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.transparent,
         elevation: 0,

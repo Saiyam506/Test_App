@@ -16,8 +16,8 @@ class ContactFormCard extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: const Color(0x0A0F172A),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
+            blurRadius: 12.r,
+            offset: Offset(0, 4.h),
           ),
         ],
       ),
@@ -72,8 +72,8 @@ class ContactDetails extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: const Color(0x0A0F172A),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
+            blurRadius: 12.r,
+            offset: Offset(0, 4.h),
           ),
         ],
       ),
@@ -233,8 +233,8 @@ class _WhyChooseCard extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Color(0x0D0F172A),
-            blurRadius: 14,
-            offset: Offset(0, 6),
+            blurRadius: 14.r,
+            offset: Offset(0, 6.h),
           ),
         ],
       ),
@@ -374,8 +374,8 @@ class OurLocationSection extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: Color(0x0F0F172A),
-                blurRadius: 18,
-                offset: Offset(0, 8),
+                blurRadius: 18.r,
+                offset: Offset(0, 8.h),
               ),
             ],
           ),
@@ -486,8 +486,8 @@ class _FaqCard extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Color(0x0C0F172A),
-            blurRadius: 12,
-            offset: Offset(0, 5),
+            blurRadius: 12.r,
+            offset: Offset(0, 5.h),
           ),
         ],
       ),
@@ -506,7 +506,7 @@ class _FaqCard extends StatelessWidget {
                     color: Color(0xFF2563EB),
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(Icons.help_outline_rounded, color: Colors.white, size: 12),
+                  child: Icon(Icons.help_outline_rounded, color: Colors.white, size: 12.sp),
                 ),
                 SizedBox(width: 10.w),
                 Expanded(
@@ -577,12 +577,12 @@ class _ContactInputFieldState extends State<_ContactInputField> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: _focusNode.hasFocus
-            ? const [
+            ? [
                 BoxShadow(
-                  color: Color(0x1F2563EB),
-                  blurRadius: 8,
-                  spreadRadius: 0,
-                  offset: Offset(0, 0),
+                  color: const Color(0x1F2563EB),
+                  blurRadius: 8.r,
+                  spreadRadius: 0.r,
+                  offset: Offset(0, 0.h),
                 ),
               ]
             : const [],
@@ -609,11 +609,11 @@ class _ContactInputFieldState extends State<_ContactInputField> {
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12.r),
-            borderSide: const BorderSide(color: Color(0xFFE8EAEF), width: 1),
+            borderSide: BorderSide(color: const Color(0xFFE8EAEF), width: 1.w),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12.r),
-            borderSide: const BorderSide(color: Color(0xFF2563EB), width: 1.5),
+            borderSide: BorderSide(color: const Color(0xFF2563EB), width: 1.5.w),
           ),
         ),
       ),
@@ -654,8 +654,8 @@ class _SubmitButtonState extends State<_SubmitButton> {
               boxShadow: [
                 BoxShadow(
                   color: _isHovered ? const Color(0x2D2563EB) : const Color(0x1A2563EB),
-                  blurRadius: _isHovered ? 16 : 10,
-                  offset: Offset(0, _isHovered ? 6 : 2),
+                  blurRadius: _isHovered ? 16.r : 10.r,
+                  offset: Offset(0, _isHovered ? 6.h : 2.h),
                 ),
               ],
             ),
@@ -720,23 +720,23 @@ class _ContactDetailItemState extends State<_ContactDetailItem> {
               duration: const Duration(milliseconds: 200),
               curve: Curves.ease,
               width: 44.w,
-              height: 44.w,
+              height: 44.h,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: const Color(0xFFE0E7FF),
                 boxShadow: _isHovered
                     ? [
-                        const BoxShadow(
-                          color: Color(0x152563EB),
-                          blurRadius: 10,
-                          offset: Offset(0, 4),
+                        BoxShadow(
+                          color: const Color(0x152563EB),
+                          blurRadius: 10.r,
+                          offset: Offset(0, 4.h),
                         ),
                       ]
                     : [],
               ),
               child: Icon(
                 widget.icon,
-                size: 22,
+                size: 22.sp,
                 color: const Color(0xFF2563EB),
               ),
             ),

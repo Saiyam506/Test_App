@@ -258,3 +258,54 @@ Widget _footerLink(String text, String url) {
     ),
   );
 }
+
+class NavItem extends StatefulWidget {
+  final String text;
+  final bool isActive;
+  final VoidCallback onTap;
+
+  const NavItem({
+    super.key,
+    required this.text,
+    required this.isActive,
+    required this.onTap,
+  });
+
+  @override
+  State<NavItem> createState() => _NavItemState();
+}
+
+class _NavItemState extends State<NavItem> {
+  bool isHover = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => isHover = true),
+      onExit: (_) => setState(() => isHover = false),
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              widget.text,
+              style: TextStyle(
+                fontSize: 16.sp,
+                fontWeight: widget.isActive ? FontWeight.bold : FontWeight.normal,
+                color: (isHover || widget.isActive) ? Colors.blue : Colors.black,
+              ),
+            ),
+            SizedBox(height: 4.h),
+            AnimatedContainer(
+              duration: Duration(milliseconds: 250),
+              height: 2.h,
+              width: (isHover || widget.isActive) ? 40.w : 0.w,
+              color: Colors.blue,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

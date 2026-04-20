@@ -24,7 +24,7 @@ class DesktopCamps extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 90,
+        toolbarHeight: 90.h,
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
@@ -75,7 +75,7 @@ class DesktopCamps extends StatelessWidget {
                               fontSize: 38.sp,
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
-                              height: 1.12,
+                              height: 1.12.h,
                             ),
                           ),
                           SizedBox(height: 18.h),
@@ -84,7 +84,7 @@ class DesktopCamps extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 24.sp,
                               color: Colors.white.withValues(alpha: 0.90),
-                              height: 1.35,
+                              height: 1.35.h,
                             ),
                           ),
                           SizedBox(height: 34.h),
@@ -105,7 +105,7 @@ class DesktopCamps extends StatelessWidget {
                         child: GradientElevatedButton(
                           text: "Schedule a Camp",
                           onPressed: () {},
-                          icon: Icon(Icons.calendar_today, size: 20),
+                          icon: Icon(Icons.calendar_today, size: 20.sp),
                           textStyle: TextStyle(
                             fontSize: 20.sp,
                             fontWeight: FontWeight.w600,
