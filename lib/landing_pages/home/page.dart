@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/camp/page.dart';
 import 'package:test_app/landing_pages/footer.dart';
@@ -56,7 +56,7 @@ class DesktopHomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 90,
+        toolbarHeight: 90.h,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.transparent,
@@ -116,7 +116,7 @@ class DesktopHomePage extends StatelessWidget {
                         title: 'Ambulance\nService',
                         subtitle: '24/7 emergency support',
                         image: 'assets/company/ambulance_button.png',
-                        imageHeight: 120,
+                        imageHeight: 120.h,
                         imageOffsetY: 6,
                       ),
                       SizedBox(width: 20.w),
@@ -124,7 +124,7 @@ class DesktopHomePage extends StatelessWidget {
                         title: 'Doctor\nAppointment',
                         subtitle: 'Doctors at your doorstep',
                         image: 'assets/company/doctor_checkup_button.png',
-                        imageHeight: 110,
+                        imageHeight: 110.h,
                         imageOffsetY: 8,
                       ),
                       SizedBox(width: 20.w),
@@ -132,7 +132,7 @@ class DesktopHomePage extends StatelessWidget {
                         title: 'Lab and\nDiagnostics',
                         subtitle: 'Sample collection at home',
                         image: 'assets/company/lab_test_button.png',
-                        imageHeight: 140,
+                        imageHeight: 140.h,
                         imageOffsetY: 10,
                       ),
                       SizedBox(width: 20.w),
@@ -140,7 +140,7 @@ class DesktopHomePage extends StatelessWidget {
                         title: 'Senior Health\nCare',
                         subtitle: 'Care and support for seniors',
                         image: 'assets/company/senior_care_button.png',
-                        imageHeight: 120,
+                        imageHeight: 120.h,
                         imageOffsetY: 10,
                       ),
                       SizedBox(width: 20.w),
@@ -148,7 +148,7 @@ class DesktopHomePage extends StatelessWidget {
                         title: 'Meds\nDelivery',
                         subtitle: 'Medicines delivered fast',
                         image: 'assets/company/meds_del_button.png',
-                        imageHeight: 120,
+                        imageHeight: 120.h,
                         imageOffsetY: 8,
                       ),
                       SizedBox(width: 20.w),
@@ -156,7 +156,7 @@ class DesktopHomePage extends StatelessWidget {
                         title: 'Medical\nCamp',
                         subtitle: 'Health checkups at your workspace',
                         image: 'assets/company/medcamp_button.png',
-                        imageHeight: 140,
+                        imageHeight: 140.h,
                         imageOffsetY: 10,
                         onTap: () {
                           Navigator.push(
@@ -194,7 +194,7 @@ class DesktopHomePage extends StatelessWidget {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withValues(alpha: 0.08),
-                      blurRadius: 20,
+                      blurRadius: 20.r,
                       offset: Offset(0, 8),
                     ),
                   ],

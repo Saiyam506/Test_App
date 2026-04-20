@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/camp/mob_widgets.dart';
 import 'package:test_app/landing_pages/home/mob_widgets.dart';
-
-import 'package:test_app/landing_pages/mob_header.dart';
 
 class MobileCamps extends StatelessWidget {
   const MobileCamps({super.key});
@@ -14,7 +12,7 @@ class MobileCamps extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // 🔹 Static Background
+          // ðŸ”¹ Static Background
           Positioned.fill(
             child: Image.asset(
               "assets/company/bg_camps_mobile.png",
@@ -22,11 +20,11 @@ class MobileCamps extends StatelessWidget {
             ),
           ),
 
-          // 🔹 Content
+          // ðŸ”¹ Content
           SingleChildScrollView(
             child: Column(
               children: [
-                const MobileHeader(),
+                const PaddedHeader(),
 
                 SizedBox(height: 12.h),
 
@@ -35,7 +33,7 @@ class MobileCamps extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // 🔹 Banner Image
+                      // ðŸ”¹ Banner Image
                       ClipRRect(
                         borderRadius: BorderRadius.vertical(
                           top: Radius.circular(16.r),
@@ -48,7 +46,7 @@ class MobileCamps extends StatelessWidget {
                         ),
                       ),
 
-                      // 🔹 Banner Content Card
+                      // ðŸ”¹ Banner Content Card
                       Container(
                         width: double.infinity,
                         padding: EdgeInsets.all(14.w),
@@ -73,7 +71,7 @@ class MobileCamps extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 15.sp,
                                 fontWeight: FontWeight.bold,
-                                height: 1.4,
+                                height: 1.4.h,
                                 color: Colors.black,
                               ),
                             ),
@@ -84,14 +82,14 @@ class MobileCamps extends StatelessWidget {
                               "Seamless corporate health camps with expert doctors, diagnostics, and on-site care.",
                               style: TextStyle(
                                 fontSize: 11.sp,
-                                height: 1.4,
+                                height: 1.4.h,
                                 color: Colors.grey[700],
                               ),
                             ),
 
                             SizedBox(height: 14.h),
 
-                            // 🔹 Gradient Button
+                            // ðŸ”¹ Gradient Button
                             Container(
                               decoration: BoxDecoration(
                                 gradient: const LinearGradient(
@@ -131,14 +129,14 @@ class MobileCamps extends StatelessWidget {
 
                       SizedBox(height: 20.h),
 
-                      // 🔹 Section Title
+                      // ðŸ”¹ Section Title
                       Text(
                         "What We Offer in Our Health Camps",
                         style: TextStyle(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
-                          height: 1.3,
+                          height: 1.3.h,
                         ),
                       ),
 
@@ -148,14 +146,14 @@ class MobileCamps extends StatelessWidget {
                         "Comprehensive on-site health screening designed to detect, prevent, and promote employee well-being.",
                         style: TextStyle(
                           fontSize: 11.sp,
-                          height: 1.4,
+                          height: 1.4.h,
                           color: Colors.grey[700],
                         ),
                       ),
 
                       SizedBox(height: 16.h),
 
-                      // 🔹 Service Grid
+                      // ðŸ”¹ Service Grid
                       GridView.count(
                         crossAxisCount: 2,
                         shrinkWrap: true,
@@ -224,7 +222,7 @@ class MobileCamps extends StatelessWidget {
 
                       SizedBox(height: 12.h),
 
-                      // 🔹 Phone Row
+                      // ðŸ”¹ Phone Row
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -253,7 +251,7 @@ class MobileCamps extends StatelessWidget {
 
                       SizedBox(height: 10.h),
 
-                      // 🔹 Address Row
+                      // ðŸ”¹ Address Row
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -276,7 +274,7 @@ class MobileCamps extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 12.sp,
                                 color: Colors.grey[800],
-                                height: 1.4,
+                                height: 1.4.h,
                               ),
                             ),
                           ),

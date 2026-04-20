@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/about_us/page.dart';
 import 'package:test_app/landing_pages/camp/page.dart';
@@ -54,7 +54,7 @@ class Header extends StatelessWidget {
                       ElevatedButton.icon(
                         onPressed: () {},
                         icon: Icon(Icons.call, size: 18),
-                        label: Text('Call Emergency'),
+                        label: Text('Login / Signup'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.red,
                           foregroundColor: Colors.white,

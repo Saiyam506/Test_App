@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/about_us/mob_widgets.dart';
 import 'package:test_app/landing_pages/home/mob_widgets.dart';
-import 'package:test_app/landing_pages/mob_header.dart';
 
 class MobileAboutUs extends StatelessWidget {
   const MobileAboutUs({super.key});
@@ -10,23 +9,22 @@ class MobileAboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8FAFC), // subtle background
+      backgroundColor: const Color(0xFFF8FAFC),
       body: Stack(
         children: [
-          // 🔹 Background Image (static)
+          // ðŸ”¹ Background Image (static)
           Positioned.fill(
             child: Image.asset(
-              "assets/company/bg_camps_mobile.png", // same as camps or your new bg
+              "assets/company/bg_camps_mobile.png",
               fit: BoxFit.cover,
             ),
           ),
 
-          // 🔹 Foreground Content (scrollable)
           SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const MobileHeader(),
+                const PaddedHeader(),
 
                 SizedBox(height: 16.h),
 
@@ -45,7 +43,7 @@ class MobileAboutUs extends StatelessWidget {
                       ),
                       border: Border.all(
                         color: const Color(0xFFE2E8F0),
-                        width: 1,
+                        width: 1.w,
                       ),
                       borderRadius: BorderRadius.circular(18.r),
                       boxShadow: [
@@ -121,7 +119,7 @@ class MobileAboutUs extends StatelessWidget {
                               "At MediDocs, we are committed to transforming healthcare by connecting patients with trusted providers through seamless digital solutions.",
                               style: TextStyle(
                                 fontSize: 11.5.sp,
-                                height: 1.58,
+                                height: 1.58.h,
                                 color: const Color(0xFF334155),
                               ),
                             ),
@@ -132,7 +130,7 @@ class MobileAboutUs extends StatelessWidget {
                               "Founded with the mission to make healthcare accessible and efficient, we leverage technology to ensure patients receive the care they need anytime, anywhere.",
                               style: TextStyle(
                                 fontSize: 11.5.sp,
-                                height: 1.58,
+                                height: 1.58.h,
                                 color: const Color(0xFF334155),
                               ),
                             ),
@@ -212,7 +210,7 @@ class MobileAboutUs extends StatelessWidget {
                         "Delivering impactful health camps across leading corporate hubs in India.",
                         style: TextStyle(
                           fontSize: 11.sp,
-                          height: 1.5,
+                          height: 1.5.h,
                           color: const Color(0xFF64748B),
                         ),
                       ),

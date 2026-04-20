@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/camp/mobile.dart';
 import 'package:test_app/landing_pages/footer.dart';
@@ -246,3 +246,5 @@ class DesktopCamps extends StatelessWidget {
     );
   }
 }
+
+

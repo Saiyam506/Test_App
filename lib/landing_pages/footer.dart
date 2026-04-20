@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -207,7 +207,7 @@ class Footer extends StatelessWidget {
           ),
           SizedBox(height: 15.h),
           Text(
-            "© 2026 Medidocs. All rights reserved",
+            "Â© 2026 Medidocs. All rights reserved",
             style: TextStyle(color: Colors.white60),
           ),
         ],
@@ -309,3 +309,5 @@ class _NavItemState extends State<NavItem> {
     );
   }
 }
+
+

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -24,7 +24,7 @@ class MobileFooter extends StatelessWidget {
             'Connect With Us:',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 24.sp,
+              fontSize: 18.sp,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -52,7 +52,7 @@ class MobileFooter extends StatelessWidget {
             'Subscribe to our Newsletter',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 24.sp,
+              fontSize: 18.sp,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -67,7 +67,7 @@ class MobileFooter extends StatelessWidget {
                 hintText: 'Enter your Email ID..',
                 hintStyle: TextStyle(
                   color: const Color(0xFF6E7582),
-                  fontSize: 18.sp,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w500,
                 ),
                 border: InputBorder.none,
@@ -88,7 +88,7 @@ class MobileFooter extends StatelessWidget {
             'Contact Us',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 26.sp,
+              fontSize: 4.sp,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -99,7 +99,7 @@ class MobileFooter extends StatelessWidget {
               SizedBox(width: 10.w),
               Text(
                 '+91 98765 43210',
-                style: TextStyle(color: Colors.white, fontSize: 22.sp),
+                style: TextStyle(color: Colors.white, fontSize: 10.sp),
               ),
             ],
           ),
@@ -114,7 +114,7 @@ class MobileFooter extends StatelessWidget {
                   '123, Health Street, Andheri East,\nMumbai, Maharashtra 400069, India',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20.sp,
+                    fontSize: 14.sp,
                     height: 1.3.h,
                   ),
                 ),
@@ -146,24 +146,26 @@ class MobileFooter extends StatelessWidget {
           SizedBox(height: 26.h),
           Divider(color: Colors.white.withValues(alpha: 0.18), thickness: 1.h),
           SizedBox(height: 14.h),
-          Wrap(
-            alignment: WrapAlignment.center,
-            spacing: 12.w,
-            runSpacing: 8.h,
-            children: const [
-              MobileFooterLink(label: 'Terms & Conditions'),
-              Text('|', style: TextStyle(color: Colors.white54)),
-              MobileFooterLink(label: 'Privacy Policy'),
-              Text('|', style: TextStyle(color: Colors.white54)),
-              MobileFooterLink(label: 'Cancellation & Refund'),
-              Text('|', style: TextStyle(color: Colors.white54)),
-              MobileFooterLink(label: 'Shipping & Delivery'),
-            ],
+          Center(
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 12.w,
+              runSpacing: 8.h,
+              children: const [
+                MobileFooterLink(label: 'Terms & Conditions'),
+                Text('|', style: TextStyle(color: Colors.white54)),
+                MobileFooterLink(label: 'Privacy Policy'),
+                Text('|', style: TextStyle(color: Colors.white54)),
+                MobileFooterLink(label: 'Cancellation & Refund'),
+                Text('|', style: TextStyle(color: Colors.white54)),
+                MobileFooterLink(label: 'Shipping & Delivery'),
+              ],
+            ),
           ),
           SizedBox(height: 12.h),
           Center(
             child: Text(
-              '© 2026 Medidocs. All rights reserved',
+              'Â© 2026 Medidocs. All rights reserved',
               style: TextStyle(color: Colors.white60, fontSize: 14.sp),
             ),
           ),
@@ -219,6 +221,7 @@ class MobileFooterLink extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      textAlign: TextAlign.center,
       label,
       style: TextStyle(
         color: Colors.white70,

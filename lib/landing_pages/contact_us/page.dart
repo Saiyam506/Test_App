@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/contact_us/mobile.dart';
 import 'package:test_app/landing_pages/header.dart';
@@ -58,7 +58,7 @@ class DesktopContactUs extends StatelessWidget {
                           ),
                           SizedBox(height: 10.h),
                           Text(
-                            'We’re here to help.',
+                            'Weâ€™re here to help.',
                             style: TextStyle(
                               fontSize: compact ? 24.sp : 28.sp,
                               height: 1.05.h,
@@ -92,7 +92,7 @@ class DesktopContactUs extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'We’re building a smarter, more connected healthcare experience.',
+                                      'Weâ€™re building a smarter, more connected healthcare experience.',
                                       style: TextStyle(
                                         fontSize: 18.sp,
                                         color: Color(0xFF64748B),
@@ -125,7 +125,7 @@ class DesktopContactUs extends StatelessWidget {
                                     ),
                                     SizedBox(height: 2.h),
                                     Text(
-                                      'Fill out the form below and we’ll get back to you shortly.',
+                                      'Fill out the form below and weâ€™ll get back to you shortly.',
                                       style: TextStyle(
                                         fontSize: 18.sp,
                                         color: Color(0xFF64748B),
@@ -200,3 +200,5 @@ class DesktopContactUs extends StatelessWidget {
     );
   }
 }
+
+

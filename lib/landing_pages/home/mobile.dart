@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_app/landing_pages/about_us/page.dart';
 import 'package:test_app/landing_pages/camp/mobile.dart';
+import 'package:test_app/landing_pages/contact_us/page.dart';
 import 'package:test_app/landing_pages/mob_header.dart';
 import 'package:test_app/landing_pages/home/mob_widgets.dart';
 
@@ -11,35 +13,62 @@ class MobileHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final services = <MobileServiceData>[
-      const MobileServiceData(
+      MobileServiceData(
         title: 'Ambulance\nService',
         subtitle: '24/7 emergency support',
         imagePath: 'assets/company/ambulance_button.png',
+        onTap: () {},
       ),
-      const MobileServiceData(
+      MobileServiceData(
         title: 'Doctor\nAppointment',
         subtitle: 'Doctors at your doorstep',
         imagePath: 'assets/company/doctor_checkup_button.png',
+        onTap: () {},
       ),
-      const MobileServiceData(
+      MobileServiceData(
         title: 'Lab and\nDiagnostics',
         subtitle: 'Sample collection at home',
         imagePath: 'assets/company/lab_test_button.png',
+        onTap: () {},
       ),
-      const MobileServiceData(
+      MobileServiceData(
         title: 'Senior Care',
         subtitle: 'Care and support for seniors',
         imagePath: 'assets/company/senior_care_button.png',
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => const AboutUsPage(),
+            ),
+          );
+        },
       ),
-      const MobileServiceData(
+      MobileServiceData(
         title: 'Meds\nDelivery',
         subtitle: 'Medicines delivered fast',
         imagePath: 'assets/company/meds_del_button.png',
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => const ContactUsPage(),
+            ),
+          );
+        },
       ),
-      const MobileServiceData(
+      MobileServiceData(
         title: 'Medical\nCamp',
         subtitle: 'Health checkups at your workspace',
         imagePath: 'assets/company/medcamp_button.png',
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => const MobileCamps(),
+            ),
+          );
+        },
       ),
     ];
 
@@ -57,7 +86,7 @@ class MobileHomePage extends StatelessWidget {
                   children: [
                     const MobileHeader(),
 
-                    SizedBox(height: 16.h),
+                    SizedBox(height: 24.h),
                     Center(
                       child: FittedBox(
                         fit: BoxFit.scaleDown,
@@ -119,16 +148,7 @@ class MobileHomePage extends StatelessWidget {
                                     title: service.title,
                                     subtitle: service.subtitle,
                                     imagePath: service.imagePath,
-                                    onTap: () {
-                                      if (service.title == 'Medical\nCamp') {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (_) => const MobileCamps(),
-                                          ),
-                                        );
-                                      }
-                                    },
+                                    onTap: service.onTap,
                                   ),
                                 ),
                               )

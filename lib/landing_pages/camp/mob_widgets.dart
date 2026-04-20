@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_app/landing_pages/mob_header.dart';
 
 class ServiceCard extends StatelessWidget {
   final IconData icon;
   final String title;
-  final List<String> points; // ✅ ADD THIS
+  final List<String> points; // âœ… ADD THIS
   final Color color;
   final Color iconColor;
 
@@ -12,7 +13,7 @@ class ServiceCard extends StatelessWidget {
     super.key,
     required this.icon,
     required this.title,
-    required this.points, // ✅ REQUIRED
+    required this.points, // âœ… REQUIRED
     required this.color,
     required this.iconColor,
   });
@@ -27,7 +28,7 @@ class ServiceCard extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 8,
+            blurRadius: 8.r,
             offset: const Offset(0, 4),
           ),
         ],
@@ -58,12 +59,12 @@ class ServiceCard extends StatelessWidget {
 
           SizedBox(height: 6.h),
 
-          // 🔹 Points (THIS WAS MISSING)
+          // ðŸ”¹ Points (THIS WAS MISSING)
           ...points.map(
             (point) => Padding(
               padding: EdgeInsets.only(bottom: 2.h),
               child: Text(
-                "• $point",
+                "â€¢ $point",
                 style: TextStyle(
                   fontSize: 9.sp,
                   color: Colors.grey[700],
@@ -108,7 +109,7 @@ class CityInfoCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 🔹 Image
+          // ðŸ”¹ Image
           Image.asset(
             image,
             width: 60.w,
@@ -118,7 +119,7 @@ class CityInfoCard extends StatelessWidget {
 
           SizedBox(width: 12.w),
 
-          // 🔹 Text Content
+          // ðŸ”¹ Text Content
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,7 +139,7 @@ class CityInfoCard extends StatelessWidget {
                   description,
                   style: TextStyle(
                     fontSize: 11.sp,
-                    height: 1.4,
+                    height: 1.4.h,
                     color: Colors.grey[700],
                   ),
                 ),
@@ -147,6 +148,21 @@ class CityInfoCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class PaddedHeader extends StatelessWidget {
+  const PaddedHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 16.w,
+        vertical: 14.h,
+      ),
+      child: const MobileHeader(),
     );
   }
 }

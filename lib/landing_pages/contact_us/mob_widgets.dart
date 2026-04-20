@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_app/landing_pages/mob_header.dart';
 
 class FeatureCard extends StatelessWidget {
   final IconData icon;
@@ -26,7 +27,7 @@ class FeatureCard extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.black.withAlpha(10),
-            blurRadius: 10,
+            blurRadius: 10.r,
             offset: const Offset(0, 4),
           ),
         ],
@@ -216,6 +217,21 @@ class FAQCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class PaddedHeader extends StatelessWidget {
+  const PaddedHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 16.w,
+        vertical: 14.h,
+      ),
+      child: const MobileHeader(),
     );
   }
 }

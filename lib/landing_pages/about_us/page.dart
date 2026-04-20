@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/about_us/mobile.dart';
 import 'package:test_app/landing_pages/footer.dart';
@@ -35,7 +35,7 @@ class DesktopAboutUs extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // 🔹 WRAP ONLY THIS SECTION
+            // ðŸ”¹ WRAP ONLY THIS SECTION
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30.w),
               child: Column(
@@ -84,7 +84,7 @@ class DesktopAboutUs extends StatelessWidget {
                               ),
                               SizedBox(height: 10.h),
                               Text(
-                                "At MediDocs, we’re committed to transforming healthcare by connecting patients with trusted providers through seamless digital solutions. Founded with the mission to make healthcare accessible and efficient, we leverage technology to ensure patients receive the care they need anytime, anywhere.",
+                                "At MediDocs, weâ€™re committed to transforming healthcare by connecting patients with trusted providers through seamless digital solutions. Founded with the mission to make healthcare accessible and efficient, we leverage technology to ensure patients receive the care they need anytime, anywhere.",
                                 style: TextStyle(
                                   fontSize: 20.sp,
                                   height: 1.6.h,
@@ -210,3 +210,5 @@ class DesktopAboutUs extends StatelessWidget {
     );
   }
 }
+
+

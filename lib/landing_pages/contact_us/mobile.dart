@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/contact_us/mob_widgets.dart';
 import 'package:test_app/landing_pages/home/mob_widgets.dart';
-import 'package:test_app/landing_pages/mob_header.dart';
 
 class MobileContactUs extends StatelessWidget {
   const MobileContactUs({super.key});
@@ -27,8 +26,7 @@ class MobileContactUs extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                /// ✅ HEADER
-                const MobileHeader(),
+                const PaddedHeader(),
 
                 SizedBox(height: 20.h),
 
@@ -47,7 +45,7 @@ class MobileContactUs extends StatelessWidget {
                       ),
                       SizedBox(height: 8.h),
                       Text(
-                        "We’re here to help.",
+                        "We are here to help.",
                         style: TextStyle(
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w600,
@@ -64,7 +62,7 @@ class MobileContactUs extends StatelessWidget {
                       ),
                       SizedBox(height: 6.h),
                       Text(
-                        "Fill out the form below and we’ll get back to you shortly.",
+                        "Fill out the form below and we will get back to you shortly.",
                         style: TextStyle(
                           fontSize: 14.sp,
                           color: const Color(0xFF64748B),
@@ -86,7 +84,7 @@ class MobileContactUs extends StatelessWidget {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withAlpha(15),
-                          blurRadius: 12,
+                          blurRadius: 12.r,
                           offset: const Offset(0, 4),
                         ),
                       ],
@@ -145,7 +143,7 @@ class MobileContactUs extends StatelessWidget {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withAlpha(15),
-                          blurRadius: 12,
+                          blurRadius: 12.r,
                           offset: const Offset(0, 4),
                         ),
                       ],
@@ -176,7 +174,7 @@ class MobileContactUs extends StatelessWidget {
 
                 SizedBox(height: 30.h),
 
-                /// ✅ WHY CHOOSE MEDIDOCS
+                /// âœ… WHY CHOOSE MEDIDOCS
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Text(
@@ -194,14 +192,14 @@ class MobileContactUs extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Column(
-                    children: const [
+                    children: [
                       FeatureCard(
                         icon: Icons.shield_outlined,
                         title: "24/7 Emergency Support",
                         description: "Always ready to assist you, anytime, day or night.",
                         color: Colors.blue,
                       ),
-                      SizedBox(height: 12),
+                      SizedBox(height: 12.h),
 
                       FeatureCard(
                         icon: Icons.medical_services_outlined,
@@ -209,7 +207,7 @@ class MobileContactUs extends StatelessWidget {
                         description: "Experienced & qualified doctors and paramedics.",
                         color: Colors.blue,
                       ),
-                      SizedBox(height: 12),
+                      SizedBox(height: 12.h),
 
                       FeatureCard(
                         icon: Icons.access_time,
@@ -235,17 +233,17 @@ class MobileContactUs extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 16.h),
+                SizedBox(height: 18.h),
 
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Column(
-                    children: const [
+                    children: [
                       FAQCard(
                         question: "How quickly will I get a response?",
                         answer: "Our team reviews every inquiry as soon as possible and typically responds within 24 hours.",
                       ),
-                      SizedBox(height: 12),
+                      SizedBox(height: 12.h),
 
                       FAQCard(
                         question: "Do you provide emergency home visits?",

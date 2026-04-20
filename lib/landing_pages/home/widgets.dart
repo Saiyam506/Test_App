@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -283,3 +283,5 @@ class HospitalBox extends StatelessWidget {
     );
   }
 }
+
+

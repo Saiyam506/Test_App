@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GradientButton extends StatefulWidget {
@@ -89,7 +89,7 @@ class SectionText extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    /// 🔵 Colored bullet
+                    /// ðŸ”µ Colored bullet
                     Container(
                       margin: EdgeInsets.only(top: 6.h),
                       width: 6.w,
@@ -102,7 +102,7 @@ class SectionText extends StatelessWidget {
 
                     SizedBox(width: 10.w),
 
-                    /// ✨ Styled text
+                    /// âœ¨ Styled text
                     Expanded(
                       child: RichText(
                         text: TextSpan(
@@ -268,7 +268,7 @@ class ServiceBox extends StatelessWidget {
             (point) => Padding(
               padding: EdgeInsets.only(bottom: 6.h),
               child: Text(
-                "• $point",
+                "â€¢ $point",
                 style: TextStyle(
                   fontSize: 14.sp,
                   color: Colors.grey,
@@ -281,3 +281,5 @@ class ServiceBox extends StatelessWidget {
     );
   }
 }
+
+

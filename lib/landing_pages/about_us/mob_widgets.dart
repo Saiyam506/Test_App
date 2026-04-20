@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_app/landing_pages/mob_header.dart';
 
 class InfoCard extends StatelessWidget {
   final IconData icon;
@@ -55,7 +56,7 @@ class InfoCard extends StatelessWidget {
             description,
             style: TextStyle(
               fontSize: 10.5.sp,
-              height: 1.5,
+              height: 1.5.h,
               color: const Color(0xFF475569),
             ),
           ),
@@ -93,6 +94,21 @@ class CityCard extends StatelessWidget {
         imagePath,
         fit: BoxFit.contain,
       ),
+    );
+  }
+}
+
+class PaddedHeader extends StatelessWidget {
+  const PaddedHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 16.w,
+        vertical: 14.h,
+      ),
+      child: const MobileHeader(),
     );
   }
 }

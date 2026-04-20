@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/camp/mobile.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -9,7 +9,7 @@ class MenuIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 36.w,
+      width: 25.w,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -55,13 +55,19 @@ class SignUpLoginButton extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(36.r),
           ),
-          child: Text(
-            'Sign Up/ Login',
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w700,
-              color: Colors.black,
-            ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Call Emergency',
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black,
+                ),
+              ),
+              SizedBox(width: 10.w),
+            ],
           ),
         ),
       ),
@@ -73,11 +79,13 @@ class MobileServiceData {
   final String title;
   final String subtitle;
   final String imagePath;
+  final VoidCallback onTap;
 
   const MobileServiceData({
     required this.title,
     required this.subtitle,
     required this.imagePath,
+    required this.onTap,
   });
 }
 
@@ -121,8 +129,9 @@ class MobileServiceCard extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(12.w, 10.h, 10.w, 8.h),
               child: Stack(
                 children: [
+                  /// 🔹 TITLE (FIXED)
                   Positioned(
-                    top: 0.h,
+                    top: 3.h,
                     left: 0.w,
                     right: 22.w,
                     child: Text(
@@ -133,12 +142,14 @@ class MobileServiceCard extends StatelessWidget {
                         fontSize: 17.sp,
                         fontWeight: FontWeight.w800,
                         color: Colors.black,
-                        height: 1.0.h,
+                        height: 1.1,
                       ),
                     ),
                   ),
+
+                  /// 🔹 SUBTITLE
                   Positioned(
-                    top: 44.h,
+                    top: 50.h, // slightly adjusted to match new title spacing
                     left: 0.w,
                     right: 22.w,
                     child: Text(
@@ -148,11 +159,13 @@ class MobileServiceCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 11.sp,
                         fontWeight: FontWeight.w600,
-                        color: Color(0xFF60708A),
-                        height: 1.1.h,
+                        color: const Color(0xFF60708A),
+                        height: 1.2,
                       ),
                     ),
                   ),
+
+                  /// 🔹 ARROW
                   Positioned(
                     top: 78.h,
                     right: 0.w,
@@ -162,6 +175,8 @@ class MobileServiceCard extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
+
+                  /// 🔹 IMAGE
                   Positioned(
                     left: 0.w,
                     right: 0.w,
@@ -451,7 +466,7 @@ class MobileFooter extends StatelessWidget {
           SizedBox(height: 12.h),
           Center(
             child: Text(
-              '© 2026 Medidocs. All rights reserved',
+              'Â© 2026 Medidocs. All rights reserved',
               style: TextStyle(color: Colors.white60, fontSize: 14.sp),
             ),
           ),
