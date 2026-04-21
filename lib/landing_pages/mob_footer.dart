@@ -1,5 +1,7 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_app/landing_pages/cancellation_policy/mobile.dart';
+import 'package:test_app/landing_pages/cancellation_policy/page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MobileFooter extends StatelessWidget {
@@ -151,14 +153,47 @@ class MobileFooter extends StatelessWidget {
               alignment: WrapAlignment.center,
               spacing: 12.w,
               runSpacing: 8.h,
-              children: const [
-                MobileFooterLink(label: 'Terms & Conditions'),
-                Text('|', style: TextStyle(color: Colors.white54)),
-                MobileFooterLink(label: 'Privacy Policy'),
-                Text('|', style: TextStyle(color: Colors.white54)),
-                MobileFooterLink(label: 'Cancellation & Refund'),
-                Text('|', style: TextStyle(color: Colors.white54)),
-                MobileFooterLink(label: 'Shipping & Delivery'),
+              children: [
+                FooterNavButton(
+                  label: "Terms & Conditions",
+                  onTap: () {
+                    print("CLICKED"); // 👈 check this
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const MobileCancellationRefundPage()),
+                    );
+                  },
+                ),
+
+                FooterNavButton(
+                  label: "Privacy Policy",
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const MobileCancellationRefundPage()),
+                    );
+                  },
+                ),
+
+                FooterNavButton(
+                  label: "Cancellation & Refund",
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const MobileCancellationRefundPage()),
+                    );
+                  },
+                ),
+
+                FooterNavButton(
+                  label: "Shipping & Delivery",
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const MobileCancellationRefundPage()),
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -227,6 +262,36 @@ class MobileFooterLink extends StatelessWidget {
         color: Colors.white70,
         fontSize: 14.sp,
         fontWeight: FontWeight.w500,
+      ),
+    );
+  }
+}
+
+class FooterNavButton extends StatelessWidget {
+  final String label;
+  final VoidCallback onTap;
+
+  const FooterNavButton({
+    super.key,
+    required this.label,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      // 👈 use this for safety
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: Colors.white54),
+        ),
+        child: Text(
+          label,
+          style: const TextStyle(color: Colors.white, fontSize: 12),
+        ),
       ),
     );
   }

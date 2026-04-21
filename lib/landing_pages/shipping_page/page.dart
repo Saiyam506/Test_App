@@ -71,7 +71,6 @@ class ShippingDeliveryPage extends StatelessWidget {
                     ],
                   ),
 
-                  /// 🔹 FOOTER
                   const Footer(),
                 ],
               ),
