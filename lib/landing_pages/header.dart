@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/about_us/page.dart';
 import 'package:test_app/landing_pages/camp/page.dart';
@@ -28,7 +28,7 @@ class Header extends StatelessWidget {
                   Navigator.pushReplacementNamed(context, '/');
                 },
                 child: Image.asset(
-                  'assets/company/logo_with_text.png',
+                  'assets/company/logo_with_text.webp',
                   height: 70.h,
                 ),
               ),
@@ -54,45 +54,42 @@ class Header extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      ElevatedButton.icon(
-                        onPressed: () {},
-                        icon: Icon(Icons.call, size: 18),
-                        label: Text('Login / Signup'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
-                          foregroundColor: Colors.white,
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 18.w,
-                            vertical: 12.h,
-                          ),
-                          shape: RoundedRectangleBorder(
+                      GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [Color(0xFF239ED7), Color(0xFF66BB51)],
+                            ),
                             borderRadius: BorderRadius.circular(30.r),
                           ),
-                        ),
-                      ),
+                          padding: EdgeInsets.all(2.r), // border thickness
 
-                      SizedBox(height: 5.h),
-
-                      Padding(
-                        padding: EdgeInsets.only(right: 30.w),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              Icons.circle,
-                              color: Colors.green,
-                              size: 8,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 18.w,
+                              vertical: 12.h,
                             ),
-                            SizedBox(width: 6.w),
-                            Text(
-                              '24/7 Available',
-                              style: TextStyle(
-                                fontSize: 13.sp,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black87,
-                              ),
+                            decoration: BoxDecoration(
+                              color: Colors.white, // inner color
+                              borderRadius: BorderRadius.circular(28.r),
                             ),
-                          ],
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(Icons.person_outline, size: 18, color: Colors.black),
+                                SizedBox(width: 8.w),
+                                Text(
+                                  'Login / Signup',
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black, // black text
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                     ],

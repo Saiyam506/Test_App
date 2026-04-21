@@ -1,8 +1,8 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:test_app/landing_pages/privacy_policy/page.dart';
+import 'package:test_app/landing_pages/privacy_policy/mobile.dart';
 import 'package:test_app/landing_pages/cancellation_policy/page.dart';
-import 'package:test_app/landing_pages/shipping_page/page.dart';
+import 'package:test_app/landing_pages/shipping_page/mobile.dart';
 import 'package:test_app/landing_pages/terms_and_conditions/page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -48,19 +48,19 @@ class Footer extends StatelessWidget {
                         Row(
                           children: [
                             _socialButton(
-                              imagePath: "assets/company/facebook.png",
+                              imagePath: "assets/company/facebook.webp",
                               url: "https://www.facebook.com/medidocsindia",
                               color: Colors.blue,
                             ),
                             SizedBox(width: 12.w),
                             _socialButton(
-                              imagePath: "assets/company/instagram.png",
+                              imagePath: "assets/company/instagram.webp",
                               url: "https://www.instagram.com/medidocsindia/",
                               color: Colors.pink,
                             ),
                             SizedBox(width: 12.w),
                             _socialButton(
-                              imagePath: "assets/company/linkedin.png",
+                              imagePath: "assets/company/linkedin.webp",
                               url: "https://in.linkedin.com/company/medi-docs-india",
                               color: Colors.blueAccent,
                             ),
@@ -170,7 +170,7 @@ class Footer extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12.r),
                             child: Image.asset(
-                              "assets/company/map.png",
+                              "assets/company/map.webp",
                               height: 180.h,
                               width: 420.w,
                               fit: BoxFit.cover,
@@ -222,7 +222,7 @@ class Footer extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const PrivacyPolicyPage(),
+                      builder: (context) => const MobilePrivacyPage(),
                     ),
                   );
                 },
@@ -245,7 +245,7 @@ class Footer extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ShippingDeliveryPage(),
+                      builder: (context) => const MobileShippingPage(),
                     ),
                   );
                 },
@@ -287,7 +287,7 @@ class Footer extends StatelessWidget {
           ),
           SizedBox(height: 15.h),
           Text(
-            "Â© 2026 Medidocs. All rights reserved",
+            "© 2026 Medidocs. All rights reserved",
             style: TextStyle(color: Colors.white60),
           ),
         ],
@@ -374,3 +374,4 @@ class _NavItemState extends State<NavItem> {
     );
   }
 }
+

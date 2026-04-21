@@ -1,8 +1,9 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/about_us/page.dart';
 import 'package:test_app/landing_pages/camp/mobile.dart';
 import 'package:test_app/landing_pages/contact_us/page.dart';
+import 'package:test_app/landing_pages/mob_footer.dart';
 import 'package:test_app/landing_pages/mob_header.dart';
 import 'package:test_app/landing_pages/home/mob_widgets.dart';
 
@@ -16,25 +17,25 @@ class MobileHomePage extends StatelessWidget {
       MobileServiceData(
         title: 'Ambulance\nService',
         subtitle: '24/7 emergency support',
-        imagePath: 'assets/company/ambulance_button.png',
+        imagePath: 'assets/company/ambulance_button.webp',
         onTap: () {},
       ),
       MobileServiceData(
         title: 'Doctor\nAppointment',
         subtitle: 'Doctors at your doorstep',
-        imagePath: 'assets/company/doctor_checkup_button.png',
+        imagePath: 'assets/company/doctor_checkup_button.webp',
         onTap: () {},
       ),
       MobileServiceData(
         title: 'Lab and\nDiagnostics',
         subtitle: 'Sample collection at home',
-        imagePath: 'assets/company/lab_test_button.png',
+        imagePath: 'assets/company/lab_test_button.webp',
         onTap: () {},
       ),
       MobileServiceData(
         title: 'Senior Care',
         subtitle: 'Care and support for seniors',
-        imagePath: 'assets/company/senior_care_button.png',
+        imagePath: 'assets/company/senior_care_button.webp',
         onTap: () {
           Navigator.push(
             context,
@@ -47,7 +48,7 @@ class MobileHomePage extends StatelessWidget {
       MobileServiceData(
         title: 'Meds\nDelivery',
         subtitle: 'Medicines delivered fast',
-        imagePath: 'assets/company/meds_del_button.png',
+        imagePath: 'assets/company/meds_del_button.webp',
         onTap: () {
           Navigator.push(
             context,
@@ -60,7 +61,7 @@ class MobileHomePage extends StatelessWidget {
       MobileServiceData(
         title: 'Medical\nCamp',
         subtitle: 'Health checkups at your workspace',
-        imagePath: 'assets/company/medcamp_button.png',
+        imagePath: 'assets/company/medcamp_button.webp',
         onTap: () {
           Navigator.push(
             context,
@@ -284,35 +285,35 @@ class MobileHomePage extends StatelessWidget {
                               child: Row(
                                 children: [
                                   HospitalCard(
-                                    imagePath: 'assets/partnered_hospitals/narayana_health.png',
+                                    imagePath: 'assets/partnered_hospitals/narayana_health.webp',
                                   ),
                                   SizedBox(width: 14.w),
                                   HospitalCard(
-                                    imagePath: 'assets/partnered_hospitals/aster_rv.png',
+                                    imagePath: 'assets/partnered_hospitals/aster_rv.webp',
                                   ),
                                   SizedBox(width: 14.w),
                                   HospitalCard(
-                                    imagePath: 'assets/partnered_hospitals/apollo_hospital_image.png',
+                                    imagePath: 'assets/partnered_hospitals/apollo_hospital_image.webp',
                                   ),
                                   SizedBox(width: 14.w),
                                   HospitalCard(
-                                    imagePath: 'assets/partnered_hospitals/manipal_hospital_image.png',
+                                    imagePath: 'assets/partnered_hospitals/manipal_hospital_image.webp',
                                   ),
                                   SizedBox(width: 14.w),
                                   HospitalCard(
-                                    imagePath: 'assets/partnered_hospitals/aikya_hospital_image.png',
+                                    imagePath: 'assets/partnered_hospitals/aikya_hospital_image.webp',
                                   ),
                                   SizedBox(width: 14.w),
                                   HospitalCard(
-                                    imagePath: 'assets/partnered_hospitals/sparsh_hospital_image.png',
+                                    imagePath: 'assets/partnered_hospitals/sparsh_hospital_image.webp',
                                   ),
                                   SizedBox(width: 14.w),
                                   HospitalCard(
-                                    imagePath: 'assets/partnered_hospitals/kauvery_hospital_image.png',
+                                    imagePath: 'assets/partnered_hospitals/kauvery_hospital_image.webp',
                                   ),
                                   SizedBox(width: 14.w),
                                   HospitalCard(
-                                    imagePath: 'assets/partnered_hospitals/aster_cmi_hospital_image.png',
+                                    imagePath: 'assets/partnered_hospitals/aster_cmi_hospital_image.webp',
                                   ),
                                 ],
                               ),
@@ -332,3 +333,4 @@ class MobileHomePage extends StatelessWidget {
     );
   }
 }
+

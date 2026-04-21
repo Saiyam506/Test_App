@@ -1,13 +1,26 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_app/landing_pages/cancellation_policy/mobile.dart';
 import 'package:test_app/landing_pages/footer.dart';
 import 'package:test_app/landing_pages/header.dart';
 import 'package:test_app/landing_pages/shipping_page/widget.dart';
-import 'package:test_app/landing_pages/terms_and_conditions/widget.dart'; // reuse TermCard
+import 'package:test_app/landing_pages/terms_and_conditions/widget.dart';
+import 'package:test_app/widgets/responsive_layout.dart'; // reuse TermCard
 
 class CancellationRefundPage extends StatelessWidget {
   const CancellationRefundPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveLayout(
+      mobile: const MobileCancellationRefundPage(),
+      desktop: const CancellationRefundDesktopPage(),
+    );
+  }
+}
+
+class CancellationRefundDesktopPage extends StatelessWidget {
+  const CancellationRefundDesktopPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +34,16 @@ class CancellationRefundPage extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  
                   /// 🔹 CONTENT WITH PADDING
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-
                         /// 🔹 TOP SECTION
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-
                             /// LEFT TEXT
                             Expanded(
                               flex: 2,
@@ -59,17 +69,14 @@ class CancellationRefundPage extends StatelessWidget {
                                         color: const Color(0xFF2563EB),
                                       ),
                                       SizedBox(width: 8.w),
-                                      Icon(Icons.favorite_border,
-                                          size: 18.sp,
-                                          color: const Color(0xFF2563EB)),
+                                      Icon(Icons.favorite_border, size: 18.sp, color: const Color(0xFF2563EB)),
                                     ],
                                   ),
 
                                   SizedBox(height: 16.h),
 
                                   Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 14.w, vertical: 10.h),
+                                    padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
                                     decoration: BoxDecoration(
                                       color: const Color(0xFFE2E8F0),
                                       borderRadius: BorderRadius.circular(8.r),
@@ -77,9 +84,7 @@ class CancellationRefundPage extends StatelessWidget {
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        Icon(Icons.calendar_today,
-                                            size: 16.sp,
-                                            color: const Color(0xFF2563EB)),
+                                        Icon(Icons.calendar_today, size: 16.sp, color: const Color(0xFF2563EB)),
                                         SizedBox(width: 8.w),
                                         Text(
                                           "Effective Date: 1 April 2024",
@@ -113,7 +118,7 @@ class CancellationRefundPage extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: Image.asset(
-                                "assets/extras/refund_illustration.png",
+                                "assets/extras/refund_illustration.webp",
                                 height: 220.h,
                                 fit: BoxFit.contain,
                               ),
@@ -179,3 +184,4 @@ class CancellationRefundPage extends StatelessWidget {
     );
   }
 }
+

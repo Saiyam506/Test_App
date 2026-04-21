@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/about_us/mobile.dart';
 import 'package:test_app/landing_pages/footer.dart';
@@ -35,7 +35,7 @@ class DesktopAboutUs extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // ðŸ”¹ WRAP ONLY THIS SECTION
+            // 🔹 WRAP ONLY THIS SECTION
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30.w),
               child: Column(
@@ -84,7 +84,7 @@ class DesktopAboutUs extends StatelessWidget {
                               ),
                               SizedBox(height: 10.h),
                               Text(
-                                "At MediDocs, weâ€™re committed to transforming healthcare by connecting patients with trusted providers through seamless digital solutions. Founded with the mission to make healthcare accessible and efficient, we leverage technology to ensure patients receive the care they need anytime, anywhere.",
+                                "At MediDocs, we’re committed to transforming healthcare by connecting patients with trusted providers through seamless digital solutions. Founded with the mission to make healthcare accessible and efficient, we leverage technology to ensure patients receive the care they need anytime, anywhere.",
                                 style: TextStyle(
                                   fontSize: 20.sp,
                                   height: 1.6.h,
@@ -98,7 +98,7 @@ class DesktopAboutUs extends StatelessWidget {
                         Expanded(
                           flex: 1,
                           child: Image.asset(
-                            'assets/company/about_us_illustration.png',
+                            'assets/company/about_us_illustration.webp',
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -183,17 +183,17 @@ class DesktopAboutUs extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        CityImage(imagePath: 'assets/cities/bengaluru_city.png'),
+                        CityImage(imagePath: 'assets/cities/bengaluru_city.webp'),
                         SizedBox(width: 24.w),
-                        CityImage(imagePath: 'assets/cities/kolkata_city.png'),
+                        CityImage(imagePath: 'assets/cities/kolkata_city.webp'),
                         SizedBox(width: 24.w),
-                        CityImage(imagePath: 'assets/cities/mumbai_city.png'),
+                        CityImage(imagePath: 'assets/cities/mumbai_city.webp'),
                         SizedBox(width: 24.w),
-                        CityImage(imagePath: 'assets/cities/hyderabad_city.png'),
+                        CityImage(imagePath: 'assets/cities/hyderabad_city.webp'),
                         SizedBox(width: 24.w),
-                        CityImage(imagePath: 'assets/cities/delhi_city.png'),
+                        CityImage(imagePath: 'assets/cities/delhi_city.webp'),
                         SizedBox(width: 24.w),
-                        CityImage(imagePath: 'assets/cities/guwahati_city.png'),
+                        CityImage(imagePath: 'assets/cities/guwahati_city.webp'),
                       ],
                     ),
                   ),
@@ -210,5 +210,6 @@ class DesktopAboutUs extends StatelessWidget {
     );
   }
 }
+
 
 

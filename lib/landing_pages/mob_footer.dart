@@ -1,7 +1,8 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/cancellation_policy/mobile.dart';
-import 'package:test_app/landing_pages/cancellation_policy/page.dart';
+import 'package:test_app/landing_pages/shipping_page/mobile.dart';
+import 'package:test_app/landing_pages/terms_and_conditions/mobile.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MobileFooter extends StatelessWidget {
@@ -30,31 +31,31 @@ class MobileFooter extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 14.h),
+          SizedBox(height: 4.h),
           Row(
             children: [
               SocialIconButton(
-                imagePath: 'assets/company/facebook.png',
+                imagePath: 'assets/company/facebook.webp',
                 url: 'https://www.facebook.com/medidocsindia',
               ),
               SizedBox(width: 14.w),
               SocialIconButton(
-                imagePath: 'assets/company/instagram.png',
+                imagePath: 'assets/company/instagram.webp',
                 url: 'https://www.instagram.com/medidocsindia/',
               ),
               SizedBox(width: 14.w),
               SocialIconButton(
-                imagePath: 'assets/company/linkedin.png',
+                imagePath: 'assets/company/linkedin.webp',
                 url: 'https://in.linkedin.com/company/medi-docs-india',
               ),
             ],
           ),
-          SizedBox(height: 28.h),
+          SizedBox(height: 10.h),
           Text(
             'Subscribe to our Newsletter',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 18.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -90,7 +91,7 @@ class MobileFooter extends StatelessWidget {
             'Contact Us',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 4.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -98,10 +99,10 @@ class MobileFooter extends StatelessWidget {
           Row(
             children: [
               Icon(Icons.call, color: Colors.white, size: 20.sp),
-              SizedBox(width: 10.w),
+              SizedBox(width: 12.w),
               Text(
                 '+91 98765 43210',
-                style: TextStyle(color: Colors.white, fontSize: 10.sp),
+                style: TextStyle(color: Colors.white, fontSize: 12.sp),
               ),
             ],
           ),
@@ -116,7 +117,7 @@ class MobileFooter extends StatelessWidget {
                   '123, Health Street, Andheri East,\nMumbai, Maharashtra 400069, India',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 14.sp,
+                    fontSize: 12.sp,
                     height: 1.3.h,
                   ),
                 ),
@@ -138,7 +139,7 @@ class MobileFooter extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 16 / 9,
                 child: Image.asset(
-                  'assets/company/map.png',
+                  'assets/company/map.webp',
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
@@ -157,10 +158,9 @@ class MobileFooter extends StatelessWidget {
                 FooterNavButton(
                   label: "Terms & Conditions",
                   onTap: () {
-                    print("CLICKED"); // 👈 check this
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => const MobileCancellationRefundPage()),
+                      MaterialPageRoute(builder: (_) => const MobileTermsPage()),
                     );
                   },
                 ),
@@ -190,7 +190,7 @@ class MobileFooter extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => const MobileCancellationRefundPage()),
+                      MaterialPageRoute(builder: (_) => const MobileShippingPage()),
                     );
                   },
                 ),
@@ -200,7 +200,7 @@ class MobileFooter extends StatelessWidget {
           SizedBox(height: 12.h),
           Center(
             child: Text(
-              'Â© 2026 Medidocs. All rights reserved',
+              '� 2026 Medidocs. All rights reserved',
               style: TextStyle(color: Colors.white60, fontSize: 14.sp),
             ),
           ),
@@ -280,7 +280,7 @@ class FooterNavButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // 👈 use this for safety
+      // ?? use this for safety
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
@@ -296,3 +296,4 @@ class FooterNavButton extends StatelessWidget {
     );
   }
 }
+

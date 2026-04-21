@@ -2,7 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/footer.dart';
 import 'package:test_app/landing_pages/header.dart';
+import 'package:test_app/landing_pages/privacy_policy/mobile.dart';
 import 'package:test_app/landing_pages/privacy_policy/widget.dart';
+import 'package:test_app/widgets/responsive_layout.dart';
+
+class PrivacyPage extends StatelessWidget {
+  const PrivacyPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveLayout(
+      mobile: const MobilePrivacyPage(),
+      desktop: const PrivacyPolicyPage(),
+    );
+  }
+}
 
 class PrivacyPolicyPage extends StatelessWidget {
   const PrivacyPolicyPage({super.key});
@@ -26,7 +40,7 @@ class PrivacyPolicyPage extends StatelessWidget {
                         effectiveDate: "Effective Date: 1 April 2024",
                         description:
                             "Healthcare at Medidocs Pvt Ltd (a unit of Sanplus Healthcare Pvt Ltd) values your trust and is committed to protecting your personal and sensitive medical information in accordance with applicable Indian laws.",
-                        imagePath: "assets/extras/privacy_illustration.png",
+                        imagePath: "assets/extras/privacy_illustration.webp",
                       ),
 
                       SizedBox(height: 30.h),
@@ -98,3 +112,4 @@ class PrivacyPolicyPage extends StatelessWidget {
     );
   }
 }
+

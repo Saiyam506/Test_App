@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/camp/mobile.dart';
 import 'package:test_app/landing_pages/footer.dart';
@@ -41,7 +41,7 @@ class DesktopCamps extends StatelessWidget {
                 child: Stack(
                   children: [
                     Image.asset(
-                      'assets/company/camps_bg_1.png',
+                      'assets/company/camps_bg_1.webp',
                       width: double.infinity,
                       height: 600.h,
                       fit: BoxFit.cover,
@@ -145,7 +145,7 @@ class DesktopCamps extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20.r),
                     child: Image.asset(
-                      'assets/company/health_services_image.png',
+                      'assets/company/health_services_image.webp',
                       width: double.infinity,
                       fit: BoxFit.cover,
                     ),
@@ -179,21 +179,21 @@ class DesktopCamps extends StatelessWidget {
                         child: Column(
                           children: [
                             VentureItem(
-                              image: "assets/cities/bengaluru.png",
+                              image: "assets/cities/bengaluru.webp",
                               title: "Bengaluru",
                               description:
                                   "Successfully organized multiple health camps at Manyata Tech Park, Electronic City, and Whitefield Tech Hub, offering comprehensive diagnostic screenings, on-site consultations, and preventive healthcare services for employees.",
                             ),
                             SizedBox(height: 30.h),
                             VentureItem(
-                              image: "assets/cities/delhi.png",
+                              image: "assets/cities/delhi.webp",
                               title: "Delhi",
                               description:
                                   "Hosted corporate health awareness and screening camps at Connaught Place, focusing on preventive care, early detection, and lifestyle management through expert consultations and wellness initiatives.",
                             ),
                             SizedBox(height: 30.h),
                             VentureItem(
-                              image: "assets/cities/guwahati.png",
+                              image: "assets/cities/guwahati.webp",
                               title: "Guwahati",
                               description:
                                   "Conducted community-focused health camps with essential screenings, awareness programs, and accessible healthcare services aimed at improving preventive care and overall community well-being.",
@@ -209,21 +209,21 @@ class DesktopCamps extends StatelessWidget {
                         child: Column(
                           children: [
                             VentureItem(
-                              image: "assets/cities/kolkata.png",
+                              image: "assets/cities/kolkata.webp",
                               title: "Kolkata",
                               description:
                                   "Conducted employee wellness camps at Salt Lake Sector V with advanced screenings, personalized health reports, and on-site consultations to support employee well-being and early diagnosis.",
                             ),
                             SizedBox(height: 30.h),
                             VentureItem(
-                              image: "assets/cities/mumbai.png",
+                              image: "assets/cities/mumbai.webp",
                               title: "Mumbai",
                               description:
                                   "Organized corporate wellness camps for large enterprises, including full-body checkups, diagnostic screenings, and expert consultations tailored to increasing employee health and productivity.",
                             ),
                             SizedBox(height: 30.h),
                             VentureItem(
-                              image: "assets/cities/hyderabad.png",
+                              image: "assets/cities/hyderabad.webp",
                               title: "Hyderabad",
                               description:
                                   "Delivered on-site preventive healthcare services with comprehensive screenings, doctor consultations, and customized wellness programs aimed at improving long-term employee health outcomes.",
@@ -246,5 +246,6 @@ class DesktopCamps extends StatelessWidget {
     );
   }
 }
+
 
 

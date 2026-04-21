@@ -2,7 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:test_app/landing_pages/footer.dart';
 import 'package:test_app/landing_pages/header.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_app/landing_pages/terms_and_conditions/mobile.dart';
 import 'package:test_app/landing_pages/terms_and_conditions/widget.dart';
+import 'package:test_app/widgets/responsive_layout.dart';
+
+class TermsPage extends StatelessWidget {
+  const TermsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveLayout(
+      mobile: const MobileTermsPage(),
+      desktop: const TermsAndConditionsPage(),
+    );
+  }
+}
 
 class TermsAndConditionsPage extends StatelessWidget {
   const TermsAndConditionsPage({super.key});
@@ -113,7 +127,7 @@ class TermsAndConditionsPage extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: Image.asset(
-                                "assets/extras/terms_illustration.png",
+                                "assets/extras/terms_illustration.webp",
                                 height: 200.h,
                                 fit: BoxFit.contain,
                               ),
@@ -197,3 +211,4 @@ class TermsAndConditionsPage extends StatelessWidget {
     );
   }
 }
+

@@ -1,7 +1,7 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/about_us/mob_widgets.dart';
-import 'package:test_app/landing_pages/home/mob_widgets.dart';
+import 'package:test_app/landing_pages/mob_footer.dart';
 
 class MobileAboutUs extends StatelessWidget {
   const MobileAboutUs({super.key});
@@ -12,10 +12,10 @@ class MobileAboutUs extends StatelessWidget {
       backgroundColor: const Color(0xFFF8FAFC),
       body: Stack(
         children: [
-          // ðŸ”¹ Background Image (static)
+          // 🔹 Background Image (static)
           Positioned.fill(
             child: Image.asset(
-              "assets/company/bg_camps_mobile.png",
+              "assets/company/bg_camps_mobile.webp",
               fit: BoxFit.cover,
             ),
           ),
@@ -63,7 +63,7 @@ class MobileAboutUs extends StatelessWidget {
                           child: Opacity(
                             opacity: 0.16,
                             child: Image.asset(
-                              "assets/company/mob_about_us_illustration.png",
+                              "assets/company/mob_about_us_illustration.webp",
                               width: 190.w,
                               fit: BoxFit.fitHeight,
                             ),
@@ -229,12 +229,12 @@ class MobileAboutUs extends StatelessWidget {
                     mainAxisSpacing: 12.h,
                     childAspectRatio: 1.4,
                     children: const [
-                      CityCard(imagePath: "assets/cities/bengaluru_city.png"),
-                      CityCard(imagePath: "assets/cities/delhi_city.png"),
-                      CityCard(imagePath: "assets/cities/guwahati_city.png"),
-                      CityCard(imagePath: "assets/cities/hyderabad_city.png"),
-                      CityCard(imagePath: "assets/cities/kolkata_city.png"),
-                      CityCard(imagePath: "assets/cities/mumbai_city.png"),
+                      CityCard(imagePath: "assets/cities/bengaluru_city.webp"),
+                      CityCard(imagePath: "assets/cities/delhi_city.webp"),
+                      CityCard(imagePath: "assets/cities/guwahati_city.webp"),
+                      CityCard(imagePath: "assets/cities/hyderabad_city.webp"),
+                      CityCard(imagePath: "assets/cities/kolkata_city.webp"),
+                      CityCard(imagePath: "assets/cities/mumbai_city.webp"),
                     ],
                   ),
                 ),
@@ -249,3 +249,4 @@ class MobileAboutUs extends StatelessWidget {
     );
   }
 }
+

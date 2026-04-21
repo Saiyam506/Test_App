@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -351,7 +351,7 @@ class OurLocationSection extends StatelessWidget {
           child: AspectRatio(
             aspectRatio: compact ? 16 / 9 : 2.75,
             child: Image.asset(
-              'assets/company/map.png',
+              'assets/company/map.webp',
               fit: BoxFit.cover,
             ),
           ),
@@ -826,5 +826,6 @@ class _LocationLine extends StatelessWidget {
     );
   }
 }
+
 
 

@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/cancellation_policy/mob_widget.dart';
-import 'package:test_app/landing_pages/home/mob_widgets.dart';
+import 'package:test_app/landing_pages/cancellation_policy/page.dart';
+import 'package:test_app/landing_pages/mob_footer.dart';
 import 'package:test_app/landing_pages/mob_header.dart';
+import 'package:test_app/widgets/responsive_layout.dart';
+
+class CancellationRefundPage extends StatelessWidget {
+  const CancellationRefundPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveLayout(
+      mobile: const MobileCancellationRefundPage(),
+      desktop: const CancellationRefundDesktopPage(),
+    );
+  }
+}
 
 class MobileCancellationRefundPage extends StatelessWidget {
   const MobileCancellationRefundPage({super.key});

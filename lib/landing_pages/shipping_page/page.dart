@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_app/landing_pages/shipping_page/mobile.dart';
 import 'package:test_app/landing_pages/shipping_page/widget.dart';
 import 'package:test_app/landing_pages/footer.dart';
 import 'package:test_app/landing_pages/header.dart';
+import 'package:test_app/widgets/responsive_layout.dart';
+
+class ShippingPage extends StatelessWidget {
+  const ShippingPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveLayout(
+      mobile: const MobileShippingPage(),
+      desktop: const ShippingDeliveryPage(),
+    );
+  }
+}
 
 class ShippingDeliveryPage extends StatelessWidget {
   const ShippingDeliveryPage({super.key});
@@ -27,7 +41,7 @@ class ShippingDeliveryPage extends StatelessWidget {
                         effectiveDate: "Effective Date: 1 April 2024",
                         description:
                             "Healthcare at Medidocs Pvt Ltd (a unit of Sanplus Healthcare Pvt Ltd) provides healthcare-related delivery and service facilitation across India, subject to serviceability and operational constraints.",
-                        imagePath: "assets/extras/delivery_illustration.png",
+                        imagePath: "assets/extras/delivery_illustration.webp",
                       ),
 
                       SizedBox(height: 30.h),
@@ -81,3 +95,4 @@ class ShippingDeliveryPage extends StatelessWidget {
     );
   }
 }
+

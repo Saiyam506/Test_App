@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/camp/page.dart';
 import 'package:test_app/landing_pages/footer.dart';
@@ -115,7 +115,7 @@ class DesktopHomePage extends StatelessWidget {
                       serviceButton(
                         title: 'Ambulance\nService',
                         subtitle: '24/7 emergency support',
-                        image: 'assets/company/ambulance_button.png',
+                        image: 'assets/company/ambulance_button.webp',
                         imageHeight: 120.h,
                         imageOffsetY: 6,
                       ),
@@ -123,7 +123,7 @@ class DesktopHomePage extends StatelessWidget {
                       serviceButton(
                         title: 'Doctor\nAppointment',
                         subtitle: 'Doctors at your doorstep',
-                        image: 'assets/company/doctor_checkup_button.png',
+                        image: 'assets/company/doctor_checkup_button.webp',
                         imageHeight: 110.h,
                         imageOffsetY: 8,
                       ),
@@ -131,7 +131,7 @@ class DesktopHomePage extends StatelessWidget {
                       serviceButton(
                         title: 'Lab and\nDiagnostics',
                         subtitle: 'Sample collection at home',
-                        image: 'assets/company/lab_test_button.png',
+                        image: 'assets/company/lab_test_button.webp',
                         imageHeight: 140.h,
                         imageOffsetY: 10,
                       ),
@@ -139,7 +139,7 @@ class DesktopHomePage extends StatelessWidget {
                       serviceButton(
                         title: 'Senior Health\nCare',
                         subtitle: 'Care and support for seniors',
-                        image: 'assets/company/senior_care_button.png',
+                        image: 'assets/company/senior_care_button.webp',
                         imageHeight: 120.h,
                         imageOffsetY: 10,
                       ),
@@ -147,7 +147,7 @@ class DesktopHomePage extends StatelessWidget {
                       serviceButton(
                         title: 'Meds\nDelivery',
                         subtitle: 'Medicines delivered fast',
-                        image: 'assets/company/meds_del_button.png',
+                        image: 'assets/company/meds_del_button.webp',
                         imageHeight: 120.h,
                         imageOffsetY: 8,
                       ),
@@ -155,7 +155,7 @@ class DesktopHomePage extends StatelessWidget {
                       serviceButton(
                         title: 'Medical\nCamp',
                         subtitle: 'Health checkups at your workspace',
-                        image: 'assets/company/medcamp_button.png',
+                        image: 'assets/company/medcamp_button.webp',
                         imageHeight: 140.h,
                         imageOffsetY: 10,
                         onTap: () {
@@ -177,7 +177,7 @@ class DesktopHomePage extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16.r),
                   child: Image.asset(
-                    'assets/company/home_banner.png',
+                    'assets/company/home_banner.webp',
                     width: double.infinity,
                     height: 260.h,
                     fit: BoxFit.cover,
@@ -331,22 +331,22 @@ class DesktopHomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         HospitalBox(
-                          imagePath: 'assets/partnered_hospitals/narayana_health.png',
+                          imagePath: 'assets/partnered_hospitals/narayana_health.webp',
                           onTap: () => debugPrint('Narayana Health'),
                         ),
                         SizedBox(width: 20.w),
                         HospitalBox(
-                          imagePath: 'assets/partnered_hospitals/aster_rv.png',
+                          imagePath: 'assets/partnered_hospitals/aster_rv.webp',
                           onTap: () => debugPrint('Aster RV'),
                         ),
                         SizedBox(width: 20.w),
                         HospitalBox(
-                          imagePath: 'assets/partnered_hospitals/apollo_hospital_image.png',
+                          imagePath: 'assets/partnered_hospitals/apollo_hospital_image.webp',
                           onTap: () => debugPrint('Apollo Hospitals'),
                         ),
                         SizedBox(width: 20.w),
                         HospitalBox(
-                          imagePath: 'assets/partnered_hospitals/manipal_hospital_image.png',
+                          imagePath: 'assets/partnered_hospitals/manipal_hospital_image.webp',
                           onTap: () => debugPrint('Manipal Hospital'),
                         ),
                       ],
@@ -358,22 +358,22 @@ class DesktopHomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         HospitalBox(
-                          imagePath: 'assets/partnered_hospitals/aikya_hospital_image.png',
+                          imagePath: 'assets/partnered_hospitals/aikya_hospital_image.webp',
                           onTap: () => debugPrint('Aikya Hospital'),
                         ),
                         SizedBox(width: 20.w),
                         HospitalBox(
-                          imagePath: 'assets/partnered_hospitals/sparsh_hospital_image.png',
+                          imagePath: 'assets/partnered_hospitals/sparsh_hospital_image.webp',
                           onTap: () => debugPrint('Sparsh Hospital'),
                         ),
                         SizedBox(width: 20.w),
                         HospitalBox(
-                          imagePath: 'assets/partnered_hospitals/kauvery_hospital_image.png',
+                          imagePath: 'assets/partnered_hospitals/kauvery_hospital_image.webp',
                           onTap: () => debugPrint('Kauvery Hospital'),
                         ),
                         SizedBox(width: 20.w),
                         HospitalBox(
-                          imagePath: 'assets/partnered_hospitals/aster_cmi_hospital_image.png',
+                          imagePath: 'assets/partnered_hospitals/aster_cmi_hospital_image.webp',
                           onTap: () => debugPrint('Aster CMI'),
                         ),
                       ],
@@ -392,3 +392,4 @@ class DesktopHomePage extends StatelessWidget {
     );
   }
 }
+

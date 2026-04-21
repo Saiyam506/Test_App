@@ -1,7 +1,7 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/camp/mob_widgets.dart';
-import 'package:test_app/landing_pages/home/mob_widgets.dart';
+import 'package:test_app/landing_pages/mob_footer.dart';
 
 class MobileCamps extends StatelessWidget {
   const MobileCamps({super.key});
@@ -12,15 +12,15 @@ class MobileCamps extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // ðŸ”¹ Static Background
+          // 🔹 Static Background
           Positioned.fill(
             child: Image.asset(
-              "assets/company/bg_camps_mobile.png",
+              "assets/company/bg_camps_mobile.webp",
               fit: BoxFit.cover,
             ),
           ),
 
-          // ðŸ”¹ Content
+          // 🔹 Content
           SingleChildScrollView(
             child: Column(
               children: [
@@ -33,20 +33,20 @@ class MobileCamps extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // ðŸ”¹ Banner Image
+                      // 🔹 Banner Image
                       ClipRRect(
                         borderRadius: BorderRadius.vertical(
                           top: Radius.circular(16.r),
                         ),
                         child: Image.asset(
-                          "assets/company/camps_bg_1.png",
+                          "assets/company/camps_bg_1.webp",
                           height: 180.h,
                           width: double.infinity,
                           fit: BoxFit.cover,
                         ),
                       ),
 
-                      // ðŸ”¹ Banner Content Card
+                      // 🔹 Banner Content Card
                       Container(
                         width: double.infinity,
                         padding: EdgeInsets.all(14.w),
@@ -89,7 +89,7 @@ class MobileCamps extends StatelessWidget {
 
                             SizedBox(height: 14.h),
 
-                            // ðŸ”¹ Gradient Button
+                            // 🔹 Gradient Button
                             Container(
                               decoration: BoxDecoration(
                                 gradient: const LinearGradient(
@@ -129,7 +129,7 @@ class MobileCamps extends StatelessWidget {
 
                       SizedBox(height: 20.h),
 
-                      // ðŸ”¹ Section Title
+                      // 🔹 Section Title
                       Text(
                         "What We Offer in Our Health Camps",
                         style: TextStyle(
@@ -153,7 +153,7 @@ class MobileCamps extends StatelessWidget {
 
                       SizedBox(height: 16.h),
 
-                      // ðŸ”¹ Service Grid
+                      // 🔹 Service Grid
                       GridView.count(
                         crossAxisCount: 2,
                         shrinkWrap: true,
@@ -222,7 +222,7 @@ class MobileCamps extends StatelessWidget {
 
                       SizedBox(height: 12.h),
 
-                      // ðŸ”¹ Phone Row
+                      // 🔹 Phone Row
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -251,7 +251,7 @@ class MobileCamps extends StatelessWidget {
 
                       SizedBox(height: 10.h),
 
-                      // ðŸ”¹ Address Row
+                      // 🔹 Address Row
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -288,42 +288,42 @@ class MobileCamps extends StatelessWidget {
                       Column(
                         children: const [
                           CityInfoCard(
-                            image: "assets/cities/bengaluru.png",
+                            image: "assets/cities/bengaluru.webp",
                             title: "Bengaluru",
                             description:
                                 "Successfully organized multiple health camps at Manyata Tech Park, Electronic City, and Whitefield Tech Hub, offering comprehensive diagnostic screenings, on-site consultations, and preventive healthcare services.",
                           ),
 
                           CityInfoCard(
-                            image: "assets/cities/delhi.png",
+                            image: "assets/cities/delhi.webp",
                             title: "Delhi",
                             description:
                                 "Hosted corporate health awareness and screening camps at Connaught Place, focusing on preventive care, early detection, and lifestyle management through expert consultations.",
                           ),
 
                           CityInfoCard(
-                            image: "assets/cities/guwahati.png",
+                            image: "assets/cities/guwahati.webp",
                             title: "Guwahati",
                             description:
                                 "Conducted community-focused health camps with essential screenings, awareness programs, and accessible healthcare services aimed at improving preventive care.",
                           ),
 
                           CityInfoCard(
-                            image: "assets/cities/hyderabad.png",
+                            image: "assets/cities/hyderabad.webp",
                             title: "Hyderabad",
                             description:
                                 "Delivered on-site preventive healthcare services with comprehensive screenings, doctor consultations, and customized wellness programs for long-term outcomes.",
                           ),
 
                           CityInfoCard(
-                            image: "assets/cities/kolkata.png",
+                            image: "assets/cities/kolkata.webp",
                             title: "Kolkata",
                             description:
                                 "Conducted employee wellness camps at Salt Lake Sector V with advanced screenings, personalized health reports, and on-site consultations.",
                           ),
 
                           CityInfoCard(
-                            image: "assets/cities/mumbai.png",
+                            image: "assets/cities/mumbai.webp",
                             title: "Mumbai",
                             description: "Organized corporate wellness camps for large enterprises including full-body checkups, diagnostic screenings, and expert consultations.",
                           ),
@@ -342,3 +342,4 @@ class MobileCamps extends StatelessWidget {
     );
   }
 }
+

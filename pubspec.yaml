@@ -24,7 +24,8 @@ flutter:
 
   assets:
     - assets/company/
-    - assets/company/map.png
+    - assets/company/map.webp
     - assets/cities/
     - assets/partnered_hospitals/
     - assets/extras/
+

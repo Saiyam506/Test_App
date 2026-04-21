@@ -1,7 +1,7 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/landing_pages/contact_us/mob_widgets.dart';
-import 'package:test_app/landing_pages/home/mob_widgets.dart';
+import 'package:test_app/landing_pages/mob_footer.dart';
 
 class MobileContactUs extends StatelessWidget {
   const MobileContactUs({super.key});
