@@ -6,9 +6,12 @@ import 'package:test_app/landing_pages/contact_us/page.dart';
 import 'package:test_app/landing_pages/home/page.dart';
 
 class Header extends StatelessWidget {
-  final String activePage;
+  final String? activePage;
 
-  const Header({super.key, required this.activePage});
+  const Header({
+    super.key,
+    this.activePage,
+  });
 
   @override
   Widget build(BuildContext context) {

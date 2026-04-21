@@ -1,5 +1,9 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_app/landing_pages/privacy_policy/page.dart';
+import 'package:test_app/landing_pages/cancellation_policy/page.dart';
+import 'package:test_app/landing_pages/shipping_page/page.dart';
+import 'package:test_app/landing_pages/terms_and_conditions/page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatelessWidget {
@@ -190,19 +194,95 @@ class Footer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _footerLink("Terms & Conditions", "#"),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TermsAndConditionsPage(),
+                    ),
+                  );
+                },
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                ),
+                child: Text(
+                  "Terms & Conditions",
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14.sp,
+                  ),
+                ),
+              ),
               SizedBox(width: 10.w),
               Text("|", style: TextStyle(color: Colors.white54)),
               SizedBox(width: 10.w),
-              _footerLink("Privacy Policy", "#"),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PrivacyPolicyPage(),
+                    ),
+                  );
+                },
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                ),
+                child: Text(
+                  "Privacy Policy",
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14.sp,
+                  ),
+                ),
+              ),
               SizedBox(width: 10.w),
               Text("|", style: TextStyle(color: Colors.white54)),
               SizedBox(width: 10.w),
-              _footerLink("Cancellation & Refund", "#"),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ShippingDeliveryPage(),
+                    ),
+                  );
+                },
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                ),
+                child: Text(
+                  "Shipping & Delivery",
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14.sp,
+                  ),
+                ),
+              ),
               SizedBox(width: 10.w),
               Text("|", style: TextStyle(color: Colors.white54)),
               SizedBox(width: 10.w),
-              _footerLink("Shipping & Delivery", "#"),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CancellationRefundPage(),
+                    ),
+                  );
+                },
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                ),
+                child: Text(
+                  "Cancellation & Refund Policy",
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14.sp,
+                  ),
+                ),
+              ),
             ],
           ),
           SizedBox(height: 15.h),
@@ -240,21 +320,6 @@ Widget _socialButton({
         height: 32.h,
         fit: BoxFit.contain,
       ),
-    ),
-  );
-}
-
-Widget _footerLink(String text, String url) {
-  return InkWell(
-    onTap: () async {
-      final Uri uri = Uri.parse(url);
-      if (await canLaunchUrl(uri)) {
-        await launchUrl(uri);
-      }
-    },
-    child: Text(
-      text,
-      style: TextStyle(color: Colors.white70),
     ),
   );
 }
@@ -309,5 +374,3 @@ class _NavItemState extends State<NavItem> {
     );
   }
 }
-
-
